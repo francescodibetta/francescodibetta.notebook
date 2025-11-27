@@ -1,3 +1,103 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+/* ============================================================
+   ACADEMIC THEME: FIXED LAYOUT
+   Color: Slate Blue (#8E9CA7)
+============================================================ */
+
+/* 1. Reset Counters */
+article {
+  counter-reset: def-count lemma-count prop-count thm-count;
+}
+
+/* 2. SHARED STYLES (Theorems, Defs, Lemmas, Props) */
+$academic-all: 
+  '.callout[data-callout="def"]', '.callout[data-callout="definition"]',
+  '.callout[data-callout="lemma"]',
+  '.callout[data-callout="prop"]', '.callout[data-callout="proposition"]',
+  '.callout[data-callout="thm"]', '.callout[data-callout="theorem"]';
+
+#{$academic-all} {
+  /* Box Styling */
+  background-color: transparent;
+  border: 1px solid var(--secondary) !important;
+  border-radius: 0;
+  margin: 1.5rem 0;
+  padding: 0; /* Reset padding to handle inner elements better */
+
+  /* Hiding standard icon */
+  .callout-icon { display: none; }
+  
+  /* --- TITLE BAR FIX --- */
+  .callout-title {
+    /* Force row layout so Number + Title are on same line */
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    
+    /* Spacing and Color */
+    padding: 1rem 1rem 0.5rem 1rem;
+    background-color: transparent;
+    color: var(--secondary) !important; /* Force Slate Blue */
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  /* The container for the text */
+  .callout-title-inner {
+    color: var(--secondary) !important;
+  }
+
+  /* The Generated Number (e.g., "Definition 1.") */
+  .callout-title-inner::before {
+    display: inline-block; /* Keeps it on the same line */
+    margin-right: 0.5em;   /* Space between "1." and "Title" */
+    color: var(--secondary) !important;
+    font-weight: bold;
+  }
+
+  /* --- CONTENT FIX --- */
+  .callout-content {
+    padding: 0 1rem 1rem 1rem;
+    color: var(--dark); /* Keep body text normal color */
+  }
+}
+
+/* 3. AUTOMATIC LABELS (With Counters) */
+
+/* Definitions */
+.callout[data-callout="def"], .callout[data-callout="definition"] {
+  counter-increment: def-count;
+}
+.callout[data-callout="def"] .callout-title-inner::before,
+.callout[data-callout="definition"] .callout-title-inner::before {
+  content: "Definition " counter(def-count) ".";
+}
+
+/* Theorems */
+.callout[data-callout="thm"], .callout[data-callout="theorem"] {
+  counter-increment: thm-count;
+}
+.callout[data-callout="thm"] .callout-title-inner::before,
+.callout[data-callout="theorem"] .callout-title-inner::before {
+  content: "Theorem " counter(thm-count) ".";
+}
+
+/* Propositions */
+.callout[data-callout="prop"], .callout[data-callout="proposition"] {
+  counter-increment: prop-count;
+}
+.callout[data-callout="prop"] .callout-title-inner::before,
+.callout[data-callout="proposition"] .callout-title-inner::before {
+  content: "Proposition " counter(prop-count) ".";
+}
+
+/* Lemmas */
+.callout[data-callout="lemma"] {
+  counter-increment: lemma-count;
+}
+.callout[data-callout="lemma"] .callout-title-inner::before {
+  content: "Lemma " counter(lemma-count) ".";
+}
