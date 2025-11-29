@@ -44,7 +44,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    TopTags(),
+    Component.DesktopOnly(TopTags()),
     Component.Explorer({
   	title: "Explorer",
   	folderClickBehavior: "collapse", // Clicking folder name collapses it
@@ -61,7 +61,7 @@ export const defaultContentPageLayout: PageLayout = {
     ProfilePic(),
     Component.Graph({
     localGraph: {
-   	 drag: true, // Allow moving nodes
+   	drag: true, // Allow moving nodes
     	zoom: true,
     	depth: 2, // Only show direct neighbors (cleaner)
     	scale: 1.1,

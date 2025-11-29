@@ -3,6 +3,13 @@
 // put your custom CSS here!
 
 /* ============================================================
+   UI TWEAKS: Graph Size
+============================================================ */
+.graph {
+  height: 450px !important; /* Default is usually ~250px. Adjust this number as you like. */
+}
+
+/* ============================================================
    UI TWEAKS: Footer Links
 ============================================================ */
 footer a {
@@ -171,4 +178,55 @@ $academic-all:
 }
 .callout[data-callout="lemma"] .callout-title-inner::before {
   content: "Lemma " counter(lemma-count) ".";
+}
+
+/* ============================================================
+   MOBILE LAYOUT: Vertical Stack (Aggressive Fix)
+============================================================ */
+
+@media all and (max-width: 800px) {
+  /* 1. Turn the whole page into a single vertical column */
+  .page {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* 2. Reset widths for content and sidebars */
+  .center, .sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 1rem !important; /* Add slight padding so text doesn't touch edges */
+    box-sizing: border-box !important;
+  }
+
+  /* 3. Force Right Sidebar to bottom and VERTICAL layout */
+  .right.sidebar {
+    display: flex !important;
+    flex-direction: column !important; /* <--- CRITICAL: Stacks items vertically */
+    align-items: center !important;    /* Centers items */
+    gap: 2rem !important;              /* Space between Picture and Graph */
+    order: 3;                          /* Puts it at the bottom */
+    margin-top: 3rem !important;
+  }
+
+  /* 4. Force Every Item in the Sidebar to take full width */
+  .right.sidebar > * {
+    width: 100% !important;
+    display: block !important; /* Ensures they don't try to float */
+  }
+
+  /* 5. Fix the Graph dimensions */
+  .graph {
+    width: 100% !important;
+    min-height: 400px !important; /* Tall enough to be useful */
+  }
+  
+  /* 6. Fix Profile Pic container alignment */
+  .profile-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 1rem !important;
+  }
 }
