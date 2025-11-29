@@ -2,6 +2,7 @@ import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import ProfilePic from "./quartz/components/ProfilePic"
 import DateStats from "./quartz/components/DateStats"
+import TopTags from "./quartz/components/TopTags"
 
 
 // components shared across all pages
@@ -43,17 +44,18 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
+    TopTags(),
     Component.Explorer({
-  	title: "Explorer", // Change title from "Explorer"
+  	title: "Explorer",
   	folderClickBehavior: "collapse", // Clicking folder name collapses it
   	folderDefaultState: "collapsed", // Start clean, user expands what they need
   	useSavedState: true, // Remember what I opened last time
     }),
-    Component.RecentNotes({ 
-  	title: "Recently Updated", 
-  	limit: 3, 
-  	filter: (f) => f.slug !== "index" && !f.frontmatter?.tags?.includes("explorer")
-    }),
+   // Component.RecentNotes({ 
+  	//title: "Recently Updated", 
+  	//limit: 3, 
+  	//filter: (f) => f.slug !== "index" && !f.frontmatter?.tags?.includes("explorer")
+    //}),
   ],
   right: [
     ProfilePic(),

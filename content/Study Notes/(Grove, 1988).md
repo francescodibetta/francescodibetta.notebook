@@ -712,6 +712,5 @@ T+A &= t(f_{\mathbf{S}}(A))
 $$
 
 `eproof`
+
 # 5. Alternative Modelling
-
-
