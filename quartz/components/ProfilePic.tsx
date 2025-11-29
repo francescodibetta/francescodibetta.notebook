@@ -7,8 +7,8 @@ const style = `
   margin-bottom: 1rem;
 }
 .profile-img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--secondary);

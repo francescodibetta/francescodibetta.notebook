@@ -9,8 +9,6 @@ tags:
   - belief_revision
   - counterfactuals
 abstract: This article provides a model-theoretic characterization of the AGM belief revision function using systems of spheres, inspired by David Lewis's semantics for counterfactuals. The core contribution is the demonstration of representation theorems, specifically proving that this sphere-based semantics is both sound and complete with respect to the standard AGM postulates for theory change.
-status: false
-dg-publish: true
 ---
 
 This paper proposes a model-theoretic characterization of the belief revision ($*$) operation discussed by [[(Alchourrón et al., 1985)|AGM]]. Grove's idea is to give a “spheres semantics” inspired by [[(Lewis, 1973a)]] for $*$, thus enriching the purely syntactic approach by AGM.
@@ -305,7 +303,6 @@ Before introducing the main proofs by Grove, consider the following useful lemma
 >$$
 
 ^f62804
-
 
 `bproof` The proof is straightforward. 
 

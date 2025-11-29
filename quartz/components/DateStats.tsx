@@ -23,14 +23,13 @@ export default (() => {
 
     // 2. Inline Styles to FORCE the look
     const containerStyle = {
-      marginTop: "0.5rem",
-      marginBottom: "1rem",
-      color: "gray",       // Forces gray color
-      fontSize: "0.8rem",  // Forces small font
-      lineHeight: "1.4",   // Good spacing
-      fontFamily: "var(--bodyFont)",
+  	marginTop: "1.25rem",   /* <--- This is the spacing above the dates */
+ 	 marginBottom: "1rem",
+  	color: "gray",
+  	fontSize: "0.8rem",
+  	lineHeight: "1.4",
+  	fontFamily: "var(--bodyFont)",
     }
-
     return (
       <div class={classNames(displayClass, "date-stats")} style={containerStyle}>
         {dates.created && (

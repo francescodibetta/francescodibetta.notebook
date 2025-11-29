@@ -1,6 +1,28 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+/* ============================================================
+   UI TWEAKS: Tag List
+============================================================ */
+
+/* Target the list of tags under the title */
+.tags {
+  font-size: 0.8rem !important; /* Smaller text (default is often 0.9rem) */
+}
+
+/* Target the individual tag bubbles */
+.tag {
+  padding: 0.2rem 0.5rem !important; /* Reduce padding inside the bubble */
+  border-radius: 4px !important;      /* Optional: Make them slightly less round */
+  line-height: 1.4 !important;        /* Tighter vertical spacing */
+}
+
+/* Optional: If they are links, ensure the link text matches */
+.internal.tag-link {
+  font-size: 0.8rem !important;
+}
+
 /* ============================================================
    UI TWEAKS: Recent Notes & Graph
 ============================================================ */

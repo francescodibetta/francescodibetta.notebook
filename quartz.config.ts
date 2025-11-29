@@ -27,16 +27,16 @@ const config: QuartzConfig = {
         body: "Inter",
         code: "IBM Plex Mono",
       },
-      colors: {
+    colors: {
         lightMode: {
           light: "#faf8f8",
           lightgray: "#e5e5e5",
           gray: "#b8b8b8",
           darkgray: "#4e4e4e",
           dark: "#2b2b2b",
-          secondary: "#8E9CA7",
-          tertiary: "#708090",
-          highlight: "rgba(142, 156, 167, 0.15)",
+          secondary: "#6E91AB",  /* <--- Steel Blue (More Visible) */
+          tertiary: "#547891",   /* Darker shade for hover interaction */
+          highlight: "rgba(110, 145, 171, 0.15)", /* Matches the new blue */
           textHighlight: "#fff23688",
         },
         darkMode: {
@@ -45,10 +45,10 @@ const config: QuartzConfig = {
           gray: "#646464",
           darkgray: "#d4d4d4",
           dark: "#ebebec",
-          secondary: "#8E9CA7",
-          tertiary: "#708090",
-          highlight: "rgba(142, 156, 167, 0.15)",
-          textHighlight: "#b3aa0288",
+          secondary: "#6E91AB",  /* <--- Steel Blue */
+          tertiary: "#547891",
+          highlight: "rgba(110, 145, 171, 0.15)",
+          textHighlight: "#b3a93588",
         },
       },
     },
