@@ -2,6 +2,37 @@
 
 // put your custom CSS here!
 /* ============================================================
+   UI TWEAKS: Recent Notes & Graph
+============================================================ */
+
+/* 1. Clean up "Recent Notes" / "Latest Thoughts" */
+.recent-notes {
+  /* Make the main title ("Latest Thoughts") smaller */
+  h3 {
+    font-size: 1rem !important; 
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Make the list of notes more compact */
+  li {
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* HIDE the metadata (Tags, Dates, Reading Time) */
+  .meta, .tags {
+    display: none !important;
+  }
+}
+
+/* 2. Make the Local Graph Taller */
+.graph {
+  /* Default is usually ~250px. Let's make it much bigger. */
+  height: 400px !important; 
+}
+
+
+/* ============================================================
    ACADEMIC THEME: FIXED LAYOUT
    Color: Slate Blue (#8E9CA7)
 ============================================================ */

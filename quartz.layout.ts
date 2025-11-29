@@ -7,11 +7,12 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [],
   footer: Component.Footer({
-    links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
-    },
-  }),
+  links: {
+    GitHub: "https://github.com/francescodibetta",
+    //"LinkedIn": , // Add your academic links
+    "Email": "mailto:francescodibetta@iusspavia.it"
+  },
+}),
 }
 
 // components for pages that display a single page (e.g. a single note)
@@ -22,7 +23,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ArticleTitle(),
-    Component.ContentMeta(),
+    Component.ContentMeta({ showReadingTime: false }),
     Component.TagList(),
   ],
   left: [
@@ -38,10 +39,46 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+  	title: "Explorer", // Change title from "Explorer"
+  	folderClickBehavior: "collapse", // Clicking folder name collapses it
+  	folderDefaultState: "collapsed", // Start clean, user expands what they need
+  	useSavedState: true, // Remember what I opened last time
+    }),
+    Component.RecentNotes({ 
+  	title: "Recently Updated", 
+  	limit: 3, 
+  	filter: (f) => f.slug !== "index" && !f.frontmatter?.tags?.includes("explorer")
+    }),
   ],
   right: [
-    Component.Graph(),
+    Component.Graph({
+  localGraph: {
+    drag: true, // Allow moving nodes
+    zoom: true,
+    depth: 1, // Only show direct neighbors (cleaner)
+    scale: 1.1,
+    repelForce: 0.5,
+    centerForce: 0.3,
+    linkDistance: 30,
+    fontSize: 0.6,
+    opacityScale: 1,
+    removeTags: ["#status", "#todo"], // Hide meta-tags from graph
+    showTags: false, // Hide all tags if you prefer just notes
+  },
+  globalGraph: {
+    drag: true,
+    zoom: true,
+    depth: 1,
+    scale: 0.9,
+    repelForce: 0.5,
+    centerForce: 0.3,
+    linkDistance: 30,
+    fontSize: 0.6,
+    opacityScale: 1,
+    showTags: false, // Keeps the big graph focused on concepts
+  },
+}),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
