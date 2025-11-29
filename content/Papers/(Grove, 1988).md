@@ -306,6 +306,7 @@ Before introducing the main proofs by Grove, consider the following useful lemma
 
 ^f62804
 
+
 `bproof` The proof is straightforward. 
 
 1. Note that $\left| A\land B \right|$ is the set of $m\in M_{L}$ such that $A \land B\in m$. Since $m$ is a theory [[#^9d8d32]], $A,B\in m$, so $m\in \left| A \right|\cap \left| B \right|$. The other direction follows analogously.

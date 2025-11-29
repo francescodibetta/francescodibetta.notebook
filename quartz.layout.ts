@@ -1,6 +1,8 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import ProfilePic from "./quartz/components/ProfilePic"
+import DateStats from "./quartz/components/DateStats"
+
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -24,7 +26,8 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ArticleTitle(),
-    Component.ContentMeta({ showReadingTime: false }),
+    DateStats(),
+    //Component.ContentMeta({ showReadingTime: false }),
     Component.TagList(),
   ],
   left: [
