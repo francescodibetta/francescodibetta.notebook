@@ -3,6 +3,24 @@
 // put your custom CSS here!
 
 /* ============================================================
+   UI TWEAKS: Footer Links
+============================================================ */
+footer a {
+  color: var(--secondary) !important; /* Force exact accent color */
+  font-weight: 600 !important;        /* Make them bold like the sidebar */
+  opacity: 1 !important;              /* Ensure they aren't faded */
+}
+
+/* ============================================================
+   UI TWEAKS: Global Font Size
+============================================================ */
+
+body {
+  font-size: 1rem !important; /* Increase from default 1rem */
+  line-height: 1.5 !important;   /* Increase spacing to match the new size */
+}
+
+/* ============================================================
    UI TWEAKS: Tag List
 ============================================================ */
 

@@ -34,9 +34,9 @@ const config: QuartzConfig = {
           gray: "#b8b8b8",
           darkgray: "#4e4e4e",
           dark: "#2b2b2b",
-          secondary: "#6E91AB",  /* <--- Steel Blue (More Visible) */
-          tertiary: "#547891",   /* Darker shade for hover interaction */
-          highlight: "rgba(110, 145, 171, 0.15)", /* Matches the new blue */
+          secondary: "#005BB5",  /* <--- SAPPHIRE BLUE (High Saturation) */
+          tertiary: "#004080",   /* Deep Navy for hover */
+          highlight: "rgba(0, 91, 181, 0.15)", /* Matches Sapphire */
           textHighlight: "#fff23688",
         },
         darkMode: {
@@ -45,7 +45,7 @@ const config: QuartzConfig = {
           gray: "#646464",
           darkgray: "#d4d4d4",
           dark: "#ebebec",
-          secondary: "#6E91AB",  /* <--- Steel Blue */
+          secondary: "#6E91AB",  /* Kept Steel Blue for Dark Mode */
           tertiary: "#547891",
           highlight: "rgba(110, 145, 171, 0.15)",
           textHighlight: "#b3a93588",
