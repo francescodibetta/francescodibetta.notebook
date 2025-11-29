@@ -40,7 +40,7 @@ export default ((userOpts?: Options) => {
     return (
       <div class={classNames(displayClass, "date-stats")}>
         {dates.created && (
-          <div>Created: {formatDate(dates.created)}</div>
+          <div>Created: {formatDate(dates.created)}; </div>
         )}
         {dates.modified && (
           <div>Updated: {formatDate(dates.modified)}</div>
