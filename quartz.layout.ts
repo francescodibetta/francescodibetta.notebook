@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import ProfilePic from "./quartz/components/ProfilePic"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -52,19 +53,20 @@ export const defaultContentPageLayout: PageLayout = {
     }),
   ],
   right: [
+    ProfilePic(),
     Component.Graph({
-  localGraph: {
-    drag: true, // Allow moving nodes
-    zoom: true,
-    depth: 1, // Only show direct neighbors (cleaner)
-    scale: 1.1,
-    repelForce: 0.5,
-    centerForce: 0.3,
-    linkDistance: 30,
-    fontSize: 0.6,
-    opacityScale: 1,
-    removeTags: ["#status", "#todo"], // Hide meta-tags from graph
-    showTags: false, // Hide all tags if you prefer just notes
+    localGraph: {
+   	 drag: true, // Allow moving nodes
+    	zoom: true,
+    	depth: 2, // Only show direct neighbors (cleaner)
+    	scale: 1.1,
+    	repelForce: 0.5,
+    	centerForce: 0.3,
+    	linkDistance: 30,
+    	fontSize: 0.4,
+    	opacityScale: 1,
+    	removeTags: ["#status", "#todo"], // Hide meta-tags from graph
+    	showTags: false, // Hide all tags if you prefer just notes
   },
   globalGraph: {
     drag: true,
