@@ -2,18 +2,13 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import { classNames } from "../util/lang"
 import { GlobalConfiguration } from "../cfg"
 
-// CSS to make it small and gray
 const style = `
 .date-stats {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   color: var(--gray);
-  font-size: 0.8rem; /* Small font size */
-  font-family: var(--bodyFont); /* Looks technical/clean */
-}
-.date-stats span {
-  display: block; /* Put them on separate lines */
-  line-height: 1.2;
+  font-size: 0.8rem;
+  font-family: var(--bodyFont);
 }
 `
 
@@ -23,16 +18,16 @@ interface Options {
 
 export default ((userOpts?: Options) => {
   const DateStats: QuartzComponent = ({ fileData, displayClass, cfg }: QuartzComponentProps) => {
-    // Hide on homepage
+    // 1. Hide on Homepage
     if (fileData.slug === "index") {
       return null
-    }    
+    }
+
     const dates = fileData.dates
     if (!dates) {
       return null
     }
 
-    // Helper to format date
     const formatDate = (d: Date) => {
       return d.toLocaleDateString(cfg.locale, {
         year: "numeric",
@@ -41,13 +36,14 @@ export default ((userOpts?: Options) => {
       })
     }
 
+    // 2. Render with DIVs (Forces new lines)
     return (
       <div class={classNames(displayClass, "date-stats")}>
         {dates.created && (
-          <span class="date-created">Created: {formatDate(dates.created)}</span>
+          <div>Created: {formatDate(dates.created)}</div>
         )}
         {dates.modified && (
-          <span class="date-modified">Updated: {formatDate(dates.modified)}</span>
+          <div>Updated: {formatDate(dates.modified)}</div>
         )}
       </div>
     )
