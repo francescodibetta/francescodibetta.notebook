@@ -2,6 +2,8 @@
 class: note
 draft: false
 tags:
-  - epistemology/normality
+  - normality
+  - justification
+  - measurement
 parental-note:
 ---

@@ -1,6 +1,6 @@
 ---
-class: note
+title: {{title}}
+description
 draft: true
 tags:
-parental-note:
 ---
