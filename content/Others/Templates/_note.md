@@ -1,6 +1,6 @@
 ---
 title: {{title}}
-description
+description:
 draft: true
 tags:
 ---
