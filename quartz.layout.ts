@@ -13,8 +13,10 @@ export const sharedPageComponents: SharedLayout = {
   footer: Component.Footer({
   links: {
     GitHub: "https://github.com/francescodibetta",
+    "PhilPapers": "https://philpeople.org/profiles/francesco-di-betta-1", 
     //"LinkedIn": , // Add your academic links
-    "Email": "mailto:francescodibetta@iusspavia.it"
+    "Email": "mailto:francescodibetta@iusspavia.it",
+    "License (MIT)": "https://github.com/francescodibetta/francescodibetta.github.io/blob/v4/LICENSE.txt"
   },
 }),
 }
