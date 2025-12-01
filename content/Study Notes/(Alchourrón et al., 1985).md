@@ -11,7 +11,7 @@ authors:
 year: 1985
 tags:
   - belief_revision
-status: true
+draft: true
 ---
 
 In this note, I will present and expand on some key findings of AGM's famous paper.

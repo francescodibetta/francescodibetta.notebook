@@ -713,4 +713,126 @@ $$
 
 `eproof`
 
-# 5. Alternative Modelling
+# 5. Alternative Modeling
+
+Grove presents an alternative method for modeling a belief revision operation $+$ using a relation $\leq$ on the set of formulas $F$. This modeling is advantageous because the axioms for revision do *not* uniquely determine the specific changes required; generally, there are multiple valid choices for $T+A$ upon revision by $A$. Consequently, it is natural to consider an ordering of sentences to facilitate decisions regarding which elements to remove from or add to $T$.
+
+> [!definition] Plausibility Relation ($\leq$)
+> Consider the relation $\leq \subseteq F^{2}$ satisfying the following properties:
+> 1. $\leq$ is connected.
+> 2. $\leq$ is transitive.
+> 3. If $A \to B \lor C \in L$, then $B \leq A$ or $C \leq A$.
+> 4. $A$ is $\leq$-minimal in $F$ if and only if $\neg A \notin T$.
+> 5. $A$ is $\leq$-maximal in $F$ if and only if $\neg A \in L$.
+> 
+> The expression $A \leq B$ is interpreted as “$A$ is at least as plausible as $B$”.
+
+^7efc5a
+
+Observations regarding these axioms:
+
+- **Axiom (3)** implies that if $A \to B$, then $B \leq A$. This follows from the equivalence of $B$ with $B \lor B$, and the fact that “$(B \leq A) \lor (B \leq A)$” is equivalent to $B \leq A$.
+- **Axiom (4)** assigns the minimal position to any sentence $A$ that is *either* in $T$ or consistent with $T$ (assuming $T$ is a consistent theory). Since revision $+$ based on $\leq$ functions by selecting the sentences that are “most plausible” given $T$, it is reasonable to assign a privileged position to such sentences. These instances do not require actual revision (removing information from $T$), but rather augmentation (adding information without loss).
+
+To prove that this is indeed an alternative modeling of $+$, Grove shows that this relation is equivalent to a system of spheres $\mathbf{S}$ centered on $T$.
+
+> [!lemma]+
+> Consider a system of spheres $\mathbf{S}$ centered on $\left| T \right|$, and define the following relation on $F$:
+> $$
+>A \leq_{S} B : \quad\iff\quad c(A)\subseteq c(B)
+>$$
+> and let us stipulate that $A<_{S}B$ iff $c(A)\subset c(B)$. It follows that:
+> 
+> 1. $\leq_{S}$ satisfies axioms (1)-(5);
+> 2. the following definition of revision is identical to the one determined by $\mathbf{S}$:
+>$$
+>T+A := \{ B\in F: A \land B <_{S} A \land \neg  B \}
+>$$
+
+^448b11
+
+`bproof` **Part One**. Let me first prove that $\leq_{S}$ satisfies axioms (1)-(5) of [[#^7efc5a]].
+
+- **$(\leq 1)-(\leq 2)$**. Connectivity follows from the fact that $\mathbf{S}$ is nested, while transitivity follows from the properties of $\subseteq$.
+- ($\leq 3$). Suppose $A \rightarrow B \lor C\in L$. Since $A \rightarrow B \lor C$, we have that $\left| A \right|\subseteq \left| B\lor C \right|=\left| B \right|\cup \left| C \right|$ (if $m\in\left|A \right|$, since $A\rightarrow B \lor C\in L\subseteq m$ and $m$ is a theory, $B\lor C\in m$, and since $m$ is consistent either $B\in m$ or $C\in m$). We have to show that either $c(B)\subseteq c(A)$ or $c(C)\subseteq c(A)$. 
+	1. First, consider consider $c(B \lor C)$, namely the sphere in $\mathbf{S}$ that intersects $\left| B \lor C\right|$ and such that, for any other sphere $U$ intersecting $\left| B \lor C \right|$, $c(B \lor C)\subseteq U$. Consider $c(A)$. By definition, $c(A)\cap \left| A \right|\neq\emptyset$, and since $\left| A \right|\subseteq \left| B\lor C \right|$, we have $c(A)\cap \left| B \lor C \right|\neq \emptyset$. By definition, it follows $c(B\lor C)\subseteq c(A)$. 
+	2. Now, we observe that $c(B \lor C) = c(B)$ or $c(B \lor C) = c(C)$. Note that $|B| \subseteq |B \lor C|$, so any sphere intersecting $|B|$ intersects $|B \lor C|$, implying $c(B \lor C) \subseteq c(B)$. Similarly $c(B \lor C) \subseteq c(C)$. 
+	3. Since $c(B \lor C)$ intersects $|B| \cup |C|$, it must intersect at least one of them. If it intersects $|B|$, then by definition of $c(B)$, $c(B) \subseteq c(B \lor C)$. Combined with the above, $c(B) = c(B \lor C) \subseteq c(A)$, so $B \le_{S} A$. If it intersects $|C|$, then $c(C) = c(B \lor C) \subseteq c(A)$, so $C \le_{S} A$.
+- **Minimality ($\leq 4$):** $A$ is minimal iff $c(A) \subseteq c(B)$ for all $B$. This holds iff $c(A)$ is the smallest sphere in $\mathbf{S}$, which is $|T|$ (by S2). $c(A) = |T|$ iff $|A| \cap |T| \neq \emptyset$, which is equivalent to $\neg A \notin T$.
+- **Maximality ($\leq 5$):** $A$ is maximal iff $c(B) \subseteq c(A)$ for all $B$. This holds iff $c(A)$ is the largest sphere, $M_L$ (by S3). By convention, $c(A) = M_L$ iff $|A| = \emptyset$, i.e., $\neg A \in L$.
+
+**Part Two**. Define $T+A$ as follows: 
+
+$$ T+A := \{ B\in F: A \land B <_{S} A \land \neg B \} \tag{\dagger} $$
+
+We show that this set is equal to $t(f_{\mathbf{S}}(A))$. ($\subseteq$) Consider any $B\in (\dagger)$. By definition: 
+
+$$
+\begin{align} A \land B &<_{S} A \land \neg B \\ c(A \land B) &\subset c(A \land \neg B) \end{align}
+$$
+
+Suppose for reductio that $B\notin t(f_{\mathbf{S}}(A))$. This means there exists some world $m\in c(A) \cap \left| A \right|$ such that $B\notin m$. Since $m$ is complete, $\neg B\in m$, and so $m\in \left| A \land \neg B \right|$. Since $c(A)$ intersects $\left| A \land \neg B \right|$ (at $m$), it follows that $c(A \land \neg B)\subseteq c(A)$. Also, note that by definition, $c(A\land B)$ intersects $\left| A\land B \right|$, and since $\left| A \land B \right| \subseteq \left| A \right|$, it intersects $|A|$. Thus $c(A)\subseteq c(A \land B)$. Combining these inclusions: $c(A \land \neg B)\subseteq c(A) \subseteq c(A \land B)$. However, *ex hypothesi*, $c(A \land B)\subset c(A \land \neg B)$. This implies a contradiction ($X \subseteq Y$ and $Y \subset X$ is impossible). Therefore, $B \in t(f_{\mathbf{S}}(A))$. 
+
+($\supseteq$) Let $B\in t(f_{\mathbf{S}}(A))$. By definition, $B\in m$ for all $m\in f_{\mathbf{S}}(A) = c(A) \cap |A|$, and so $f_{\mathbf{S}}(A)=c(A)\cap \left| A\right|\subseteq |B|$. This implies that $c(A)$ contains no worlds where $A$ is true and $B$ is false. Equivalently: 
+
+$$c(A) \cap |A \land \neg B| = \emptyset$$
+
+Suppose for reductio that $B \notin (\dagger)$. This means $A \land B \not<_{S} A \land \neg B$. Since $\leq_S$ is connected, this implies $A \land \neg B \leq_{S} A \land B$, or: 
+
+$$c(A \land \neg B) \subseteq c(A \land B)$$
+
+Now we observe the relationship with $c(A)$. Since $c(A)$ intersects $|A|$, it must intersect either $|A \land B|$ or $|A \land \neg B|$ (that is, since there is at least one $m\in \left| A \right|\cap c(A)$, either $B\in m$ of $\neg B\in m$). We established above that $c(A) \cap |A \land \neg B| = \emptyset$. Therefore, $c(A)$ *must* intersect $|A \land B|$. Since $c(A \land B)$ is the smallest sphere intersecting $|A \land B|$, it follows that $c(A \land B) \subseteq c(A)$. Combining these facts: 
+
+$$c(A) \subseteq c(A \land \neg B) \subseteq c(A \land B) \subseteq c(A)$$
+
+This chain implies equality: $c(A) = c(A \land \neg B)$. However, by definition, $c(A \land \neg B)$ must intersect $|A \land \neg B|$. If they are equal, $c(A)$ must intersect $|A \land \neg B|$. But we established at the start that $c(A) \cap |A \land \neg B| = \emptyset$: contradiction.
+
+Therefore:
+
+$$
+\{ B\in F: A \land B <_{S} A \land \neg B \}\quad = \quad t(f_{\mathbf{S}}(A))
+$$
+
+completing our proof. `eproof`
+
+> [!corollary]
+> The belief revision operator $+$ defined via the relation $\leq_{S}$ satisfies the AGM postulates (+1)–(+8).
+
+`bproof` This result is an immediate consequence of Lemma [[#^448b11]] and Theorem [[#^19b236]].
+
+1. Lemma [[#^448b11]] establishes that the revision operator defined by the relation (i.e., $\{ B: A \land B <_{S} A\land \neg B \}$) is identical to the operator defined by the system of spheres (i.e., $t(f_{\mathbf{S}}(A))$).
+2. Theorem [[#^19b236]] establishes that the operator defined by the system of spheres satisfies postulates (+1)–(+8).
+
+Therefore, by transitivity, the operator defined via $\leq_{S}$ satisfies the postulates. `eproof`
+
+> [!theorem]+ Representation by Ordering on Formulas
+> Let $+:\mathcal{T}\times F\to \mathcal{T}$ be any function satisfying (+1)-(+8). Then for any (fixed) theory $T$ there is a relation $<$ on $F$ such that, for all $A \in F$:
+> $$
+> T + A = \{B \in F : (A \land B) < (A \land \neg B)\}
+> $$
+
+`bproof` This result follows from combining the representation of $+$ by spheres (Theorem 2) with the equivalence between spheres and formula orderings.
+
+Since $+$ satisfies postulates (+1)-(+8), by **Theorem 2** [[#^f347f9]], there exists a system of spheres $\mathbf{S}$ centered on $|T|$ such that for all $A \in F$, $T+A = t(f_{\mathbf{S}}(A))$. Given this system $\mathbf{S}$, we define the relation $\leq$ on $F$ as:
+
+$$
+A \leq B \iff c(A) \subseteq c(B)
+$$
+
+and $A < B$ iff $c(A) \subset c(B)$. By Lemma [[#^448b11]], the revision operator determined by this relation is identical to the one determined by the system of spheres $\mathbf{S}$. Specifically:
+
+$$
+t(f_{\mathbf{S}}(A)) = \{B \in F : (A \land B) < (A \land \neg B)\}
+$$
+
+Substituting the identity from step 1 into step 3, we obtain $T+A = \{B \in F : (A \land B) < (A \land \neg B)\}$. `eproof`
+
+> [!theorem] Soundness of Ordering-Based Revision
+> Let $\leq$ be any relation on $F$ satisfying postulates $(\leq 1)$ to $(\leq 5)$. Then the revision operation defined by:
+> $$
+> T + A = \{ B \in F : (A \land B) < (A \land \neg B) \}
+> $$
+> satisfies the AGM axioms (+1) to (+8).
+
+`bproof` **Strategy:** We prove this by constructing a system of spheres $\mathbf{S}$ from the relation $\leq$ and showing they determine the same revision. Since sphere-based revision satisfies the axioms [[#^19b236]], the relation-based revision must as well. `eproof`
+
