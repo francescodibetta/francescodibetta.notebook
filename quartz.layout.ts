@@ -3,7 +3,7 @@ import * as Component from "./quartz/components"
 import ProfilePic from "./quartz/components/ProfilePic"
 import DateStats from "./quartz/components/DateStats"
 import TopTags from "./quartz/components/TopTags"
-
+import DownloadPdf from "./quartz/components/DownloadPdf"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -12,7 +12,8 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
   links: {
-    GitHub: "https://github.com/francescodibetta",
+    //GitHub: "https://github.com/francescodibetta",
+    "LinkedIn": "https://www.linkedin.com/in/francesco-di-betta-78702a243/",
     "PhilPapers": "https://philpeople.org/profiles/francesco-di-betta-1", 
     //"LinkedIn": , // Add your academic links
     "Email": "mailto:francescodibetta@iusspavia.it",
@@ -28,9 +29,17 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.Breadcrumbs(),
       condition: (page) => page.fileData.slug !== "index",
     }),
-    Component.ArticleTitle(),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.ArticleTitle(),
+          grow: true,
+        },
+        { Component: DownloadPdf() },
+      ],
+    }),
     DateStats(),
-    //Component.ContentMeta({ showReadingTime: false }),
+    //Component.ContentMeta({showReadingTime: false }),
     Component.TagList(),
   ],
   left: [
