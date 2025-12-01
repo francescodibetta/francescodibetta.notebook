@@ -21,22 +21,19 @@ export default (() => {
       })
     }
 
-    // 2. Inline Styles to FORCE the look
+    // 2. Styling
     const containerStyle = {
-  	marginTop: "1.25rem",   /* <--- This is the spacing above the dates */
- 	 marginBottom: "1rem",
-  	color: "gray",
-  	fontSize: "0.8rem",
-  	lineHeight: "1.4",
-  	fontFamily: "var(--bodyFont)",
+      marginTop: "1rem",
+      marginBottom: "1rem",
+      color: "gray",
+      fontSize: "0.8rem",
+      lineHeight: "1.4",
+      fontFamily: "var(--bodyFont)",
     }
+
     return (
       <div class={classNames(displayClass, "date-stats")} style={containerStyle}>
-        {dates.created && (
-          <div style={{ display: "block" }}>
-            <strong style={{ fontWeight: 600 }}>Created:</strong> {formatDate(dates.created)}
-          </div>
-        )}
+        {/* Only show Updated Date */}
         {dates.modified && (
           <div style={{ display: "block" }}>
             <strong style={{ fontWeight: 600 }}>Updated:</strong> {formatDate(dates.modified)}
