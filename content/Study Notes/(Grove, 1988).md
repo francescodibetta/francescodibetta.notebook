@@ -1,11 +1,11 @@
 ---
 aliases:
   - Two modellings for theory change
-authors: Adam Grove
 tags:
   - belief_revision
   - counterfactuals
 pdf: (Grove, 1988).pdf
+share_pdf: true
 ---
 
 This paper proposes a model-theoretic characterization of the belief revision ($*$) operation discussed by [[(Alchourrón et al., 1985)|AGM]]. Grove's idea is to give a “spheres semantics” inspired by [[(Lewis, 1973a)]] for $*$, thus enriching the purely syntactic approach by AGM.

@@ -230,3 +230,37 @@ $academic-all:
     margin-bottom: 1rem !important;
   }
 }
+
+/* ============================================================
+   CONTENT PROTECTION (Digital Velvet Ropes)
+============================================================ */
+
+/* 1. Disable Text Selection (Prevents Copying) */
+article, .popover-hint {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none;         /* Standard */
+}
+
+/* Allow selection in Code Blocks (Optional - usually good to keep) */
+pre, code {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* 2. Ruin the Print View */
+@media print {
+  body {
+    display: none !important;
+  }
+  
+  /* Optional: Show a warning message instead */
+  html::after {
+    content: "Printing this content is not allowed.";
+    display: block;
+    text-align: center;
+    padding-top: 20%;
+    font-size: 20pt;
+  }
+}

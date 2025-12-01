@@ -34,16 +34,19 @@ const style = `
 
 export default (() => {
   const DownloadPdf: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-    // 1. Logic: Ignore Homepage
+    // 1. Hide on Homepage
     if (fileData.slug === "index") {
       return null
     }
 
-    // 2. Logic: Check Frontmatter for "pdf" property
-    const pdfFile = fileData.frontmatter?.pdf
-    
-    // If no PDF is specified, show NOTHING (return null)
-    if (!pdfFile) {
+    const fm = fileData.frontmatter || {}
+
+    // 2. LOGIC: Check BOTH conditions
+    const pdfFile = fm.pdf
+    const shareEnabled = fm.share_pdf // Looking for "share_pdf: true"
+
+    // If no file exists OR the switch is not explicitly true, hide it.
+    if (!pdfFile || shareEnabled !== true) {
       return null
     }
 

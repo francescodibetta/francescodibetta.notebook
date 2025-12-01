@@ -2,7 +2,8 @@
 title:
   "{ title }":
 description:
-pdf:
 draft: true
+pdf:
+share_pdf:
 tags:
 ---
