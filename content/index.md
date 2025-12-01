@@ -15,3 +15,7 @@ This site serves as both my **personal page** and **open notebook**. It contains
 - [[Study Notes/index|Study Notes]]
 
 If you spot any errors or inaccuracies, I would be grateful for a heads-up at [francesco.dibetta@iusspavia.it](mailto:francesco.dibetta@iusspavia.it).
+
+> [!warning]- Formatting Disclaimer
+> Please note that some original formatting may be lost in the web conversion—specifically internal section links and the layout of propositions, theorems, and lemmas. For the definitive version, please use the **"Download PDF"** button located next to the title (if available).
+
