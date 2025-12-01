@@ -835,4 +835,3 @@ Substituting the identity from step 1 into step 3, we obtain $T+A = \{B \in F : 
 > satisfies the AGM axioms (+1) to (+8).
 
 `bproof` **Strategy:** We prove this by constructing a system of spheres $\mathbf{S}$ from the relation $\leq$ and showing they determine the same revision. Since sphere-based revision satisfies the axioms [[#^19b236]], the relation-based revision must as well. `eproof`
-

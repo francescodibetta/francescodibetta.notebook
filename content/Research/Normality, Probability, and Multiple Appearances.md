@@ -1,6 +1,6 @@
 ---
 class: note
-draft: false
+draft: true
 tags:
   - normality
   - justification
