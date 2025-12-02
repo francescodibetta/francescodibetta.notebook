@@ -257,7 +257,7 @@ pre, code {
   
   /* Optional: Show a warning message instead */
   html::after {
-    content: "Printing this content is not allowed.";
+    content: "This page isn't styled for print 🖨️ \A \A For a clean layout (and readable math), please grab the PDF using the button at the top.";
     display: block;
     text-align: center;
     padding-top: 20%;
