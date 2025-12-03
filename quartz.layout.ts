@@ -69,7 +69,7 @@ export const defaultContentPageLayout: PageLayout = {
     //}),
   ],
   right: [
-    ProfilePic(),
+    //ProfilePic(),
     Component.Graph({
     localGraph: {
    	drag: true, // Allow moving nodes
