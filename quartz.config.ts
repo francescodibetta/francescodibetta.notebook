@@ -8,8 +8,8 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Francesco Di Betta | Philosophy",
-    pageTitleSuffix: " | Francesco Di Betta",
+    pageTitle: "Francesco Di Betta | Notebook",
+    pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -23,8 +23,8 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Inter",
-        body: "Inter",
+        header: "Roboto",
+        body: "Roboto",
         code: "IBM Plex Mono",
       },
     colors: {
