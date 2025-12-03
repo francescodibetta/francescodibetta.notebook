@@ -21,15 +21,6 @@ footer a {
 }
 
 /* ============================================================
-   UI TWEAKS: Global Font Size
-============================================================ */
-
-body {
-  font-size: 1rem !important; /* Increase from default 1rem */
-  line-height: 1.5 !important;   /* Increase spacing to match the new size */
-}
-
-/* ============================================================
    UI TWEAKS: Tag List
 ============================================================ */
 
@@ -265,4 +256,19 @@ pre, code {
     padding-top: 20%;
     font-size: 20pt;
   }
+}
+
+/* ============================================================
+   FONTE WEIGHT (THICKNESS) AND SIZE
+============================================================ */
+
+body {
+  font-weight: 250; /* Forces the "Light" font weight */
+  //font-size: 1rem !important; /* Increase from default 1rem */
+  //line-height: 1.5 !important;   /* Increase spacing to match the new size */
+}
+
+/* Optional: Make bold text standard weight instead of extra bold */
+strong, b {
+  font-weight: 650; 
 }
