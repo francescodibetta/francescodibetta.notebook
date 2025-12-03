@@ -44,7 +44,6 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    BackToHome(),
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
@@ -72,6 +71,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     //ProfilePic(),
+    BackToHome(),
     Component.Graph({
     localGraph: {
    	drag: true, // Allow moving nodes
@@ -81,7 +81,7 @@ export const defaultContentPageLayout: PageLayout = {
     	repelForce: 0.5,
     	centerForce: 0.3,
     	linkDistance: 30,
-    	fontSize: 0.4,
+    	fontSize: 0.5,
     	opacityScale: 1,
     	removeTags: ["#status", "#todo"], // Hide meta-tags from graph
     	showTags: false, // Hide all tags if you prefer just notes
