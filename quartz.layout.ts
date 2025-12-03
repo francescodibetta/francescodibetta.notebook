@@ -4,6 +4,7 @@ import ProfilePic from "./quartz/components/ProfilePic"
 import DateStats from "./quartz/components/DateStats"
 import TopTags from "./quartz/components/TopTags"
 import DownloadPdf from "./quartz/components/DownloadPdf"
+import BackToHome from "./quartz/components/BackToHome"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -43,6 +44,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
+    BackToHome(),
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
