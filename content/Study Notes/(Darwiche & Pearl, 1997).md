@@ -8,6 +8,7 @@ share_pdf: false
 tags:
   - belief_revision/iteration
   - ranking_theory
+  - belief_revision
 ---
 
 \[Check version in main Vault]

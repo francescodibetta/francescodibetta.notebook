@@ -24,13 +24,13 @@ const style = `
   font-size: 0.9rem;
   font-family: var(--headerFont);
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-/* Hover Effect: Fills with Blue */
 .back-home-btn:hover {
   background-color: var(--secondary);
-  color: var(--light) !important; /* Forces text white on hover */
-  transform: translateY(-2px); /* Subtle lift */
+  color: var(--light) !important;
+  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -45,7 +45,17 @@ export default (() => {
   const BackToHome: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
     return (
       <div class={classNames(displayClass, "back-home-container")}>
-        <a href="https://francescodibetta.github.io/" class="back-home-btn">
+        {/* We use a standard anchor but force a full reload via window.location */}
+        <a 
+          href="https://francescodibetta.github.io/" 
+          class="back-home-btn"
+          onClick={(e) => {
+            // Stop Quartz Router
+            e.preventDefault(); 
+            // Force Full Browser Reload
+            window.location.href = "https://francescodibetta.github.io/";
+          }}
+        >
           {/* Home Icon SVG */}
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
