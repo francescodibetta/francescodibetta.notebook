@@ -70,7 +70,7 @@ export default (() => {
         </a>
       </div>
     )
-  } // <--- THIS BRACE WAS MISSING
+  } // <--- THIS WAS THE MISSING BRACE
 
   DownloadPdf.css = style
   return DownloadPdf
