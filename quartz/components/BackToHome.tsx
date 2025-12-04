@@ -11,12 +11,9 @@ const style = `
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  
-  /* Academic/Clean Look */
   border: 1px solid var(--secondary);
   color: var(--secondary);
   background: transparent;
-  
   padding: 0.6rem 1rem;
   border-radius: 8px;
   text-decoration: none;
@@ -45,18 +42,17 @@ export default (() => {
   const BackToHome: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
     return (
       <div class={classNames(displayClass, "back-home-container")}>
-        {/* We use a standard anchor but force a full reload via window.location */}
         <a 
-          href="https://francescodibetta.github.io/" 
+          href="https://francescodibetta.github.io/"
           class="back-home-btn"
+          target="_parent"  /* 1. Tells browser to break out of the app context */
+          rel="noopener noreferrer"
           onClick={(e) => {
-            // Stop Quartz Router
-            e.preventDefault(); 
-            // Force Full Browser Reload
-            window.location.href = "https://francescodibetta.github.io/";
+            e.preventDefault();
+            e.stopPropagation(); /* 2. Stops Quartz Router from seeing the click */
+            window.location.assign("https://francescodibetta.github.io/"); /* 3. Hard redirect */
           }}
         >
-          {/* Home Icon SVG */}
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             width="24" height="24" viewBox="0 0 24 24" 
