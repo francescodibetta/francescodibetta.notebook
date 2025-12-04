@@ -4,7 +4,7 @@ aliases:
 tags:
   - belief_revision
   - counterfactuals
-pdf: (Grove, 1988).pdf
+pdf: "(Grove, 1988).pdf"
 share_pdf: true
 ---
 
