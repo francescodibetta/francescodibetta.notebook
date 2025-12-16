@@ -5,9 +5,7 @@ title: " "
 
 # Welcome!
 
-I am Francesco Di Betta, a PhD student at **IUSS Pavia** and the **MCMP** in Munich, specializing in epistemology and formal epistemology. My current PhD project analyzes the notion of “epistemic risk” through the lens of belief revision theory.
-
-This site serves as my **open notebook**. It contains notes about my work, alongside literature notes, teaching materials, and drafts of papers in progress. It is a living document, so please feel free to explore and use anything you find here:
+I am Francesco Di Betta, a PhD student at **IUSS Pavia** (Italy), specializing in epistemology and formal epistemology. This site serves as my **open notebook**. It contains notes about my work, alongside literature notes, teaching materials, and drafts of papers in progress. It is a living document, so please feel free to explore it:
 
 - [[Courses/index|Courses]]
 - [[Research/index|Research]]
