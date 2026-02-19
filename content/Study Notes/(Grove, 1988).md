@@ -286,6 +286,8 @@ Grove proposes a different kind of model, which he claims to be equivalent to [[
 > [!proposition]
 > [[#^0e19fa]] and [[#^02e2bf]] are equivalent.
 
+^537923
+
 `bproof` TBD `eproof`
 
 Before introducing the main proofs by Grove, consider the following useful lemma.
