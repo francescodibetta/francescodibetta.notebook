@@ -2,7 +2,7 @@
 title: Session 1
 description: Introduction to Belief Revision Theory
 draft: false
-parental-note: "[[Reading Group in Formal Epistemology]]"
+parental-note: "[[Courses/2026/Reading Group in Formal Epistemology/index]]"
 pdf:
 share_pdf:
 tags:
