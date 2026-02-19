@@ -1,7 +1,5 @@
 ---
-class: note
-draft: false
-tags: [belief_revision]
+title: Reading Group in Formal Epistemology
 ---
 
 This note contains materials for a reading group on formal epistemology to be held in Spring 2026 at IUSS Pavia. The primary focus of the group will be #belief_revision.
