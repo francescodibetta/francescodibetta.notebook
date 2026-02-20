@@ -4,8 +4,9 @@ description:
 draft: false
 parental-note:
 pdf: Compactness_Classical_Logic.pdf
-share_pdf: false
+share_pdf: true
 tags:
+  - classical_logic
 ---
 
 > [!def] Compactness
