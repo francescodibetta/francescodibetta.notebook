@@ -36,8 +36,10 @@ In other words, **Preservation** makes you very conservative when it comes to be
 
 Belief revision theory allows us to discuss such cases in a very general way and to compare theories clearly and unambiguously. In particular, what we are interested in when studying belief revision theory is establishing results like the following:
 
-> [!theorem] Completeness Result (Schema)
-> Let $R_{1},R_{2},\dots,R_{n}$ be a set of belief revision rules, and $S$ some kind of structure. The rules $R_{1},R_{2},\dots,R_{n}$ are valid on a structure if, and only if, that structure is of kind $S$.
+> [!def]+ Representation Result (Schema)
+> Let $R_{1},R_{2},\dots,R_{n}$ be a set of belief revision rules, and $S$ some kind of structure. A representation result for $R_{1},R_{2},\dots,R_{n}$ and structures of kind $S$ is a proof of the following statement: 
+> 
+> > The rules $R_{1},R_{2},\dots,R_{n}$ are valid on a structure if, and only if, that structure is of kind $S$.
 
 ^6675a2
 
@@ -266,7 +268,7 @@ This postulate requires more discussion, for its meaning and its role are not co
 
 1. First, notice that the right-hand side of the equation is exactly the expansion operation $+$ we just defined above. So, **Vacuity** tells us that revision $*$ is strictly identical with expansion $+$ in certain cases.
 2. Let us look closely at the condition $B \nvdash \neg \phi$. 
-	1. First of all, let's intuitively clarify its meaning. Informally, $B\nvdash \neg \phi$ means two things. First, it means that $B$ is consistent. Recall that $B=Cn(B)$, so if $B$ were inconsistent, then $Cn(B)=\mathcal{L}$, which means $B \vdash \psi$ for *all* $\psi\in \mathcal{L}$ (including $\neg\phi$). So, if $B \nvdash \neg\phi$, it must be consistent. Second, $B \nvdash \neg \phi$ means that $B$ is “compatible” with $\phi$. This can happen in two distinct ways. Either $B$ is compatible with $\phi$ “trivially” when $\phi\in B$: since *ex hypothesi* $B$ is consistent, if $\phi\in B$ then $\neg \phi \notin B$, which is equivalent to saying that $B \nvdash \neg \phi$ (given **Closure**). Or, $B$ is compatible with $\phi$ because it simply “does not take a stand” between $\phi$ and $\neg \phi$, i.e., when $\phi\notin B$ and $\neg \phi \notin B$.
+	1. First of all, let's intuitively clarify its meaning. Informally, $B\nvdash \neg \phi$ means two things. First, it means that $B$ is consistent. Recall that $B=Cn(B)$, so if $B$ were inconsistent, then $Cn(B)=\mathcal{L}$, which means $B \vdash \psi$ for *all* $\psi\in \mathcal{L}$ (including $\neg\phi$). So, if $B \nvdash \neg\phi$, it must be consistent. Second, $B \nvdash \neg \phi$ means that $B$ is “compatible” with $\phi$. To see this, recall that $\Gamma \vdash \psi$ is a universal statement, saying that *every* world $w$ satisfying $\Gamma$ satisfies $\psi$ as well. Its negation, then, is an existential statement, saying that there exists a world where all $\gamma\in \Gamma$ are true but $\psi$ is false. Thus, $B\nvdash\neg \phi$ means that there exists at least a world $w$ where all $b\in B$ are true but $\neg \phi$ is false, i.e. $\phi$ is true. The fact that there exists a world where both $B$ and $\phi$ are true means that the two are compatible. *Note*: this does not amount to saying that there exists exactly one world where $B$ and $\phi$ are both true. $B$ and $\phi$ may be compatible also in the case where $B \vdash\phi$.
 	2. Now that we understand what the condition “$B \nvdash \neg \phi$” says: why does AGM say that revision and expansion coincide *only if* $B \nvdash \neg \phi$ is the case? That is, why not define $*$ in such a way that it just is $+$ for *every case*? After all, $+$ is a very simple operation. The problem is that, precisely when $B \vdash \neg \phi$, claiming that $*=+$ has disastrous consequences. Suppose that $B\vdash \neg \phi$, i.e., $\neg \phi \in Cn(B)$. Since $B \subseteq B \cup \{ \phi \}$ obviously holds, it follows by the monotonicity of $Cn$ that $Cn(B)\subseteq Cn(B \cup \{ \phi \})$. So, $\neg \phi \in Cn(B\cup \{ \phi \})$, and we also have $\phi\in Cn(B\cup \{ \phi \})$ by the reflexivity of $Cn$. Therefore, their conjunction $\phi \land \neg \phi \in Cn(B \cup \{ \phi \})$, which means $Cn(B \cup \{ \phi \}) = \mathcal{L}$. If we forced $* = +$ across the board, it would follow by **Closure** that $B*\phi= \mathcal{L}$ whenever the new information contradicts our prior beliefs. The problem, however, is that if the new information $\phi$ is not contradictory in itself ($\phi \nvdash \bot$), this is a direct violation of the **Consistency** postulate! To avoid this problem, we do not equate $*$ with $+$ across the board, but only in a specific, safe case: when $B \nvdash \neg \phi$.
 
 The sixth postulate is called **Congruence**:
@@ -277,7 +279,101 @@ $$
 
 and it simply says that, if $\phi$ and $\psi$ are logically equivalent, then revising by $\phi$ is exactly the same as revising by $\psi$. That is, what you end up believing as a result of revision depends on the *content* of a proposition (world-theoretically, its truth-set) and not on its syntactic presentation. (This postulate is sometimes called Dalal's Principle of Irrelevance of Syntax). Take a moment to convince yourself that $\phi$ and $\psi$ are logically equivalent in the semantic sense (i.e., $\textlbrackdbl \phi \textrbrackdbl=\textlbrackdbl \psi \textrbrackdbl$) if, and only if, $Cn(\{ \phi \})=Cn(\{ \psi \})$.
 
-## 2.1. Derivative Rules of AGM
+This concludes our discussion of the main AGM postulates. The following two rules, usually called the supplementary postulates, are slightly more cumbersome. However, they are necessary for proving the representation theorem, as they will significantly constrain the kind of structure $S$ we will consider.
+
+## 2.1. Supplementary Postulates
+
+The seventh postulate is called **Superexpansion**:
+
+$$
+B*(\phi \land \psi) \subseteq (B*\phi)+\psi
+\tag{Superexpansion}
+$$
+
+This postulate is similar to **Inclusion** in [[#2. Belief Revision Theory]] above. It says that revising $B$ by a conjunction may result in, at most, revising by one conjunct and then expanding by the other. Alternatively, you are not permitted to believe more by revising by $\phi \land \psi$ than you would if you simply revised by $\phi$ and then expanded by $\psi$.
+
+The eighth postulate is called **Subexpansion**:
+
+$$
+\text{If } B*\phi \nvdash \neg \psi \text{, then } (B*\phi)+ \psi \subseteq B*(\phi \land \psi)
+\tag{Subexpansion}
+$$
+
+This postulate says that when $B*\phi$ is compatible with $\psi$, expanding by $\psi$ on top of revising by $\phi$ may result in having at most the same beliefs as in the case where you simply revise by the conjunction $\phi \land \psi$. It is very important to appreciate a consequence of these two postulates taken together: if the result of revising by one conjunct, i.e., $B*\phi$, is compatible with the other conjunct $\psi$, then
+
+$$
+B*(\phi \land \psi) = (B*\phi) + \psi
+$$
+
+That is, revising by the conjunction of the two is exactly the same as revising by the first and then expanding by the second. Let me clarify two points here:
+
+1. The equality above is not affected by the order of the conjuncts, i.e., by whether we revise by $\phi \land \psi$ or $\psi \land \phi$. The reason is that $B*(\phi \land \psi) = B*(\psi \land \phi)$ as a result of **Congruence**, since $Cn(\phi \land \psi) = Cn(\psi \land \phi)$.
+2. The requirement that $B*\phi$ (or $B*\psi$) is compatible with $\psi$ (or $\phi$) is crucial. For if $B*\phi \vdash \neg \psi$, we would have that $B*(\phi \land \psi) \neq \mathcal{L}$ as a result of **Consistency**, but $(B*\phi)+\psi = \mathcal{L}$. Here is why:
+	1. $(B*\phi)+\psi = Cn((B*\phi) \cup \{ \psi \})$ by definition.
+	2. Obviously, $B*\phi \subseteq (B*\phi) \cup \{ \psi \}$.
+	3. By the monotonicity of $Cn$, $Cn(B*\phi) \subseteq Cn((B*\phi) \cup \{ \psi \})$.
+	4. $\neg \psi \in Cn(B*\phi)$ *ex hypothesi*, while $\psi \in Cn((B*\phi) \cup \{ \psi \})$ by the reflexivity of $Cn$.
+	5. Therefore, $\psi \land \neg \psi \in Cn((B*\phi) \cup \{ \psi \}) = (B*\phi)+\psi = \mathcal{L}$.
+
+## 2.2. Derivative Rules of Basic AGM
+
+The basic AGM postulates entail several intuitive derivative rules. Here are some of the most important ones that follow strictly from the first six postulates:
+
+$$
+\text{If } B \nvdash \neg \phi \text{, then } B\subseteq B*\phi
+\tag{Preservation}
+$$
+
+$$
+\text{If } \psi\in B*\phi_{1} \text{ and } \psi \in B*\phi_{2} \text{, then } \psi\in B*(\phi_{1} \lor \phi_{2}) \tag{Or}
+$$
+
+$$
+\text{If } \psi \notin B*\phi \text{ and } \psi \notin B*\neg \phi \text{, then } \psi \notin B
+\tag{Negation Rationality}
+$$
+
+We can also derive a very famous rule concerning conditional beliefs and material implication:
+
+$$
+\text{If } \psi \in B*\phi \text{, then } \phi \rightarrow \psi \in B
+\tag{Frontloading}
+$$
+
+Once we adopt **Superexpansion** and **Subexpansion**, we unlock a new set of derivative rules that govern how revision behaves when we build up more complex pieces of new information, particularly conjunctions and disjunctions.
+
+The following rules dictate the logic of sequential and conjunctive learning:
+
+$$
+\text{If } \chi \in B*\phi \text{ and } \psi \in B*\phi \text{, then } \chi \in B*(\phi \land \psi)
+\tag{Cautious Monotony}
+$$
+
+$$
+\text{If } \chi \in B*(\phi \land \psi) \text{ and } \psi \in B*\phi \text{, then } \chi \in B*\phi
+\tag{Cut}
+$$
+
+$$
+\text{If } \chi \in B*\phi \text{ and } \neg \psi \notin B*\phi \text{, then } \chi \in B*(\phi \land \psi)
+\tag{Rational Monotony}
+$$
+
+(*Note*: **Rational Monotony** is a sort of “generalized” version of **Preservation**. To convince your self, note that **Rational Monotony** is equivalent to **Preservation** when $\phi=\top$.)
+
+We also gain derivative rules that dictate how revision handles disjunctions (situations where we learn that at least one of two things is true, but we don't know which):
+
+$$
+\text{If } \psi \in B*(\phi_{1} \lor \phi_{2}) \text{, then } \psi \in B*\phi_{1} \text{ or } \psi \in B*\phi_{2}
+\tag{Disjunction Rationality}
+$$
+
+Finally, there is an important rule, called **Disjunctive Factoring**, which is logically equivalent to the combination of both supplementary postulates (given the six basic postulates):
+
+$$
+B*(\phi_{1} \lor \phi_{2}) \text{ is equal to } B*\phi_{1} \text{, or } B*\phi_{2} \text{, or } B*\phi_{1} \cap B*\phi_{2}
+\tag{Disjunctive Factoring}
+$$
 
 # 3. Ordered Structures
 
