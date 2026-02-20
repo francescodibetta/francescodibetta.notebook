@@ -1,5 +1,5 @@
 ---
-title: Compactness
+title: Compactness for Classical Propositional Logic
 description:
 draft: false
 parental-note:
