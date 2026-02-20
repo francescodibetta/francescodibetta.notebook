@@ -180,7 +180,18 @@ Note that these properties of the consequence relation correspond to analogous p
 
 ^db37aa
 
-If you want to learn more about this, I really recommend reading Makinson's *Bridges From Classical to Nonmonotonic Logic* (2005).
+Note also that $\vdash$ has another crucially important property, called **Compactness**.
+
+> [!proposition]+ Compactness
+> Let $\vdash$ be the consequence relation defined in [[#^38e024]]. $\vdash$ is compact, that is:
+> $$
+> \Gamma \vdash \phi \implies \exists\Gamma_{fin}\subseteq \Gamma \text{ such that } \Gamma_{fin} \vdash \phi
+> $$
+> (where $\Gamma_{fin}$ is a finite subset of $\Gamma$).
+
+The proof of compactness is mathematically a bit more involved (I have prepared a [[Compactness|supplementary note]] on this that we can discuss separately if you are interested!). 
+
+If you want to dive deeper into the properties of classical consequence, or if you are looking for a beautifully written explanation of consequence relations *in general* (abstracting away from our specific semantic definition in [[#^38e024]]), I highly recommend David Makinson's *Bridges from Classical to Nonmonotonic Logic* (2005).
 
 Now we are ready to introduce belief revision theory.
 
@@ -315,7 +326,12 @@ That is, revising by the conjunction of the two is exactly the same as revising 
 	4. $\neg \psi \in Cn(B*\phi)$ *ex hypothesi*, while $\psi \in Cn((B*\phi) \cup \{ \psi \})$ by the reflexivity of $Cn$.
 	5. Therefore, $\psi \land \neg \psi \in Cn((B*\phi) \cup \{ \psi \}) = (B*\phi)+\psi = \mathcal{L}$.
 
-## 2.2. Derivative Rules of Basic AGM
+> [!info]- Why We Need the Supplementary Postulates
+> You might wonder why we bother with these two extra rules. The answer lies in the Completeness Result we mentioned earlier. 
+> 
+> The first six postulates only guarantee a “weak” kind of revision (called *partial meet revision*). As we will see, the mathematical structures that allow us to encode these belief revision rules are ordered structures. As we will see, by adding **Superexpansion** and **Subexpansion** we enforce a strict, transitive order on our beliefs. That is, adding the supplementary postulates allows us to prove that AGM-rational revision corresponds exactly to elegant semantic structures, such as a system of concentric spheres (where we fall back to the “closest” possible worlds when revising) or an epistemic entrenchment ordering (where we always sacrifice our least valuable beliefs first).
+
+## 2.2. Derivative Rules of AGM
 
 The basic AGM postulates entail several intuitive derivative rules. Here are some of the most important ones that follow strictly from the first six postulates:
 
@@ -392,11 +408,11 @@ $$
 > [!def]+ Cumulative Transitivity (Cut)
 > A consequence relation $\triangleright$ is cumulatively transitive iff:
 > $$
->\text{If } \Gamma \triangleright \delta \text{ for all } \delta\in \Delta \text{, and } \Gamma \cup \Delta \triangleright \phi \quad\implies \quad \Gamma \triangleright \phi
+>\text{If }\quad \Gamma \triangleright \delta \text{ for all } \delta\in \Delta \quad \text{ and } \quad\Gamma \cup \Delta \triangleright \phi, \quad\text{ then }\quad \Gamma \triangleright \phi
 >$$
 > Equivalently, for a consequence operator $C$, cumulative transitivity is defined as:
 > $$
->\text{For all } \Gamma,\Delta \subseteq \mathcal{L} \text{, if } \Gamma \subseteq \Delta \subseteq C(\Gamma) \text{, then } C(\Delta)\subseteq C(\Gamma)
+>\text{For all } \Gamma,\Delta \subseteq \mathcal{L}:\quad \text{ if }\quad \Gamma \subseteq \Delta \subseteq C(\Gamma),\quad \text{ then } \quad C(\Delta)\subseteq C(\Gamma)
 >$$
 
 Provide a counterexample demonstrating that a consequence relation $\triangleright$ (or operator $C$) can be both **Reflexive** and **Cumulatively Transitive** (and even Idempotent!), but still fail to be **Monotonic**.
