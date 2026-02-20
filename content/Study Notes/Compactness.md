@@ -1,7 +1,7 @@
 ---
 title: Compactness
 description:
-draft: true
+draft: false
 parental-note:
 pdf:
 share_pdf: false
