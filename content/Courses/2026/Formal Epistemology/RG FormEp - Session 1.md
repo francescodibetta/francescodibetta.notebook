@@ -2,7 +2,7 @@
 title: Session 1
 description: Introduction to Belief Revision Theory
 draft: false
-parental-note: "[[Courses/2026/Reading Group in Formal Epistemology/index]]"
+parental-note: "[[Courses/2026/Formal Epistemology/index]]"
 pdf:
 share_pdf:
 tags:
@@ -394,6 +394,8 @@ $$
 # 3. Ordered Structures
 
 # 4. Exercises
+
+Solutions (to some exercises) are provided [[RG FormEp - Session 1 (Solutions)|here]]
 
 **1.** Prove [[#^41852b]] (i.e., that classical semantic consequence $\vdash$ is reflexive, transitive, and monotonic).
 **2.** Prove [[#^db37aa]] (i.e., that the classical consequence operator $Cn$ satisfies reflexivity, transitivity, monotonicity, and idempotence).
