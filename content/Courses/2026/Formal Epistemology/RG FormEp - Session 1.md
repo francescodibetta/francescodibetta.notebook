@@ -3,8 +3,8 @@ title: Session 1
 description: Introduction to Belief Revision Theory
 draft: false
 parental-note: "[[Courses/2026/Formal Epistemology/index]]"
-pdf:
-share_pdf:
+pdf: RG FormEp - Session 1.pdf
+share_pdf: true
 tags:
 ---
 
@@ -45,8 +45,10 @@ Belief revision theory allows us to discuss such cases in a very general way and
 
 Why should we study these kinds of results?
 
-1. One reason is that representation theorems demonstrate a formal equivalence between axiomatic and semantic approaches. Specifying correct belief revision rules ($R_{1}, R_{2}, \dots, R_{n}$) and defining a mathematical structure of kind $S$ to interpret a logical language amount to the same theoretical commitment. The rule set $R_{1}, R_{2}, \dots, R_{n}$ and the structure $S$ yield identical predictions regarding the rationality of a given belief change.
-2. This presupposes, of course, that studying belief revision is itself worthwhile. There are two primary reasons why it is. First, the rules of belief revision govern rational outright belief in the same way probability theory governs rational credence. For those interested in the epistemic rationality of full belief, this framework is indispensable. Second, even for those less interested in epistemology, studying these results provides an opportunity to apply mathematical logic to a domain where the formalism retains a strong intuitive grip – namely, modeling rational agents who accept and retract beliefs upon acquiring new information.
+1. One reason is that representation theorems demonstrate a formal **equivalence between axiomatic and semantic approaches**. Specifying correct belief revision rules ($R_{1}, R_{2}, \dots, R_{n}$) and defining a mathematical structure of kind $S$ to interpret a logical language amount to the same theoretical commitment. The rule set $R_{1}, R_{2}, \dots, R_{n}$ and the structure $S$ yield identical predictions regarding the rationality of a given belief change.
+2. This presupposes, of course, that studying belief revision is itself worthwhile. There are two primary reasons why it is. First, the rules of belief revision govern rational outright belief in **the same way probability theory governs rational credence**. For those interested in the epistemic rationality of full belief, this framework is indispensable. Second, even for those less interested in epistemology, studying these results provides an opportunity to apply mathematical logic to a **domain where the formalism retains a strong intuitive grip** – namely, modeling rational agents who accept and retract beliefs upon acquiring new information.
+
+> [!NOTE]+ Please find a summary of all definitions and propositions discussed in this note here: [[RG FormEp - Session 1 (Summary of Definitions)|link]].
 
 # 1. Formal Preliminaries
 
@@ -68,7 +70,7 @@ First, let us define a formal language of interest. We will concern ourselves wi
 
 Note the greek letters $\phi,\psi, \chi,\dots$ are *variables* for the sentences in $\mathcal{L}$, not sentences themselves. $\mathcal{L}$ contains *only* objects like $p, p_{1}, (p_{2} \land p_{124}) \lor \neg p_{17}$, and so on.
 
-Next, we need to define the semantics for our language. As is standard, we can think of a possible world (or interpretation) simply as an assignment of truth values to our basic propositional variables. Then, we define what it means for any sentence $\phi$ to be true at a world using the satisfaction relation $\models$. As you know, some sentences $\phi$ have a special status: some are true irrespective of the interpretation you consider (i.e., tautologies) and others are false irrespective of the interpretation you consider (i.e., contradictions).
+Next, we need to define the semantics for our language. As it is standard, we can think of a possible world (or interpretation) simply as an assignment of truth values to our basic propositional variables. Then, we define what it means for any sentence $\phi$ to be true at a world using the satisfaction relation $\models$. As you know, some sentences $\phi$ have a special status: some are true irrespective of the interpretation you consider (i.e., tautologies) and others are false irrespective of the interpretation you consider (i.e., contradictions).
 
 > [!def]+ Interpretations and Truth ($\models$)
 > Let $\mathcal{L}$ be given. A possible world (or interpretation) $w$ is a function $w: \Phi \to \{0, 1\}$ that assigns a truth value to each propositional variable $p \in \Phi$. Let $W$ be the set of **all** possible worlds.
@@ -95,18 +97,18 @@ Before moving on, let me make an important remark regarding the cardinality of $
 
 ## 1.2. Logical Consequence
 
-We can already say something about belief revision theory using what we established in [[#1. Formal Preliminaries]]. First, an agent will be represented by the things they believe. That is, a rational agent will be represented by a *belief set*, which is a special kind of set $B\subseteq \mathcal{L}$ of sentences in our formal language (we will define exactly what makes it special in a moment) representing the sentences the agent takes to be true. Second, belief revision will be defined as an operator on those sets $B$. Suppose an agent believes all the sentences in $B$ and that they learn $\phi$. The new belief set they obtain by revising $B$ by $\phi$ is denoted as:
+We can already say something about belief revision theory using what we established in [[#1. Formal Preliminaries]]. First, **an agent will be represented by the propositions they believe**. That is, a rational agent will be represented by a *belief set*, which is a special kind of set $B\subseteq \mathcal{L}$ of sentences in our formal language (we will define exactly what makes it special in a moment) representing the sentences the agent takes to be true. Second, belief revision will be defined as an operator on those sets $B$. Suppose an agent believes all the sentences in $B$ and that they learn $\phi$. The new belief set they obtain by revising $B$ by $\phi$ is denoted as:
 
 $$
 B *\phi
 $$
 
-Clearly, we need more information to decide what should actually be in $B* \phi$ (given the initial content of $B$). To do so, however, we first need to clarify what *belief sets* are, given that they are not just any subset of $\mathcal{L}$. This is exactly why we need the notion of logical consequence.
+Clearly, we need more information to decide what should actually be in $B* \phi$ (given the initial content of $B$). To do so, however, **we first need to clarify what *belief sets* are**, given that they are not just any subset of $\mathcal{L}$. This is exactly why we need the notion of logical consequence.
 
 In general, we define logical consequence based on the formal work done in [[#1. Formal Preliminaries]] as follows.
 
 > [!def]+ Logical Consequence ($\vdash$)
-> Let $\phi,\psi \in \mathcal{L}$ and $W$ be given. We say that $\psi$ follows logically from $\phi$, $\phi \vdash \psi$, iff the latter is true at all the worlds $w$ that make the former true. In symbols:
+> Let $\phi,\psi \in \mathcal{L}$ and $W$ be given. We say that $\psi$ follows logically from $\phi$ (in symbols, $\phi \vdash \psi$) iff the latter is true at all the worlds $w$ that make the former true. In symbols:
 >$$
 >\phi \vdash \psi \quad:\iff\quad \text{For all } w\in W: w \models \phi \implies w \models \psi
 >$$
@@ -115,7 +117,7 @@ In general, we define logical consequence based on the formal work done in [[#1.
 
 Note that:
 
-1. [[#^38e024]] may be extended, with a slight abuse of notation, to include the consequence relation between a set of formulas $\Gamma$ and a sentence $\phi$, i.e., $\Gamma \vdash \phi$. We do this by requiring that $\Gamma \vdash \phi$ iff $\phi$ is true at all the worlds $w$ which satisfy *all* the sentences $\gamma\in \Gamma$.
+1. [[#^38e024]] may be extended, with a slight abuse of notation, to include the consequence relation between **sets of formulas** $\Gamma$ and a sentence $\phi$, i.e., $\Gamma \vdash \phi$. We do this by requiring that $\Gamma \vdash \phi$ iff $\phi$ is true at all the worlds $w$ which satisfy *all* the sentences $\gamma\in \Gamma$.
 2. I distinguish the satisfaction ($\models$) and consequence ($\vdash$) relations symbolically. We won't need a third relation for syntactic deducibility (which is what “$\vdash$” usually denotes, strictly speaking), so we will use $\vdash$ for semantic consequence here to keep things simple.
 
 When doing belief revision theory, we will frequently use a *consequence operator* $Cn$ instead of a consequence relation, as it makes it easier to express certain properties in a concise and brief way. Note that $Cn$ and $\vdash$ are inter-definable. Since we started with $\vdash$, we take it as basic and define $Cn$ in terms of $\vdash$.
@@ -136,12 +138,13 @@ Now, we can finally define what a belief set is.
 > $$
 > B = Cn(B)
 >$$
+> Let us call $\mathbf{B}$ the set of all belief sets.
 
 ^a62a38
 
-In other words, belief sets are not just any sets of sentences, but they are sets of sentences “closed under logical entailment”. We usually explain this requirement by saying that logical closure is—in this context—the “mark of rationality”. That is, a rational agent (as modeled in this simplified setting) is an agent that believes all the logical consequences of what they believe. 
+In other words, belief sets are not just sets of sentences, but they are sets of sentences “closed under logical entailment”. We usually explain this requirement by saying that logical closure is—in this context—the “mark of rationality”. That is, a rational agent (as modeled in this simplified setting) is an agent that believes all the logical consequences of what they believe. 
 
-Logical consequence has many important properties, independently of whether we represent it via $Cn$ or $\vdash$. In the following, I will introduce some of them. I will first define some of them in general terms (i.e., for arbitrary consequence relation $\triangleright$ and consequence operation $C$).
+Before concluding this section, let me point out that logical consequence has many important properties, independently of whether we represent it via $Cn$ or $\vdash$. In the following, I will introduce some of them. I will first define some of them in general terms (i.e., for arbitrary consequence relation $\triangleright$ and consequence operation $C$).
 
 > [!def]+ Reflexivity of $\triangleright$
 > Let $\triangleright$ be a consequence relation on $\mathcal{L}$. $\triangleright$ is reflexive iff:
@@ -168,6 +171,8 @@ It is straightforward to prove the following:
 
 ^41852b
 
+`bproof` See [[#4. Exercises]]. `eproof`
+
 Note that these properties of the consequence relation correspond to analogous properties of the consequence operator $Cn$. I will omit the details here, but the following result is derivable from the definitions above and [[#^41852b]].
 
 > [!proposition]+
@@ -179,7 +184,7 @@ Note that these properties of the consequence relation correspond to analogous p
 
 ^db37aa
 
-`bproof` It is possible to prove this result from [[#^41852b]] and [[#^ba4d33]]. `eproof`
+`bproof` It is possible to prove this result from [[#^41852b]] and [[#^ba4d33]]. See also [[#4. Exercises]]. `eproof`
 
 The classical consequence relation $\vdash$ has other important properties
 
@@ -189,6 +194,8 @@ The classical consequence relation $\vdash$ has other important properties
 > 1. **Compactness**: $\Gamma \vdash \phi \implies \exists\Gamma_{fin}\subseteq \Gamma \text{ such that } \Gamma_{fin} \vdash \phi$, where $\Gamma_{fin}$ is a finite subset of $\Gamma$.
 > 2. **Deduction Theorem**: If $\Gamma \cup \{ \phi \} \vdash \psi$, then $\Gamma \vdash \phi \rightarrow \psi$.
 > 3. **Disjunction in the Premises**: If $\Gamma \cup \{ \phi_{1} \} \vdash \psi$ and $\Gamma \cup \{ \phi_{2} \}\vdash \psi$, then $\Gamma \cup \{ \phi_{1}\lor \phi_{2} \}\vdash \psi$.
+
+`bproof` See [[Compactness]]. `eproof`
 
 The proof of compactness is mathematically a bit more involved (I have prepared a [[Compactness|supplementary note]] on this that we can discuss separately if you are interested!). 
 
@@ -200,18 +207,21 @@ Now we are ready to introduce belief revision theory.
 
 The best way to get a feel for this topic is by diving into the most famous framework for belief change: **AGM theory**. Named after the three scholars who introduced it in 1985—Carlos Alchourrón, Peter Gärdenfors, and David Makinson—it is essentially the gold standard in the field! 
 
-I'll start by introducing AGM axiomatically. This simply means we'll look at the basic rules (or postulates) that describe how an ideally rational agent—let's call them an “AGM-rational” agent—ought to update their beliefs. After that, we'll explore the semantic structures we use to actually model these agents. Our main goal here is to build up to AGM's famous completeness result (see [[#^6675a2]]).
+I'll start by **introducing AGM axiomatically**. This simply means we'll look at the basic rules (or postulates) that describe how an ideally rational agent—let's call them an “AGM-rational” agent—ought to update their beliefs. After that, we'll explore **the semantic structures we use to actually model these agents**. Our main goal here is to build up to AGM's famous completeness result (see [[#^6675a2]]).
 
 > [!info] A Quick Heads-Up: Mathematics vs. Philosophy
-> As we go through this, it's really important to separate the hard math from the philosophical interpretations. For instance, proving that the AGM postulates perfectly correspond to a specific mathematical structure is a solid, uncontroversial mathematical theorem. However, claiming that this formal “AGM-rationality” is exactly how humans *should* think is a philosophical claim—and a highly debated one!
+> As we go through this, it's really important to separate the hard math from the philosophical interpretations. For instance, proving that the AGM postulates correspond to a specific mathematical structure is an uncontroversial mathematical theorem. However, claiming that “AGM-rationality” is rationality simpliciter is a philosophical claim—and a highly debated one!
 
-To pin down the AGM framework, we need six basic rules (plus two extra ones for handling iterated changes later). These rules govern what we call a **revision function**, written formally as:
+To formalize the AGM framework, let $B \in \mathbf{B}$ be any belief set, $\phi \in \mathcal{L}$ be any sentence, and $*: \mathbf{B} \times \mathcal{L} \to \mathbf{B}$ be a candidate revision function. In plain English, $*$ is just a function that takes your initial belief set $B$ (from the collection of all possible belief sets, $\mathbf{B}$) and a new piece of information $\phi$ (a sentence from our language $\mathcal{L}$), and gives you back a brand-new set: $B*\phi$. The set $B*\phi$ is the **revision of $B$ by $\phi$** iff $*$ validates the postulates before.
 
-$$*: \mathbf{B}\times \mathcal{L}\to \mathbf{B}$$ 
+Before detailing these postulates, however, it is helpful to understand the **extra-logical motivations** underpinning them:
 
-In plain English, $*$ is just a function that takes your initial belief set $B$ (from the collection of all possible belief sets, $\mathbf{B}$) and a new piece of information $\phi$ (a sentence from our language $\mathcal{L}$), and gives you back a brand-new, revised belief set: $B*\phi$.
+1. **Consistency and Closure:** We require the revised belief set, $B*\phi$ (the result of revising $B$ by $\phi$), to be logically closed, consistent (unless $\phi$ is logically contradictory), and to successfully incorporate the new information $\phi$. 
+2. **Informational Economy:** The new belief set $B*\phi$ should differ from the original set $B$ as little as possible. Revision must be conservative, retaining as much prior information as logical consistency allows.
 
-The very first rule is called **Closure**:
+These “meta-principles” – particularly the goal of informational economy – drive the specific characterization of the revision operator $*$. Again: these meta-principles **are not true as a matter of logic, but are decided in advance on extra-logical grounds**.
+
+The function $*$ is a basic AGM belief revision function if and only if it satisfies the following postulates. Let us start with **Closure**:
 
 $$
 B*\phi \text{ is a belief set} \tag{Closure}
@@ -221,11 +231,11 @@ This has a very straightforward meaning: when you revise your beliefs, you shoul
 
 *(You might be thinking: “Wait, isn't this redundant if we already defined $*$ as a function that outputs a belief set?” Mathematically, yes! But we state it explicitly as an axiom to ensure this property of revision independently of the definition of $*$ as some kind of function.)*
 
-Also, keep in mind that the AGM axioms do not single out just *one* unique way to revise beliefs. Knowing the rules of logic alone isn't enough to tell us exactly what ends up inside $B*\phi$ for a specific agent. The postulates merely set the boundary lines for what counts as a “rational” change. As we clarified earlier (see [[#^7ac357]]), to figure out the exact output of a revision, we have to bring in extra-logical information—like how strongly the agent values, or “entrenches,” their specific beliefs!
+Also, keep in mind that **the AGM axioms do not single out just *one* unique way to revise beliefs**. Knowing the rules of logic alone isn't enough to tell us exactly what ends up inside $B*\phi$ for a specific agent. The postulates merely set the boundary lines for what counts as a “rational” change. As we clarified earlier (see [[#^7ac357]]), to figure out the exact output of a revision, we have to bring in extra-logical information—like how strongly the agent values, or “entrenches,” their specific beliefs!
 
-Finally, consider the following mathematical consequence of **Closure**.
+Before moving to the next postulate, consider the following mathematical consequence of **Closure**. 
 
-> [!NOTE]+ (1) **Closure** Implies that Every Belief Set Contains all Tautologies
+> [!NOTE]- **Closure** Implies that Every Belief Set Contains all Tautologies
 > It is a trivial mathematical truth that $\emptyset \subseteq B$, where $B$ is a belief set. However, this has an important consequence given the fact that classical logical consequence is monotonic. For it follows by monotonicity that, since $\emptyset \subseteq B$, then $Cn(\emptyset) \subseteq Cn(B)$. Since $B$ is a belief set, we know $Cn(B) = B$, which means $Cn(\emptyset) \subseteq B$. But what exactly is $Cn(\emptyset)$?
 > 
 > $Cn(\emptyset)$ is the set of all propositional tautologies. This can be easily seen by unpacking the meaning of $Cn$ as applied to $\emptyset$:
@@ -246,19 +256,19 @@ $$
 \phi \in B*\phi \tag{Success}
 $$
 
-which again has a rather simple meaning: revising by $\phi$ should result in believing $\phi$. The third postulate is called **Consistency**:
+This postulate has a rather simple meaning: revising by $\phi$ should result in believing $\phi$. The third postulate is called **Consistency**:
 
 $$
 \text{If $\phi \nvdash \bot $, then $Cn(B* \phi)\neq \mathcal{L}$} \tag{Consistency}
 $$
 
-This postulate has a rather straightforward meaning, but it forces us to deeply understand the meaning of the objects and notation we have introduced. There are three “things” to clarify here: the meaning of the antecedent, that of the consequent, and the reason why this postulate is in “If-Then” form.
+This postulate has a rather straightforward meaning, but it forces us to deeply understand the meaning of the objects and notation we have introduced. **There are three “things” to clarify here**: the meaning of the antecedent, that of the consequent, and the reason why this postulate is in “If-Then” form.
 
-1. $\phi \nvdash \bot$ (where $\bot$ is just any contradiction you like, e.g., $p_{154} \land \neg p_{154}\in \mathcal{L}$) means that $\phi$ is *not* a contradiction. Here is why. $\phi \vdash \bot$ means that, for all worlds $w$, if $w \models \phi$, then $w \models \bot$. Since there is no world where $w \models \bot$ by definition, for this conditional statement to be true, it must be the case that there is *no* $w$ such that $w \models \phi$. Therefore, $\phi \nvdash \bot$ means that there exists *some* world where $\phi$ holds, i.e., $\phi$ is non-contradictory (note: it might be either a tautology or a contingent proposition) and satisfiable.
-2. $Cn(B*\phi)\neq \mathcal{L}$ is just an equivalent way of saying that $B*\phi$ contains no contradictions. Let me explain this by showing that $Cn(B*\phi) = \mathcal{L}$ if, and only if, $B*\phi$ contains a contradiction. 
+1. $\phi \nvdash \bot$ (where $\bot$ is just any contradiction you like, e.g., $p_{154} \land \neg p_{154}\in \mathcal{L}$) means that **$\phi$ is *not* a contradiction**. Here is why. Recall that, in general, $\phi \nvdash \psi$ means that there exists a world $w$ such that $w \models \phi$ but $w \nvDash \psi$. So, $\phi \nvdash \bot$ means that there exists *some* world $w$ such that $w \models \phi$ and $w \nvDash \bot$. Since for any world $w$ we have $w\nvDash \bot$, **$\phi \nvdash\bot$ simply means that $\phi$ is non-contradictory or satisfiable**. (Note: $\phi$ might be either a tautology or a contingent proposition.)
+2. $Cn(B*\phi)\neq \mathcal{L}$ is just an equivalent way of saying that **$B*\phi$ contains no contradictions**. Let me explain this by showing that $Cn(B*\phi) = \mathcal{L}$ if, and only if, $B*\phi$ contains a contradiction. 
 	- Suppose $Cn(B*\phi)=\mathcal{L}$. Therefore, $\bot \in Cn(B*\phi)$, i.e., $B*\phi \vdash \bot$. Note that since $B*\phi$ is a belief set, it is closed under logical consequence by **Closure**. Therefore, if $B*\phi \vdash \bot$, it must be that $\bot \in B*\phi$. 
 	- Suppose now that $\bot \in B*\phi$. In classical logic, $\bot \vdash \psi$ for any $\psi\in \mathcal{L}$ (the principle of explosion). So, since classical consequence is monotonic and $\{ \bot \}\subseteq B*\phi$, it follows that $Cn(\{ \bot \})\subseteq Cn(B*\phi)$. Since $Cn(\{ \bot \})=\mathcal{L}$, we get $\mathcal{L}\subseteq Cn(B*\phi)$. Ultimately, recall that $Cn(B*\phi)$ is a subset of our language $\mathcal{L}$, hence $Cn(B*\phi)\subseteq \mathcal{L}$ by definition, which implies that $Cn(B*\phi)=\mathcal{L}$. 
-3. Let me explain now the last bit of information contained in **Consistency**. Why require that $Cn(B*\phi)\neq \mathcal{L}$ only if $\phi \nvdash \bot$, and not in general? The reason is that requiring it in general would conflict with **Success**. For suppose that the agent revises their belief set by an outright contradiction, $\bot$. By **Success**, we have that $\bot\in B*\bot$, which (as we just saw in point 2) implies that $Cn(B*\bot)=\mathcal{L}$. 
+3. Let me explain now the last bit of information contained in **Consistency**. Why require that $Cn(B*\phi)\neq \mathcal{L}$ only if $\phi \nvdash \bot$, and not in general? **The reason is that requiring it in general would conflict with Success.** For suppose that the agent revises their belief set by an outright contradiction, $\bot$. By **Success**, we have that $\bot\in B*\bot$, which (as we just saw in point 2) implies that $Cn(B*\bot)=\mathcal{L}$. 
 
 > [!NOTE]+ Escaping an Inconsistent Belief Set
 > The **Consistency** postulate has an important consequence. Suppose that $B$ is an inconsistent belief set, i.e., $B = \mathcal{L}$. Suppose that $\phi$ is a non-contradictory sentence. By **Consistency**, it follows that $B*\phi \neq \mathcal{L}$. That is, revising an inconsistent set of beliefs by a non-contradictory sentence restores consistency.
@@ -290,12 +300,14 @@ $$
 \text{If } B\nvdash \neg \phi \text{, then } B*\phi = Cn(B \cup \{ \phi \}) \tag{Vacuity}
 $$
 
-This postulate requires more discussion, for its meaning and its role are not completely obvious.
+This postulate requires more discussion, for its meaning and its role are not completely obvious. As we will see, **Vacuity** is motivated by the informational economy idea briefly mentioned above.
 
 1. First, notice that the right-hand side of the equation is exactly the expansion operation $+$ we just defined above. So, **Vacuity** tells us that revision $*$ is strictly identical with expansion $+$ in certain cases.
-2. Let us look closely at the condition $B \nvdash \neg \phi$. 
-	1. First of all, let's intuitively clarify its meaning. Informally, $B\nvdash \neg \phi$ means two things. First, it means that $B$ is consistent. Recall that $B=Cn(B)$, so if $B$ were inconsistent, then $Cn(B)=\mathcal{L}$, which means $B \vdash \psi$ for *all* $\psi\in \mathcal{L}$ (including $\neg\phi$). So, if $B \nvdash \neg\phi$, it must be consistent. Second, $B \nvdash \neg \phi$ means that $B$ is “compatible” with $\phi$. To see this, recall that $\Gamma \vdash \psi$ is a universal statement, saying that *every* world $w$ satisfying $\Gamma$ satisfies $\psi$ as well. Its negation, then, is an existential statement, saying that there exists a world where all $\gamma\in \Gamma$ are true but $\psi$ is false. Thus, $B\nvdash\neg \phi$ means that there exists at least a world $w$ where all $b\in B$ are true but $\neg \phi$ is false, i.e. $\phi$ is true. The fact that there exists a world where both $B$ and $\phi$ are true means that the two are compatible. *Note*: this does not amount to saying that there exists exactly one world where $B$ and $\phi$ are both true. $B$ and $\phi$ may be compatible also in the case where $B \vdash\phi$.
-	2. Now that we understand what the condition “$B \nvdash \neg \phi$” says: why does AGM say that revision and expansion coincide *only if* $B \nvdash \neg \phi$ is the case? That is, why not define $*$ in such a way that it just is $+$ for *every case*? After all, $+$ is a very simple operation. The problem is that, precisely when $B \vdash \neg \phi$, claiming that $*=+$ has disastrous consequences. Suppose that $B\vdash \neg \phi$, i.e., $\neg \phi \in Cn(B)$. Since $B \subseteq B \cup \{ \phi \}$ obviously holds, it follows by the monotonicity of $Cn$ that $Cn(B)\subseteq Cn(B \cup \{ \phi \})$. So, $\neg \phi \in Cn(B\cup \{ \phi \})$, and we also have $\phi\in Cn(B\cup \{ \phi \})$ by the reflexivity of $Cn$. Therefore, their conjunction $\phi \land \neg \phi \in Cn(B \cup \{ \phi \})$, which means $Cn(B \cup \{ \phi \}) = \mathcal{L}$. If we forced $* = +$ across the board, it would follow by **Closure** that $B*\phi= \mathcal{L}$ whenever the new information contradicts our prior beliefs. The problem, however, is that if the new information $\phi$ is not contradictory in itself ($\phi \nvdash \bot$), this is a direct violation of the **Consistency** postulate! To avoid this problem, we do not equate $*$ with $+$ across the board, but only in a specific, safe case: when $B \nvdash \neg \phi$.
+2. Let us look closely at the condition $B \nvdash \neg \phi$. This condition tells us **when** revision and expansion deliver the same result.
+	1. First of all, let's intuitively clarify its meaning. Informally, $B\nvdash \neg \phi$ means two things. 
+		1. First, it means that $B$ is consistent. Recall that $B=Cn(B)$, so if $B$ were inconsistent, then $Cn(B)=\mathcal{L}$, which means $B \vdash \psi$ for *all* $\psi\in \mathcal{L}$ (including $\neg\phi$). So, if $B \nvdash \neg\phi$, it must be consistent. 
+		2. Second, $B \nvdash \neg \phi$ means that $B$ is “compatible” with $\phi$. To see this, recall that $\Gamma \vdash \psi$ is a universal statement, saying that *every* world $w$ satisfying $\Gamma$ satisfies $\psi$ as well. Its negation, then, is an existential statement, saying that there exists a world where all $\gamma\in \Gamma$ are true but $\psi$ is false. Thus, **$B\nvdash\neg \phi$ means that there exists at least a world $w$ where all $b\in B$ are true but $\neg \phi$ is false, i.e. $\phi$ is true**. The fact that there exists a world where both $B$ and $\phi$ are true means that the two are **compatible**. 
+	2. Now that we understand what the condition “$B \nvdash \neg \phi$” says: why does AGM say that revision and expansion coincide *if* $B \nvdash \neg \phi$ is the case? That is, why not define $*$ in such a way that it just is $+$ for *every case*? After all, $+$ is a very simple operation. **The problem is that, precisely when $B \vdash \neg \phi$, claiming that $*=+$ has disastrous consequences**. Suppose that $B\vdash \neg \phi$, i.e., $\neg \phi \in Cn(B)$. Since $B \subseteq B \cup \{ \phi \}$ obviously holds, it follows by the monotonicity of $Cn$ that $Cn(B)\subseteq Cn(B \cup \{ \phi \})$. So, $\neg \phi \in Cn(B\cup \{ \phi \})$, and we also have $\phi\in Cn(B\cup \{ \phi \})$ by the reflexivity of $Cn$. Therefore, their conjunction $\phi \land \neg \phi \in Cn(B \cup \{ \phi \})$, which means $Cn(B \cup \{ \phi \}) = \mathcal{L}$. If we forced $* = +$ across the board, it would follow by **Closure** that $B*\phi= \mathcal{L}$ whenever the new information contradicts our prior beliefs. The problem, however, is that **if the new information $\phi$ is not contradictory in itself ($\phi \nvdash \bot$), this is a direct violation of the Consistency postulate!** To avoid this problem, we do not equate $*$ with $+$ across the board, but only in a specific, safe case: when $B \nvdash \neg \phi$.
 
 The sixth postulate is called **Congruence**:
 
@@ -303,7 +315,7 @@ $$
 \text{If } Cn(\{ \phi \})=Cn(\{ \psi \}) \text{, then } B*\phi=B*\psi \tag{Congruence}
 $$
 
-and it simply says that, if $\phi$ and $\psi$ are logically equivalent, then revising by $\phi$ is exactly the same as revising by $\psi$. That is, what you end up believing as a result of revision depends on the *content* of a proposition (world-theoretically, its truth-set) and not on its syntactic presentation. (This postulate is sometimes called Dalal's Principle of Irrelevance of Syntax). Take a moment to convince yourself that $\phi$ and $\psi$ are logically equivalent in the semantic sense (i.e., $\textlbrackdbl \phi \textrbrackdbl=\textlbrackdbl \psi \textrbrackdbl$) if, and only if, $Cn(\{ \phi \})=Cn(\{ \psi \})$.
+and it simply says that, if $\phi$ and $\psi$ are logically equivalent, then revising by $\phi$ is exactly the same as revising by $\psi$. That is, **what you end up believing as a result of revision depends on the *content* of a proposition** (world-theoretically, its truth-set) and not on its syntactic presentation. (This postulate is sometimes called Dalal's Principle of Irrelevance of Syntax). Take a moment to convince yourself that $\phi$ and $\psi$ are logically equivalent in the semantic sense (i.e., $\textlbrackdbl \phi \textrbrackdbl=\textlbrackdbl \psi \textrbrackdbl$) if, and only if, $Cn(\{ \phi \})=Cn(\{ \psi \})$.
 
 This concludes our discussion of the main AGM postulates. The following two rules, usually called the supplementary postulates, are slightly more cumbersome. However, they are necessary for proving the representation theorem, as they will significantly constrain the kind of structure $S$ we will consider.
 
@@ -316,7 +328,7 @@ B*(\phi \land \psi) \subseteq (B*\phi)+\psi
 \tag{Superexpansion}
 $$
 
-This postulate is similar to **Inclusion** in [[#2. Belief Revision Theory]] above. It says that revising $B$ by a conjunction may result in, at most, revising by one conjunct and then expanding by the other. Alternatively, you are not permitted to believe more by revising by $\phi \land \psi$ than you would if you simply revised by $\phi$ and then expanded by $\psi$.
+This postulate is similar to **Inclusion** in [[#2. Belief Revision Theory]] above. It says that revising $B$ by a conjunction may result in, at most, revising by one conjunct and then expanding by the other. Alternatively, **you are not permitted to believe more by revising by $\phi \land \psi$ than you would if you simply revised by $\phi$ and then expanded by $\psi$.**
 
 The eighth postulate is called **Subexpansion**:
 
@@ -325,7 +337,7 @@ $$
 \tag{Subexpansion}
 $$
 
-This postulate says that when $B*\phi$ is compatible with $\psi$, expanding by $\psi$ on top of revising by $\phi$ may result in having at most the same beliefs as in the case where you simply revise by the conjunction $\phi \land \psi$. It is very important to appreciate a consequence of these two postulates taken together: if the result of revising by one conjunct, i.e., $B*\phi$, is compatible with the other conjunct $\psi$, then
+This postulate says that **when $B*\phi$ is compatible with $\psi$, expanding by $\psi$ on top of revising by $\phi$ may result in having at most the same beliefs as in the case where you simply revise by the conjunction $\phi \land \psi$.** It is very important to appreciate a consequence of these two postulates taken together: if the result of revising by one conjunct, i.e., $B*\phi$, is compatible with the other conjunct $\psi$, then
 
 $$
 B*(\phi \land \psi) = (B*\phi) + \psi
@@ -335,7 +347,7 @@ That is, revising by the conjunction of the two is exactly the same as revising 
 
 1. The equality above is not affected by the order of the conjuncts, i.e., by whether we revise by $\phi \land \psi$ or $\psi \land \phi$. The reason is that $B*(\phi \land \psi) = B*(\psi \land \phi)$ as a result of **Congruence**, since $Cn(\phi \land \psi) = Cn(\psi \land \phi)$.
 2. The requirement that $B*\phi$ (or $B*\psi$) is compatible with $\psi$ (or $\phi$) is crucial. For if $B*\phi \vdash \neg \psi$, we would have that $B*(\phi \land \psi) \neq \mathcal{L}$ as a result of **Consistency**, but $(B*\phi)+\psi = \mathcal{L}$. Here is why:
-	1. $(B*\phi)+\psi = Cn((B*\phi) \cup \{ \psi \})$ by definition.
+	1. $(B*\phi)+\psi = Cn((B*\phi) \cup \{ \psi \})$.
 	2. Obviously, $B*\phi \subseteq (B*\phi) \cup \{ \psi \}$.
 	3. By the monotonicity of $Cn$, $Cn(B*\phi) \subseteq Cn((B*\phi) \cup \{ \psi \})$.
 	4. $\neg \psi \in Cn(B*\phi)$ *ex hypothesi*, while $\psi \in Cn((B*\phi) \cup \{ \psi \})$ by the reflexivity of $Cn$.
@@ -344,7 +356,7 @@ That is, revising by the conjunction of the two is exactly the same as revising 
 > [!info]- Why We Need the Supplementary Postulates
 > You might wonder why we bother with these two extra rules. The answer lies in the Completeness Result we mentioned earlier. 
 > 
-> The first six postulates only guarantee a “weak” kind of revision (called *partial meet revision*). As we will see, the mathematical structures that allow us to encode these belief revision rules are ordered structures. As we will see, by adding **Superexpansion** and **Subexpansion** we enforce a strict, transitive order on our beliefs. That is, adding the supplementary postulates allows us to prove that AGM-rational revision corresponds exactly to elegant semantic structures, such as a system of concentric spheres (where we fall back to the “closest” possible worlds when revising) or an epistemic entrenchment ordering (where we always sacrifice our least valuable beliefs first).
+> The first six postulates only guarantee a “weak” kind of revision (called *partial meet revision*). As we will see, the mathematical structures that allow us to encode these belief revision rules are ordered structures. As we will see, by adding **Superexpansion** and **Subexpansion** we enforce a strict, transitive order on our beliefs. That is, **adding the supplementary postulates allows us to prove that AGM-rational revision corresponds exactly to elegant semantic structures, such as a system of concentric spheres** (where we fall back to the “closest” possible worlds when revising) or an epistemic entrenchment ordering (where we always sacrifice our least valuable beliefs first).
 
 ## 2.2. Derivative Rules of AGM
 
@@ -406,18 +418,16 @@ B*(\phi_{1} \lor \phi_{2}) \text{ is equal to } B*\phi_{1} \text{, or } B*\phi_{
 \tag{Disjunctive Factoring}
 $$
 
-# 3. Ordered Structures
+# 3. Exercises
 
-# 4. Exercises
+Solutions are provided [[RG FormEp - Session 1 (Solutions)|here]]
 
-Solutions (to some exercises) are provided [[RG FormEp - Session 1 (Solutions)|here]]
-
-## 4.1. Exercises: Formal Preliminaries
+## 3.1. Exercises: Formal Preliminaries
 
 **1.** Prove [[#^41852b]] (i.e., that classical semantic consequence $\vdash$ is reflexive, transitive, and monotonic).
 **2.** Prove [[#^db37aa]] (i.e., that the classical consequence operator $Cn$ satisfies reflexivity, transitivity, monotonicity, and idempotence).
 
-## 4.2. Exercises: Consequence Relations and Consequence Operators
+## 3.2. Exercises: Consequence Relations and Consequence Operators
 
 **3.** The properties of consequence relations $\triangleright$ and consequence operators $C$ are not all logically independent. Explore their logical interactions by proving the following claims:
 
@@ -425,7 +435,8 @@ Solutions (to some exercises) are provided [[RG FormEp - Session 1 (Solutions)|h
 2. **Monotonicity + Idempotence $\implies$ Transitivity:** For a consequence operator $C$, prove that if $C$ is monotonic and idempotent, then $C$ is transitive.
 3. **Reflexivity + Transitivity $\implies$ Idempotence:** For a consequence operator $C$, prove that if $C$ is reflexive and transitive, then $C$ is idempotent.
 4. **Reflexivity + Monotonicity $\cancel{\implies}$ Transitivity:** Provide a counterexample (e.g., a restricted consequence operator on $\mathcal{L}$) that is reflexive and monotonic, but fails to be transitive.
-5. (*N.b.*, 4 implies that **Reflexivity + Monotonicity \cancel{ \implies } Idempotence**.)
+
+(*N.b.*, 4 implies that **Reflexivity + Monotonicity \cancel{ \implies } Idempotence**.)
 
 **4. Cumulative Transitivity and Non-Monotonicity.** As established in Exercise 3.1, standard transitivity is sufficiently strong that, when paired with reflexivity, it entails monotonicity. Consequently, it is theoretically useful to identify a weaker formulation of transitivity that does not entail monotonicity in the presence of reflexivity. This allows for the formal study of non-monotonic consequence relations – such as those modeling default reasoning, where acquiring new information may lead to the retraction of prior conclusions – without reducing the consequence operator to mere reflexivity. Consider the property of Cumulative Transitivity. 
 
@@ -445,7 +456,7 @@ Explore the limits of this property by proving the following:
 2. **Reflexivity + Monotonicity $\implies$ (Transitivity $\iff$ Cut):** Prove this logical equivalence.
 3. **Reflexivity + Monotonicity $\implies$ (Idempotence $\iff$ Cut):** Prove this logical equivalence.
 
-## 4.3. Exercises: Derivative Belief Revision Postulates
+## 3.3. Exercises: Derivative Belief Revision Postulates
 
 **5. Derivative Rules for Revision**. Prove that the derivative rules listed in [[#2.2. Derivative Rules of AGM]] follow from the 8 postulates listed in [[#2. Belief Revision Theory]].
 

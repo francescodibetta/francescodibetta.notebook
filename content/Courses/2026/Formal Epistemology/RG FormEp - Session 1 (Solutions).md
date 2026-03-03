@@ -1,10 +1,10 @@
 ---
 title: Session 1 - Solutions to Exercises
 description:
-draft: true
+draft: false
 parental-note:
-pdf:
-share_pdf: false
+pdf: RG FormEp - Session 1 (Solutions).pdf
+share_pdf: true
 tags:
 ---
 
@@ -67,7 +67,7 @@ However, $C$ fails Transitivity. Let $\Gamma = \{p\}$. Then $C(\Gamma) = \{p, \n
 > [!NOTE]- **Reflexivity + Monotonicity $\cancel{ \implies }$ Idempotence**
 > This is directly shown in the example above, but it also follows from (3).
 
-## ==Exercise 4==
+# ==Exercise 4==
 
 **Exercise:**
 1. **Reflexivity + Cut + Idempotence $\cancel{\implies}$ Monotonicity:** Provide a counterexample demonstrating that a consequence relation $\triangleright$ (or operator $C$) can be reflexive, cumulatively transitive, and idempotent, yet fail to be monotonic.
@@ -76,7 +76,18 @@ However, $C$ fails Transitivity. Let $\Gamma = \{p\}$. Then $C(\Gamma) = \{p, \n
 
 **Solution**: 
 
-==**1.**==
+**1. Reflexivity + Cut + Idempotence $\cancel{\implies}$ Monotonicity:** Let $\mathcal{L}$ be a standard propositional language. Define a consequence operator $C$ such that: 
+
+* If $\Gamma$ is consistent, $C(\Gamma) = Cn(\Gamma)$ (where $Cn$ is classical consequence). 
+* If $\Gamma$ is inconsistent, $C(\Gamma) = \Gamma$.
+
+**Reflexivity:** $C$ is reflexive because $Cn$ is reflexive (so $\Gamma \subseteq Cn(\Gamma)$) and trivially $\Gamma \subseteq \Gamma$. 
+
+**Idempotence:** If $\Gamma$ is consistent, $Cn(\Gamma)$ is consistent, so $C(C(\Gamma)) = C(Cn(\Gamma)) = Cn(Cn(\Gamma)) = Cn(\Gamma) = C(\Gamma)$. If $\Gamma$ is inconsistent, $C(C(\Gamma)) = C(\Gamma) = \Gamma$. Thus, $C$ is idempotent. 
+
+**Cut:** Suppose $\Gamma \subseteq \Delta \subseteq C(\Gamma)$. If $\Gamma$ is consistent, then $C(\Gamma) = Cn(\Gamma)$. Since $\Delta \subseteq Cn(\Gamma)$, $\Delta$ must also be consistent. Therefore, $C(\Delta) = Cn(\Delta)$. Since $Cn$ satisfies Cut, $Cn(\Delta) \subseteq Cn(\Gamma)$, meaning $C(\Delta) \subseteq C(\Gamma)$. If $\Gamma$ is inconsistent, $C(\Gamma) = \Gamma$. The assumption $\Gamma \subseteq \Delta \subseteq \Gamma$ implies $\Gamma = \Delta$. Thus $C(\Delta) = C(\Gamma)$, which satisfies $C(\Delta) \subseteq C(\Gamma)$. 
+
+**Failure of Monotonicity:** Let $\Gamma = \{p\}$ and $\Delta = \{p, \neg p\}$. $\Gamma$ is consistent, so $C(\Gamma) = Cn(\{p\})$, which contains $p \lor q$. $\Delta$ is inconsistent, so $C(\Delta) = \Delta = \{p, \neg p\}$. We have $\Gamma \subseteq \Delta$, but $p \lor q \in C(\Gamma)$ and $p \lor q \notin C(\Delta)$. Thus, $C(\Gamma) \not\subseteq C(\Delta)$, meaning $C$ is not monotonic.
 
 **2. Reflexivity + Monotonicity $\implies$ (Transitivity $\iff$ Cut)**. Suppose that $C$ satisfies reflexivity and monotonicity. 
 
