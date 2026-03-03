@@ -43,10 +43,10 @@ Belief revision theory allows us to discuss such cases in a very general way and
 
 ^6675a2
 
-The reason this kind of result is valuable is that it essentially tells us that building a belief revision theory by fixing which rules of belief revision are correct ($R_{1},R_{2},\dots,R_{n}$) *or* defining a certain mathematical structure of kind $S$ to interpret a given logical language are basically the same thing. That is, the set of rules $R_{1},R_{2},\dots,R_{n}$ and the structure of kind $S$ will agree exactly on the predictions they make about whether a certain belief change is rational as a result of what you learned.
+Why should we study these kinds of results?
 
-> [!note]+
-> For those of you who are not really interested in epistemology and the philosophy we can do with belief revision theory, this course could still be useful. After all, belief revision theory is a piece of logic/mathematics with a clear worldly interpretation on it. So, this should be a fairly achievable exercise in mathematical reasoning and proving.
+1. One reason is that representation theorems demonstrate a formal equivalence between axiomatic and semantic approaches. Specifying correct belief revision rules ($R_{1}, R_{2}, \dots, R_{n}$) and defining a mathematical structure of kind $S$ to interpret a logical language amount to the same theoretical commitment. The rule set $R_{1}, R_{2}, \dots, R_{n}$ and the structure $S$ yield identical predictions regarding the rationality of a given belief change.
+2. This presupposes, of course, that studying belief revision is itself worthwhile. There are two primary reasons why it is. First, the rules of belief revision govern rational outright belief in the same way probability theory governs rational credence. For those interested in the epistemic rationality of full belief, this framework is indispensable. Second, even for those less interested in epistemology, studying these results provides an opportunity to apply mathematical logic to a domain where the formalism retains a strong intuitive grip – namely, modeling rational agents who accept and retract beliefs upon acquiring new information.
 
 # 1. Formal Preliminaries
 
@@ -81,12 +81,12 @@ Next, we need to define the semantics for our language. As is standard, we can t
 
 ^e1e724
 
-> [!warning] Sentences: Two Ways of Referring to Them
-> As you already know, there are two ways in which we may make reference to a proposition $\phi$. First, as a syntactic object in $\mathcal{L}$. This is the most obvious way, given [[#^e1e724]]. However, another way of referring to a proposition is by considering its “truth-set”, i.e., the set of worlds at which the sentence is true. Let $\textlbrackdbl \cdot \textrbrackdbl$ be a function that takes a sentence $\phi\in \mathcal{L}$ and maps it to its truth-set $\textlbrackdbl \phi \textrbrackdbl\subseteq W$, that is:
+> [!warning] Sentences and Propositions
+> As you already know, there are two ways in which we may make reference to a sentence $\phi$. First, as a syntactic object in $\mathcal{L}$. This is the most obvious way, given [[#^e1e724]]. However, another way of referring to a sentence is by considering its “truth-set”, i.e., the set of worlds at which the sentence is true. Let $\textlbrackdbl \cdot \textrbrackdbl$ be a function that takes a sentence $\phi\in \mathcal{L}$ and maps it to its truth-set $\textlbrackdbl \phi \textrbrackdbl\subseteq W$, that is:
 >$$
 > \textlbrackdbl \phi \textrbrackdbl := \{ w \in W: w \models \phi \}
 >$$
-> These two ways are not “equivalent”, in the sense that $\textlbrackdbl  \cdot\textrbrackdbl$ “looses” some information. For instance, consider that while $\neg(\neg p_{1}\land \neg p_{2})$ and $p_{1} \lor p_{2}$ are different objects in $\mathcal{L}$, $\textlbrackdbl \neg(\neg p_{1}\land \neg p_{2}) \textrbrackdbl=\textlbrackdbl p_{1} \lor p_{2} \textrbrackdbl$.
+> Usually, when philosophers talk about **propositions** rather than sentences, they refer to what we formalize through a truth-set (in a way, the truth-set of $\phi$ is the “content” of $\phi$). Note that propositions and sentences are not the same thing, and also they are not “equivalent”, in the sense that $\textlbrackdbl  \cdot\textrbrackdbl$ “looses” some information. For instance, consider that while $\neg(\neg p_{1}\land \neg p_{2})$ and $p_{1} \lor p_{2}$ are different objects in $\mathcal{L}$, $\textlbrackdbl \neg(\neg p_{1}\land \neg p_{2}) \textrbrackdbl=\textlbrackdbl p_{1} \lor p_{2} \textrbrackdbl$.
 
 Before moving on, let me make an important remark regarding the cardinality of $W$. As we will see, how many worlds are in $W$ will make a difference when doing belief revision theory. 
 
@@ -101,7 +101,7 @@ $$
 B *\phi
 $$
 
-Clearly, we need more information to decide what should actually be in $B* \phi$ (given the initial content of $B$). To do so, however, we first need to clarify what *belief sets* are, given that they are not just any arbitrary subset of $\mathcal{L}$. This is exactly why we need the notion of logical consequence.
+Clearly, we need more information to decide what should actually be in $B* \phi$ (given the initial content of $B$). To do so, however, we first need to clarify what *belief sets* are, given that they are not just any subset of $\mathcal{L}$. This is exactly why we need the notion of logical consequence.
 
 In general, we define logical consequence based on the formal work done in [[#1. Formal Preliminaries]] as follows.
 
@@ -116,8 +116,7 @@ In general, we define logical consequence based on the formal work done in [[#1.
 Note that:
 
 1. [[#^38e024]] may be extended, with a slight abuse of notation, to include the consequence relation between a set of formulas $\Gamma$ and a sentence $\phi$, i.e., $\Gamma \vdash \phi$. We do this by requiring that $\Gamma \vdash \phi$ iff $\phi$ is true at all the worlds $w$ which satisfy *all* the sentences $\gamma\in \Gamma$.
-2. I distinguish the satisfaction ($\models$) and consequence ($\vdash$) relations symbolically. We won't need a third relation for syntactic deducibility (which is what $\vdash$ usually denotes, strictly speaking), so we will use $\vdash$ for semantic consequence here to keep things simple.
-3. The notion of logical consequence defined above does not make $\vdash$ relative to a specific model $\mathcal{M}$, thus doing away with the need to distinguish between $\Gamma \vdash_{\mathcal{M}} \phi$ and $\Gamma \vdash \phi$. This is not a problem because we won't need such fine-grained distinctions between specific models. We would want this extra degree of freedom if we cared to distinguish what follows from a restricted set of worlds compared to another. But here, we care about what follows with respect to the set of **all possible worlds** $W$ – see [[#^e1e724]]. Note, however, that we are not confining ourselves to a single, restricted model $\mathcal{M}$ (which would make the discussion lack generality). Because our $W$ includes *all* possible interpretations, we might think of it as a “super model” $\mathcal{M}^{*}$. One can easily prove that: (1) $\mathcal{M}^{*}\models \phi$ iff $\phi$ is a tautology; and (2) $\phi \vdash_{\mathcal{M}^{*}}\psi$ iff $\psi$ is a logical consequence of $\phi$.
+2. I distinguish the satisfaction ($\models$) and consequence ($\vdash$) relations symbolically. We won't need a third relation for syntactic deducibility (which is what “$\vdash$” usually denotes, strictly speaking), so we will use $\vdash$ for semantic consequence here to keep things simple.
 
 When doing belief revision theory, we will frequently use a *consequence operator* $Cn$ instead of a consequence relation, as it makes it easier to express certain properties in a concise and brief way. Note that $Cn$ and $\vdash$ are inter-definable. Since we started with $\vdash$, we take it as basic and define $Cn$ in terms of $\vdash$.
 
@@ -140,9 +139,9 @@ Now, we can finally define what a belief set is.
 
 ^a62a38
 
-In other words, belief sets are not just any sets of sentences, but they are sets of sentences “closed under logical entailment”. We usually explain this requirement by saying that logical closure is—in this context—the “mark of rationality”. That is, a rational agent (as modeled in this simplified setting) is an agent that believes all the logical consequences of what they believe. However, this might not be perfectly right. For instance, let $B'=\{\phi, \psi, \neg(\phi \lor \psi)\}$ for some $\phi,\psi\in \mathcal{L}$. The belief set representing our agent here would be $B:=Cn(B')$. But what is $B$ then? Would we say that it represents a rational agent?
+In other words, belief sets are not just any sets of sentences, but they are sets of sentences “closed under logical entailment”. We usually explain this requirement by saying that logical closure is—in this context—the “mark of rationality”. That is, a rational agent (as modeled in this simplified setting) is an agent that believes all the logical consequences of what they believe. 
 
-There are three important properties of the logical consequence relation (and of the logical consequence operator) that we will use later on, which I define below.
+Logical consequence has many important properties, independently of whether we represent it via $Cn$ or $\vdash$. In the following, I will introduce some of them. I will first define some of them in general terms (i.e., for arbitrary consequence relation $\triangleright$ and consequence operation $C$).
 
 > [!def]+ Reflexivity of $\triangleright$
 > Let $\triangleright$ be a consequence relation on $\mathcal{L}$. $\triangleright$ is reflexive iff:
@@ -180,14 +179,16 @@ Note that these properties of the consequence relation correspond to analogous p
 
 ^db37aa
 
-Note also that $\vdash$ has another crucially important property, called **Compactness**.
+`bproof` It is possible to prove this result from [[#^41852b]] and [[#^ba4d33]]. `eproof`
 
-> [!proposition]+ Compactness
-> Let $\vdash$ be the consequence relation defined in [[#^38e024]]. $\vdash$ is compact, that is:
-> $$
-> \Gamma \vdash \phi \implies \exists\Gamma_{fin}\subseteq \Gamma \text{ such that } \Gamma_{fin} \vdash \phi
-> $$
-> (where $\Gamma_{fin}$ is a finite subset of $\Gamma$).
+The classical consequence relation $\vdash$ has other important properties
+
+> [!proposition]+
+> Let $\vdash$ be the consequence relation defined in [[#^38e024]]. The following properties hold for $\vdash$.
+> 
+> 1. **Compactness**: $\Gamma \vdash \phi \implies \exists\Gamma_{fin}\subseteq \Gamma \text{ such that } \Gamma_{fin} \vdash \phi$, where $\Gamma_{fin}$ is a finite subset of $\Gamma$.
+> 2. **Deduction Theorem**: If $\Gamma \cup \{ \phi \} \vdash \psi$, then $\Gamma \vdash \phi \rightarrow \psi$.
+> 3. **Disjunction in the Premises**: If $\Gamma \cup \{ \phi_{1} \} \vdash \psi$ and $\Gamma \cup \{ \phi_{2} \}\vdash \psi$, then $\Gamma \cup \{ \phi_{1}\lor \phi_{2} \}\vdash \psi$.
 
 The proof of compactness is mathematically a bit more involved (I have prepared a [[Compactness|supplementary note]] on this that we can discuss separately if you are interested!). 
 
@@ -197,20 +198,32 @@ Now we are ready to introduce belief revision theory.
 
 # 2. Belief Revision Theory
 
-The best way to introduce this topic is by considering a specific belief revision theory, usually called “AGM” after the scholars who introduced it in 1985—Alchourrón, Gärdenfors, and Makinson. I will introduce AGM “proof-theoretically” first, that is, by stating the 6 simple rules (or postulates) that determine the behavior of an “AGM-rational” agent. Then, I will explain which structures we may use to represent these agents semantically. The main target of this section is to prove AGM's completeness result—see [[#^6675a2]].
+The best way to get a feel for this topic is by diving into the most famous framework for belief change: **AGM theory**. Named after the three scholars who introduced it in 1985—Carlos Alchourrón, Peter Gärdenfors, and David Makinson—it is essentially the gold standard in the field! 
 
-> [!NOTE]+ Disclaimer
-> It is important to tell apart logico-mathematical results (e.g., the completeness result below) from philosophical claims. Saying that AGM's postulates of belief revision correspond to a certain mathematical structure is a (necessarily true and uncontroversial) logico-mathematical claim, whereas saying that AGM-rationality *is* rationality is a (maybe true, maybe not, certainly controversial) philosophical claim.
+I'll start by introducing AGM axiomatically. This simply means we'll look at the basic rules (or postulates) that describe how an ideally rational agent—let's call them an “AGM-rational” agent—ought to update their beliefs. After that, we'll explore the semantic structures we use to actually model these agents. Our main goal here is to build up to AGM's famous completeness result (see [[#^6675a2]]).
 
-We need six (more precisely, eight) rules to pin down AGM. From now on, I will use $B$ to pick out any belief set, as defined in [[#^a62a38]]. Recall that $\phi$ is a variable for some sentence in $\mathcal{L}$, and that $*$ is the belief revision operator introduced above.
+> [!info] A Quick Heads-Up: Mathematics vs. Philosophy
+> As we go through this, it's really important to separate the hard math from the philosophical interpretations. For instance, proving that the AGM postulates perfectly correspond to a specific mathematical structure is a solid, uncontroversial mathematical theorem. However, claiming that this formal “AGM-rationality” is exactly how humans *should* think is a philosophical claim—and a highly debated one!
 
-The first postulate is called **Closure**:
+To pin down the AGM framework, we need six basic rules (plus two extra ones for handling iterated changes later). These rules govern what we call a **revision function**, written formally as:
+
+$$*: \mathbf{B}\times \mathcal{L}\to \mathbf{B}$$ 
+
+In plain English, $*$ is just a function that takes your initial belief set $B$ (from the collection of all possible belief sets, $\mathbf{B}$) and a new piece of information $\phi$ (a sentence from our language $\mathcal{L}$), and gives you back a brand-new, revised belief set: $B*\phi$.
+
+The very first rule is called **Closure**:
 
 $$
-B*\phi = Cn(B*\phi) \tag{Closure}
+B*\phi \text{ is a belief set} \tag{Closure}
 $$
 
-and it has a rather straightforward meaning. The process of revising a belief set $B$ by $\phi$ (i.e., $B* \phi$) should result in a new belief set (which, by definition, must be logically closed). However, we should pay special attention an immediate mathematical consequence of **Closure**.
+This has a very straightforward meaning: when you revise your beliefs, you shouldn't end up with a fragmented, messy pile of isolated sentences. You should always arrive at a new, stable epistemic state that is logically closed. 
+
+*(You might be thinking: “Wait, isn't this redundant if we already defined $*$ as a function that outputs a belief set?” Mathematically, yes! But we state it explicitly as an axiom to ensure this property of revision independently of the definition of $*$ as some kind of function.)*
+
+Also, keep in mind that the AGM axioms do not single out just *one* unique way to revise beliefs. Knowing the rules of logic alone isn't enough to tell us exactly what ends up inside $B*\phi$ for a specific agent. The postulates merely set the boundary lines for what counts as a “rational” change. As we clarified earlier (see [[#^7ac357]]), to figure out the exact output of a revision, we have to bring in extra-logical information—like how strongly the agent values, or “entrenches,” their specific beliefs!
+
+Finally, consider the following mathematical consequence of **Closure**.
 
 > [!NOTE]+ (1) **Closure** Implies that Every Belief Set Contains all Tautologies
 > It is a trivial mathematical truth that $\emptyset \subseteq B$, where $B$ is a belief set. However, this has an important consequence given the fact that classical logical consequence is monotonic. For it follows by monotonicity that, since $\emptyset \subseteq B$, then $Cn(\emptyset) \subseteq Cn(B)$. Since $B$ is a belief set, we know $Cn(B) = B$, which means $Cn(\emptyset) \subseteq B$. But what exactly is $Cn(\emptyset)$?
@@ -225,7 +238,9 @@ and it has a rather straightforward meaning. The process of revising a belief se
 > 
 > Therefore, any belief set $B$ logically contains all the propositional tautologies.
 
-Also, note that, given **Closure** and the properties of $\vdash$ (and $Cn$), saying $B\vdash \phi$ (or $\phi\in Cn(B)$) is exactly the same as saying $\phi\in B$. The second postulate is called **Success**:
+Also, note that, given **Closure** and the properties of $\vdash$ (and $Cn$), saying $B\vdash \phi$ (or $\phi\in Cn(B)$) is exactly the same as saying $\phi\in B$. 
+
+The second postulate is called **Success**:
 
 $$
 \phi \in B*\phi \tag{Success}
@@ -397,15 +412,22 @@ $$
 
 Solutions (to some exercises) are provided [[RG FormEp - Session 1 (Solutions)|here]]
 
+## 4.1. Exercises: Formal Preliminaries
+
 **1.** Prove [[#^41852b]] (i.e., that classical semantic consequence $\vdash$ is reflexive, transitive, and monotonic).
 **2.** Prove [[#^db37aa]] (i.e., that the classical consequence operator $Cn$ satisfies reflexivity, transitivity, monotonicity, and idempotence).
+
+## 4.2. Exercises: Consequence Relations and Consequence Operators
+
 **3.** The properties of consequence relations $\triangleright$ and consequence operators $C$ are not all logically independent. Explore their logical interactions by proving the following claims:
 
 1. **Reflexivity + Transitivity $\implies$ Monotonicity:** Prove that if a consequence relation $\triangleright$ (or operator $C$) is reflexive and transitive, it must necessarily be monotonic.
 2. **Monotonicity + Idempotence $\implies$ Transitivity:** For a consequence operator $C$, prove that if $C$ is monotonic and idempotent, then $C$ is transitive.
-3. **Reflexivity + Monotonicity $\cancel{ \implies }$ Transitivity:** Provide a counterexample (e.g., a custom, restricted consequence relation or operator) that is reflexive and monotonic, but fails to be transitive.
+3. **Reflexivity + Transitivity $\implies$ Idempotence:** For a consequence operator $C$, prove that if $C$ is reflexive and transitive, then $C$ is idempotent.
+4. **Reflexivity + Monotonicity $\cancel{\implies}$ Transitivity:** Provide a counterexample (e.g., a restricted consequence operator on $\mathcal{L}$) that is reflexive and monotonic, but fails to be transitive.
+5. (*N.b.*, 4 implies that **Reflexivity + Monotonicity \cancel{ \implies } Idempotence**.)
 
-**4. Cumulative Transitivity and Non-Monotonicity.** As you proved in 3.1, standard Transitivity is so strong that, when paired with Reflexivity, it forces Monotonicity. If we want to build a *non-monotonic* logic (e.g., to model default reasoning where learning new facts can make us drop previous conclusions), we must replace standard Transitivity with a weaker version. 
+**4. Cumulative Transitivity and Non-Monotonicity.** As established in Exercise 3.1, standard transitivity is sufficiently strong that, when paired with reflexivity, it entails monotonicity. Consequently, it is theoretically useful to identify a weaker formulation of transitivity that does not entail monotonicity in the presence of reflexivity. This allows for the formal study of non-monotonic consequence relations – such as those modeling default reasoning, where acquiring new information may lead to the retraction of prior conclusions – without reducing the consequence operator to mere reflexivity. Consider the property of Cumulative Transitivity. 
 
 > [!def]+ Cumulative Transitivity (Cut)
 > A consequence relation $\triangleright$ is cumulatively transitive iff:
@@ -417,6 +439,14 @@ Solutions (to some exercises) are provided [[RG FormEp - Session 1 (Solutions)|h
 >\text{For all } \Gamma,\Delta \subseteq \mathcal{L}:\quad \text{ if }\quad \Gamma \subseteq \Delta \subseteq C(\Gamma),\quad \text{ then } \quad C(\Delta)\subseteq C(\Gamma)
 >$$
 
-Provide a counterexample demonstrating that a consequence relation $\triangleright$ (or operator $C$) can be both **Reflexive** and **Cumulatively Transitive** (and even Idempotent!), but still fail to be **Monotonic**.
+Explore the limits of this property by proving the following:
 
-5. [Other exercises to be added]
+1. **Reflexivity + Cut + Idempotence $\cancel{\implies}$ Monotonicity:** Provide a counterexample demonstrating that a consequence relation $\triangleright$ (or operator $C$) can be reflexive, cumulatively transitive, and idempotent, yet fail to be monotonic.  
+2. **Reflexivity + Monotonicity $\implies$ (Transitivity $\iff$ Cut):** Prove this logical equivalence.
+3. **Reflexivity + Monotonicity $\implies$ (Idempotence $\iff$ Cut):** Prove this logical equivalence.
+
+## 4.3. Exercises: Derivative Belief Revision Postulates
+
+**5. Derivative Rules for Revision**. Prove that the derivative rules listed in [[#2.2. Derivative Rules of AGM]] follow from the 8 postulates listed in [[#2. Belief Revision Theory]].
+
+**6. Derivative Rules: Rational Monotony**. Prove that if we replace $\phi$ with a tautology $\top$ in Rational Monotony (see [[#2.2. Derivative Rules of AGM]]), it becomes logically equivalent to the Preservation rule.
