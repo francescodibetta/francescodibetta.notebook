@@ -76,7 +76,7 @@ export const defaultContentPageLayout: PageLayout = {
     localGraph: {
    	drag: true, // Allow moving nodes
     	zoom: true,
-    	depth: 2, // Only show direct neighbors (cleaner)
+    	depth: 3, // Only show direct neighbors (cleaner)
     	scale: 1.1,
     	repelForce: 0.5,
     	centerForce: 0.3,
@@ -89,7 +89,7 @@ export const defaultContentPageLayout: PageLayout = {
   globalGraph: {
     drag: true,
     zoom: true,
-    depth: 1,
+    depth: -1,
     scale: 0.9,
     repelForce: 0.5,
     centerForce: 0.3,
