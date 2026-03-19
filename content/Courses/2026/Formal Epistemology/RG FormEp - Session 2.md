@@ -1,7 +1,7 @@
 ---
 title: Session 2
 description: Introduction to Belief Revision Theory
-draft: true
+draft: false
 parental-note: "[[Courses/2026/Formal Epistemology/index]]"
 pdf: RG FormEp - Session 2.pdf
 share_pdf: true
