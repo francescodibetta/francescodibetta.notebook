@@ -48,6 +48,8 @@ Why should we study these kinds of results?
 1. One reason is that representation theorems demonstrate a formal **equivalence between axiomatic and semantic approaches**. Specifying correct belief revision rules ($R_{1}, R_{2}, \dots, R_{n}$) and defining a mathematical structure of kind $S$ to interpret a logical language amount to the same theoretical commitment. The rule set $R_{1}, R_{2}, \dots, R_{n}$ and the structure $S$ yield identical predictions regarding the rationality of a given belief change.
 2. This presupposes, of course, that studying belief revision is itself worthwhile. There are two primary reasons why it is. First, the rules of belief revision govern rational outright belief in **the same way probability theory governs rational credence**. For those interested in the epistemic rationality of full belief, this framework is indispensable. Second, even for those less interested in epistemology, studying these results provides an opportunity to apply mathematical logic to a **domain where the formalism retains a strong intuitive grip** – namely, modeling rational agents who accept and retract beliefs upon acquiring new information.
 
+==@myself: Hanti Lin has a nice section on why representation results are mathematically and philosophically relevant in his "Belief Revision" article in the PhilPapers handbook.==
+
 > [!NOTE]+ Please find a summary of all definitions and propositions discussed in this note here: [[RG FormEp - Session 1 (Summary of Definitions)|link]].
 
 # 1. Formal Preliminaries
@@ -68,6 +70,8 @@ First, let us define a formal language of interest. We will concern ourselves wi
 > 	4. If $\phi \in \mathcal{L}$ and $\psi\in \mathcal{L}$ then $\phi \rightarrow \psi\in \mathcal{L}$.
 > 3. Nothing else is in $\mathcal{L}$.
 
+^3b8651
+
 Note the greek letters $\phi,\psi, \chi,\dots$ are *variables* for the sentences in $\mathcal{L}$, not sentences themselves. $\mathcal{L}$ contains *only* objects like $p, p_{1}, (p_{2} \land p_{124}) \lor \neg p_{17}$, and so on.
 
 Next, we need to define the semantics for our language. As it is standard, we can think of a possible world (or interpretation) simply as an assignment of truth values to our basic propositional variables. Then, we define what it means for any sentence $\phi$ to be true at a world using the satisfaction relation $\models$. As you know, some sentences $\phi$ have a special status: some are true irrespective of the interpretation you consider (i.e., tautologies) and others are false irrespective of the interpretation you consider (i.e., contradictions).
@@ -84,11 +88,11 @@ Next, we need to define the semantics for our language. As it is standard, we ca
 ^e1e724
 
 > [!warning] Sentences and Propositions
-> As you already know, there are two ways in which we may make reference to a sentence $\phi$. First, as a syntactic object in $\mathcal{L}$. This is the most obvious way, given [[#^e1e724]]. However, another way of referring to a sentence is by considering its “truth-set”, i.e., the set of worlds at which the sentence is true. Let $\textlbrackdbl \cdot \textrbrackdbl$ be a function that takes a sentence $\phi\in \mathcal{L}$ and maps it to its truth-set $\textlbrackdbl \phi \textrbrackdbl\subseteq W$, that is:
+> As you already know, there are two ways in which we may make reference to a sentence $\phi$. First, as a syntactic object in $\mathcal{L}$. This is the most obvious way, given [[#^e1e724]]. However, another way of referring to a sentence is by considering its “truth-set”, i.e., the set of worlds at which the sentence is true. Let $[ \cdot ]$ be a function that takes a sentence $\phi\in \mathcal{L}$ and maps it to its truth-set $[ \phi ]\subseteq W$, that is:
 >$$
-> \textlbrackdbl \phi \textrbrackdbl := \{ w \in W: w \models \phi \}
+> [ \phi ] := \{ w \in W: w \models \phi \}
 >$$
-> Usually, when philosophers talk about **propositions** rather than sentences, they refer to what we formalize through a truth-set (in a way, the truth-set of $\phi$ is the “content” of $\phi$). Note that propositions and sentences are not the same thing, and also they are not “equivalent”, in the sense that $\textlbrackdbl  \cdot\textrbrackdbl$ “looses” some information. For instance, consider that while $\neg(\neg p_{1}\land \neg p_{2})$ and $p_{1} \lor p_{2}$ are different objects in $\mathcal{L}$, $\textlbrackdbl \neg(\neg p_{1}\land \neg p_{2}) \textrbrackdbl=\textlbrackdbl p_{1} \lor p_{2} \textrbrackdbl$.
+> Usually, when philosophers talk about **propositions** rather than sentences, they refer to what we formalize through a truth-set (in a way, the truth-set of $\phi$ is the “content” of $\phi$). Note that propositions and sentences are not the same thing, and also they are not “equivalent”, in the sense that $[  \cdot]$ “looses” some information. For instance, consider that while $\neg(\neg p_{1}\land \neg p_{2})$ and $p_{1} \lor p_{2}$ are different objects in $\mathcal{L}$, $[ \neg(\neg p_{1}\land \neg p_{2}) ]=[ p_{1} \lor p_{2} ]$.
 
 Before moving on, let me make an important remark regarding the cardinality of $W$. As we will see, how many worlds are in $W$ will make a difference when doing belief revision theory. 
 
@@ -194,6 +198,8 @@ The classical consequence relation $\vdash$ has other important properties
 > 1. **Compactness**: $\Gamma \vdash \phi \implies \exists\Gamma_{fin}\subseteq \Gamma \text{ such that } \Gamma_{fin} \vdash \phi$, where $\Gamma_{fin}$ is a finite subset of $\Gamma$.
 > 2. **Deduction Theorem**: If $\Gamma \cup \{ \phi \} \vdash \psi$, then $\Gamma \vdash \phi \rightarrow \psi$.
 > 3. **Disjunction in the Premises**: If $\Gamma \cup \{ \phi_{1} \} \vdash \psi$ and $\Gamma \cup \{ \phi_{2} \}\vdash \psi$, then $\Gamma \cup \{ \phi_{1}\lor \phi_{2} \}\vdash \psi$.
+
+^f2862f
 
 `bproof` See [[Compactness]]. `eproof`
 
@@ -315,7 +321,7 @@ $$
 \text{If } Cn(\{ \phi \})=Cn(\{ \psi \}) \text{, then } B*\phi=B*\psi \tag{Congruence}
 $$
 
-and it simply says that, if $\phi$ and $\psi$ are logically equivalent, then revising by $\phi$ is exactly the same as revising by $\psi$. That is, **what you end up believing as a result of revision depends on the *content* of a proposition** (world-theoretically, its truth-set) and not on its syntactic presentation. (This postulate is sometimes called Dalal's Principle of Irrelevance of Syntax). Take a moment to convince yourself that $\phi$ and $\psi$ are logically equivalent in the semantic sense (i.e., $\textlbrackdbl \phi \textrbrackdbl=\textlbrackdbl \psi \textrbrackdbl$) if, and only if, $Cn(\{ \phi \})=Cn(\{ \psi \})$.
+and it simply says that, if $\phi$ and $\psi$ are logically equivalent, then revising by $\phi$ is exactly the same as revising by $\psi$. That is, **what you end up believing as a result of revision depends on the *content* of a proposition** (world-theoretically, its truth-set) and not on its syntactic presentation. (This postulate is sometimes called Dalal's Principle of Irrelevance of Syntax). Take a moment to convince yourself that $\phi$ and $\psi$ are logically equivalent in the semantic sense (i.e., $[ \phi ]=[ \psi ]$) if, and only if, $Cn(\{ \phi \})=Cn(\{ \psi \})$.
 
 This concludes our discussion of the main AGM postulates. The following two rules, usually called the supplementary postulates, are slightly more cumbersome. However, they are necessary for proving the representation theorem, as they will significantly constrain the kind of structure $S$ we will consider.
 

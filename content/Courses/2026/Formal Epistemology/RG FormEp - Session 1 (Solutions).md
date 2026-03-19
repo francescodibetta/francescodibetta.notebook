@@ -2,7 +2,7 @@
 title: Session 1 - Solutions to Exercises
 description:
 draft: false
-parental-note:
+parental-note: "[[RG FormEp - Session 1]]"
 pdf: RG FormEp - Session 1 (Solutions).pdf
 share_pdf: true
 tags:
@@ -67,7 +67,7 @@ However, $C$ fails Transitivity. Let $\Gamma = \{p\}$. Then $C(\Gamma) = \{p, \n
 > [!NOTE]- **Reflexivity + Monotonicity $\cancel{ \implies }$ Idempotence**
 > This is directly shown in the example above, but it also follows from (3).
 
-# ==Exercise 4==
+# Exercise 4
 
 **Exercise:**
 1. **Reflexivity + Cut + Idempotence $\cancel{\implies}$ Monotonicity:** Provide a counterexample demonstrating that a consequence relation $\triangleright$ (or operator $C$) can be reflexive, cumulatively transitive, and idempotent, yet fail to be monotonic.

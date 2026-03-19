@@ -2,9 +2,6 @@
 title: Quartz Site Maintenance Guide
 draft: true
 tags:
-  - quartz
-  - reference
-  - how-to
 ---
 
 # Quartz Site Maintenance Guide
