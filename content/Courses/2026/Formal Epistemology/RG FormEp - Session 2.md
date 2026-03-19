@@ -208,10 +208,10 @@ Our agent firmly believes two conditional "laws" about how the university operat
 Now, let us assume the agent's initial belief set $B$ consists of these two laws, plus the belief that currently no new project is approved ($\neg p$).
 
 $$
-\begin{align}
+\begin{align*}
 B &= Cn(\{L_1, L_2, \neg p\}) \\
 &=Cn(\{ \neg p \land (f \to (h \land l)) \})
-\end{align}
+\end{align*}
 $$
 
 By the **Centeredness** property, the absolute most plausible worlds in $W$ are exactly those inside the truth-set $[B]$. These are the worlds where no project is approved and the laws hold. They sit at the very bottom (the most plausible tier) of our ordering $\preceq_{B}$. 
@@ -355,10 +355,10 @@ Our agent firmly believes two conditional "laws" about how their family operates
 Let us assume the agent's initial belief set $B$ consists of these two laws, plus the belief that the weekend will be ruined by rain ($\neg s$).
 
 $$
-\begin{align}
+\begin{align*}
 B &= Cn(\{L_1, L_2, \neg s\}) \\
 &=Cn(\{ \neg s \land (p \to i) \})
-\end{align}
+\end{align*}
 $$
 
 By the **Centeredness** property, the absolute most plausible worlds in $W$ are exactly those inside the truth-set $[B]$. These are the worlds where it is not sunny and the laws hold.
@@ -564,11 +564,11 @@ $$
 
 Hence, we have that
 $$
-\begin{align}
+\begin{align*}
 B*\phi &= T(\min_{B}([\phi])) \\
 &= T(\min_{B}([\psi])) \\
 &= B*\psi
-\end{align}
+\end{align*}
 $$
 
 **7. Superexpansion.** We must prove that $B * (\phi \land \psi) \subseteq (B * \phi) + \psi$. 
@@ -579,10 +579,10 @@ $$
 $$
 We need to prove that $\chi \in (B * \phi) + \psi$. By definition, $(B * \phi) + \psi = Cn((B * \phi) \cup \{\psi\})$. By the **Deduction Theorem** of classical logic, 
 $$
-\begin{align}
+\begin{align*}
 \chi \in Cn((B*\phi)\cup \{ \psi \}) &\iff \psi \rightarrow \chi \in Cn(B*\phi) \\
 &\iff \psi \rightarrow \chi \in B*\phi
-\end{align}
+\end{align*}
 $$
 
 
@@ -619,10 +619,10 @@ $$
 First, let us establish that $\min_{B}([\phi])\cap[\psi]\neq \emptyset$. By definition, $B*\phi = T(\min_B([\phi]))$. Therefore, our premise means:
 
 $$
-\begin{align}
+\begin{align*}
 \neg\psi \notin T(\min_B([\phi])) &\iff \min_{B}([\phi])\nsubseteq [\psi]^{c} \\
 &\iff \min_{B}([\phi])\cap[\psi]\neq \emptyset
-\end{align}
+\end{align*}
 $$
 Because this intersection is strictly non-empty, we can establish the following identity:
 
