@@ -187,25 +187,25 @@ Informally, the revised belief set $B*\phi$ is exactly the set of sentences $\ps
 
 Before moving to the formal statement of the theorem and the first part of its proof, let us look at a concrete example to see exactly how this semantic revision operator works in practice.
 
-## 2.1. Example One: The Biology Professor
+## 2.1. Example One
 
-Imagine an agent—a biology professor—who is currently waiting to hear whether their new research project will be approved. To model their epistemic state, we can construct a space of possible worlds $W$ using just four propositional variables:
+Imagine a biology professor who is currently waiting to hear whether their new research project will be approved. To model the epistemic state they are in, we can construct a space of possible worlds $W$ using just four propositional variables:
 
 * $p$: The research project is approved.
 * $f$: The project's funding is secured.
 * $h$: Hiring for the project is permitted.
 * $l$: Lab space is allocated.
 
-Our agent firmly believes two conditional "laws" about how the university operates. The first is a university-wide rule, while the second is a departmental rule. Consequently, the agent holds the first law to be significantly "more important" than the second.
+Our agent firmly believes two conditional "laws" about how the university operates. The first is a university-wide rule, while the second is a departmental rule. **Consequently, the agent holds the first law to be significantly "more important" than the second**.
 
 1. **Law 1 (University Policy):** If a project is approved, funding must be secured. 
    $$L_1 := p \to f$$
 2. **Law 2 (Department Practice):** If funding is secured, hiring is permitted and lab space is allocated.
    $$L_2 := f \to (h \land l)$$
 
-**Note:** These "laws" are not necessary, logical truths—you can easily point to logically possible worlds where they fail. Instead, they should be understood as *ceteris paribus* laws, or extremely robust generalizations the professor has come to deeply trust after years of administrative experience.
+**Note:** These "laws" are not necessary, logical truths—you can easily point to logically possible worlds where they fail. Instead, they should be understood as *ceteris paribus* laws, or extremely robust generalizations the professor has come to trust after years of administrative experience.
 
-Now, let us assume the agent's initial belief set $B$ consists of these two laws, plus the belief that currently no new project is approved ($\neg p$).
+Now, let us assume the agent's initial belief set $B$ consists of these two laws, plus the belief that the project is approved ($\neg p$).
 
 $$
 \begin{align*}
@@ -214,9 +214,9 @@ B &= Cn(\{L_1, L_2, \neg p\}) \\
 \end{align*}
 $$
 
-By the **Centeredness** property, the absolute most plausible worlds in $W$ are exactly those inside the truth-set $[B]$. These are the worlds where no project is approved and the laws hold. They sit at the very bottom (the most plausible tier) of our ordering $\preceq_{B}$. 
+By the **Centeredness** property, the most plausible worlds in $W$ are exactly those inside the truth-set $[B]$. These are the worlds where no project is approved and the laws hold. They sit at the very bottom of the ordering $\preceq_{B}$. 
 
-Now, imagine that our biology professor receives an email from the dean with new information $\phi$: the new project has just been approved, but no new hiring is permitted.
+Now, imagine that our biology professor receives an email from the dean with new information $\phi$: the new project has just been approved, **but no new hiring is permitted**.
 
 $$\phi := p \land \neg h$$
 
@@ -224,7 +224,7 @@ Before we dive into the formal mechanics, let us **informally summarize what sho
 
 Let us now see how the formal possible-worlds construction predicts this intuitive result. 
 
-Clearly, $\phi$ is false in $[B]$. Therefore, the most plausible worlds where $\phi$ is true cannot be worlds inside $[B]$, for every world in $[B]$ satisfies $\neg p$, and hence also $\neg\phi$. As a result, our proposed construction requires us to step outside the set of strictly most plausible worlds (i.e., the $B$-worlds). We must move away from the center of the plausibility ordering and inspect the truth-set $[\phi]$.
+Clearly, $\phi$ is false in $[B]$. Therefore, the most plausible worlds where $\phi$ is true cannot be worlds inside $[B]$, for every world in $[B]$ satisfies $\neg p$, and hence $\neg\phi$. As a result, our proposed construction requires us to step outside the set of most plausible worlds (i.e., the $B$-worlds). We must move away from the center of the plausibility ordering and inspect the truth-set $[\phi]$.
 
 First, let us graphically represent the space of possible worlds, highlighting which worlds are in $[B]$ and which are in $[\phi]$:
 
@@ -256,9 +256,9 @@ Notice that in *all* four worlds in $[\phi]=\{ w_3, w_4, w_7, w_8 \}$, at least 
 * In $w_3$ and $w_4$, $L_2$ is flouted, because the funding is secured ($f$) but hiring is *not* permitted ($\neg h$). However, $L_1$ is still true.
 * In $w_7$ and $w_8$, $L_1$ is flouted, because the research project is approved ($p$) but the funding is *not* secured ($\neg f$).
 
-How does the plausibility ordering $\preceq_{B}$ rank these four worlds? This ordering reflects the agent's epistemic priorities. Because $L_1$ is a university-wide mandate, while $L_2$ is merely a local departmental rule, worlds where the university rule $L_1$ holds ($w_3$ and $w_4$) are considered *more plausible* than worlds where $L_1$ fails ($w_7$ and $w_8$). 
+How does the plausibility ordering $\preceq_{B}$ rank these four worlds? We **want this ordering to reflect the agent's expectations**. Because $L_1$ is a university-wide mandate, while $L_2$ is merely a departmental rule, worlds where the university rule $L_1$ holds ($w_3$ and $w_4$) are *more plausible* than worlds where $L_1$ fails ($w_7$ and $w_8$). 
 
-To visualize this, we can map out the relevant tiers of the plausibility ordering. Below, worlds that are equally plausible are piled up vertically. The worlds in $[B]$ sit at the absolute most plausible position on the left, followed by the increasingly less plausible tiers (using $[\dots]$ for intermediate or unranked worlds that are not relevant to our current calculation):
+To visualize this, we can map out the relevant tiers of the plausibility ordering. Below, worlds that are equally plausible are piled up vertically. The worlds in $[B]$ sit at the left, followed by the increasingly less implausible tiers (using $[\dots]$ for intermediate worlds that are not relevant to our current discussion):
 
 $$
 \begin{array}{c}
@@ -269,7 +269,7 @@ $$
 \color{cornflowerblue} w_{15} \\
 \color{cornflowerblue} w_{16} 
 \end{array}
-\quad \preceq_{B} \quad
+\quad \prec_{B} \quad
 \begin{array}{c}
 \\ \\
 \big[ \dots \big] \\ \\ \\
@@ -277,10 +277,10 @@ $$
 \quad \preceq_{B} \quad
 \begin{array}{c}
 \\ \\
-\color{WildStrawberry} w_3 \\
-\color{WildStrawberry} w_4 \\ \\
+\color{orange} w_3 \\
+\color{orange} w_4 \\ \\
 \end{array}
-\quad \preceq_{B} \quad
+\quad \prec_{B} \quad
 \begin{array}{c}
 \\ \\
 \big[ \dots \big] \\ \\ \\
@@ -288,8 +288,8 @@ $$
 \quad \preceq_{B} \quad
 \begin{array}{c}
 \\ \\
-\color{WildStrawberry} w_7 \\
-\color{WildStrawberry} w_8 \\ \\
+\color{orange} w_7 \\
+\color{orange} w_8 \\ \\
 \end{array}
 \quad \preceq_{B} \quad
 \begin{array}{c}
@@ -301,7 +301,7 @@ $$
 \begin{array}{l}
 \textbf{Legend} \\
 \color{cornflowerblue} \blacksquare \;\; \text{Worlds in } [B] \\
-\color{WildStrawberry} \blacksquare \;\; \text{Worlds in } [\phi]
+\color{orange} \blacksquare \;\; \text{Worlds in } [\phi]
 \end{array}
 \end{array}
 $$
@@ -312,7 +312,7 @@ $$
 B * \phi = T(\min_{B}([\phi]))
 $$
 
-1. First, we identify $\min_{B}([\phi])$. Based on our visual ordering, the most plausible worlds that are *actually within* $[\phi]$ are those that preserve the stronger law $L_1$. Thus,
+1. First, we identify $\min_{B}([\phi])$. Based on our ordering, the most plausible worlds*in* $[\phi]$ are those that preserve the stronger law $L_1$. Thus,
 
 $$
 \min_{B}([\phi]) = \{w_3, w_4\}
@@ -324,142 +324,15 @@ $$
 T(\{w_{3}, w_{4}\}) = Cn(\{ p \land f \land \neg h \})
 $$
 
-Therefore, the revised belief set $B * \phi$ encodes the following epistemic attitudes:
+Therefore, **the revised belief set $B * \phi$ encodes the following epistemic attitudes**:
 
-1. The agent believes the project is approved ($p$).
-2. The agent believes that the hiring is *not* permitted ($\neg h$).
-3. The agent believes that the funding is secured ($f$).
-4. The agent suspends judgment on whether the lab space is allocated ($l$ fluctuates between $w_3$ and $w_4$, meaning neither $l$ nor $\neg l$ is logically entailed).
+1. The agent believes the project is approved ($p$) and that hiring is *not* permitted ($\neg h$). This is ne information $\phi$ they received.
+2. The agent believes that the funding is secured ($f$). This is a consequence of $L_{1}$.
+3. The agent suspends judgment on whether the lab space is allocated ($l$ is true at $w_3$ and false at $w_4$, meaning neither $l$ nor $\neg l$ is true across $\min_{B}([\phi]) = \{w_3, w_4\}$).
 
-Note that law $L_2$ has been surrendered to accommodate the new information. 
+Note that **law $L_2$ has been surrendered to accommodate the new information** (i.e., the agent now believes $\neg L_{2}$).
 
-Finally, notice a crucial philosophical feature of this mathematical construction: **the agent is permitted to rationally believe *more* than what the new evidence strictly entails**. The dean's email ($\phi$) only entails $p \land \neg h$. It says absolutely nothing about funding ($f$). Yet, the agent still ends up believing $f$. Why? Because $f$ is true in all the *most plausible* $\phi$-worlds ($w_3$ and $w_4$). By relying on the plausibility ordering $\preceq_B$, the agent leverages their background knowledge to make a rational, inductive leap beyond the evidence.
-
-## 2.2. Example Two: The Weekend Plan
-
-Imagine a teenager planning their weekend. To model their epistemic state, we construct a space of possible worlds $W$ using just three propositional variables:
-
-* $s$: It is sunny outside.
-* $p$: The family goes to the park.
-* $i$: The family buys ice cream.
-
-Our agent firmly believes two conditional "laws" about how their family operates. The first is an explicit promise from the parents, while the second is merely a common habit. Consequently, the agent holds the first law to be significantly more important than the second.
-
-1. **Law 1 (The Promise):** If it is sunny, we go to the park. 
-   $$L_1 := s \to p$$
-2. **Law 2 (The Habit):** If we go to the park, we buy ice cream.
-   $$L_2 := p \to i$$
-
-**Note:** These are *ceteris paribus* laws. They encode conditional expectations, not absolute logical necessities.
-
-Let us assume the agent's initial belief set $B$ consists of these two laws, plus the belief that the weekend will be ruined by rain ($\neg s$).
-
-$$
-\begin{align*}
-B &= Cn(\{L_1, L_2, \neg s\}) \\
-&=Cn(\{ \neg s \land (p \to i) \})
-\end{align*}
-$$
-
-By the **Centeredness** property, the absolute most plausible worlds in $W$ are exactly those inside the truth-set $[B]$. These are the worlds where it is not sunny and the laws hold.
-
-Now, imagine the trigger for revision. The teenager wakes up on Saturday morning to find that the sun is shining brightly ($s$), but their parents immediately tell them that the local ice cream shop is closed for renovations ($\neg i$). 
-
-$$\phi := s \land \neg i$$
-
-**Let us informally summarize what should happen.** The agent started out believing it would not be sunny ($\neg s$) and that both the promise ($L_1$) and the habit ($L_2$) would hold. Upon learning that $s$ and $\neg i$ are true, we want them to revise their beliefs conservatively. They accept $s$ and $\neg i$. To make logical room for this, they retain the strict promise $L_1$ while dropping the weaker habit $L_2$. In other words, the teenager expects they will still go to the park ($p$) because of the promise, but simply accepts that they won't be getting ice cream this time.
-
-Let us see how the formal construction perfectly guarantees this. 
-
-Because $\phi$ entails $s$, it contradicts $[B]$, which strictly entails $\neg s$. We must step outside the most plausible $B$-worlds and inspect the truth-set $[\phi]$. With only three variables, our entire space of worlds $W$ has just 8 possibilities:
-
-$$
-\begin{array}{r|ccccc}
-& s & p & i & \in [B] & \in [\phi] \\
-\hline
-w_{1} & 1 & 1 & 1 & & \\
-w_{2} & 1 & 1 & 0 & & \checkmark \\
-w_{3} & 1 & 0 & 1 & & \\
-w_{4} & 1 & 0 & 0 & & \checkmark \\
-w_{5} & 0 & 1 & 1 & \checkmark & \\
-w_{6} & 0 & 1 & 0 & & \\
-w_{7} & 0 & 0 & 1 & \checkmark & \\
-w_{8} & 0 & 0 & 0 & \checkmark & \\
-\end{array}
-$$
-
-Notice that the new information $\phi$ is true in exactly two worlds: $[\phi]=\{ w_2, w_4 \}$. In both of these worlds, at least one of the initial laws is falsified:
-
-* In $w_2$, habit $L_2$ is flouted, because they go to the park ($p$) but do not get ice cream ($\neg i$). However, the promise $L_1$ is still true.
-* In $w_4$, promise $L_1$ is flouted, because it is sunny ($s$) but they do not go to the park ($\neg p$).
-
-Because the promise ($L_1$) is believed more firmly to the agent than the habit ($L_2$), the plausibility ordering $\preceq_{B}$ dictates that worlds preserving $L_1$ are more plausible than those where $L_1$ fails. Thus, $w_2 \preceq_B w_4$.
-
-We can visualize this highly simplified plausibility ordering as follows:
-
-$$
-\begin{array}{c}
-\begin{array}{c}
-\color{cornflowerblue} w_{5} \\
-\color{cornflowerblue} w_{7} \\
-\color{cornflowerblue} w_{8} \\
-\end{array}
-\quad \preceq_{B} \quad
-\begin{array}{c}
-\\ \\
-\big[ \dots \big] \\ \\ \\
-\end{array}
-\quad \preceq_{B} \quad
-\begin{array}{c}
-\\ \\
-\color{WildStrawberry} w_2 \\ \\ \\
-\end{array}
-\quad \preceq_{B} \quad
-\begin{array}{c}
-\\ \\
-\big[ \dots \big] \\ \\ \\
-\end{array}
-\quad \preceq_{B} \quad
-\begin{array}{c}
-\\ \\
-\color{WildStrawberry} w_4 \\ \\ \\
-\end{array}
-\quad \preceq_{B} \quad
-\begin{array}{c}
-\\ \\
-\big[ \dots \big] \\ \\ \\
-\end{array}
-\\
-\\
-\begin{array}{l}
-\textbf{Legend} \\
-\color{cornflowerblue} \blacksquare \;\; \text{Worlds in } [B] \\
-\color{WildStrawberry} \blacksquare \;\; \text{Worlds in } [\phi]
-\end{array}
-\end{array}
-$$
-
-To compute the new belief set $B * \phi$, we apply our formula:
-
-$$
-B * \phi = T(\min_{B}([\phi]))
-$$
-
-1. First, we identify $\min_{B}([\phi])$. Based on our ordering, the absolute most plausible world within $[\phi]$ is uniquely $w_2$:
-
-$$
-\min_{B}([\phi]) = \{w_2\}
-$$
-
-2. Second, we extract the theory of this single world:
-
-$$
-T(\{w_{2}\}) = Cn(\{ s \land p \land \neg i \})
-$$
-
-The revised belief set correctly yields our intuitive result. The agent believes it is sunny ($s$), believes the ice cream shop is closed ($\neg i$), and **inductively concludes they are still going to the park ($p$).** 
-
-**Philosophical takeaway:** Just like in the complex example, the agent is rationally leaping beyond the evidence. The parents' statement ($\phi$) said nothing about going to the park. Yet, because $p$ is true in the most plausible $\phi$-world, the agent rationally infers it based on their background ordering.
+Finally, notice a crucial philosophical feature of this mathematical construction: **the agent is permitted to rationally believe *more* than what the new evidence strictly entails**. The email ($\phi$) only entails $p \land \neg h$. It says absolutely nothing about funding ($f$). Yet, the agent still ends up believing $f$. Why? Because $f$ is true in all the *most plausible* $\phi$-worlds ($w_3$ and $w_4$).
 
 # 3. The Representation Theorem
 
@@ -479,7 +352,7 @@ Now, it is time to step back up to the theoretical level. The main result we are
 
 ^97e681
 
-# 4. Part One: Soundness
+# 4. Part One: “Soundness”
 
 Let us first prove the Soundness half of the Representation Theorem [[#^97e681]]. This result establishes that our semantic construction $*$ qualifies as a genuinely rational belief revision operator, as it successfully validates all the AGM postulates we discussed in [[RG FormEp - Session 1|Session 1]].
 
