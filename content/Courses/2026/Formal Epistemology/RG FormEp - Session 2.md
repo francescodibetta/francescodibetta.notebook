@@ -95,13 +95,16 @@ With a slight **abuse of notation**, I have extended the function $[\cdot]$ so t
 > \begin{array}{rl}
 > 1. & \phi \vdash \psi \iff [\phi] \subseteq [\psi] \\
 > 2. & \Gamma \subseteq \Delta \implies [\Delta] \subseteq [\Gamma] \\
-> 3. &\Gamma \subseteq \Delta \iff [\Delta] \subseteq [\Gamma] \quad \text{(if } \Delta \text{ is a belief set)}
+> 3. &\Gamma \subseteq \Delta \iff [\Delta] \subseteq [\Gamma] \quad \text{(if } \Delta \text{ is a belief set)}  \\
+> 4. &[Cn(\Gamma \cup \Delta)] = [\Gamma] \cap [\Delta]
 > \end{array}
 > $$
 
 ^e85e7f
 
 `bproof` See [[RG FormEp - Session 2 (Solutions)|the solutions to the exercises]]. `eproof`
+
+
 
 Now, we are ready to see exactly **how to construct the revision operator $*$ using possible worlds**. Let's start with the informal intuition before diving into the formal mathematical construction.
 
@@ -151,6 +154,9 @@ Let us flesh out these properties in a more precise way. Let $B$ be a belief set
 	2. If $w_{1} \in [B]$ and $w_{2} \notin [B]$, then $w_{1} \prec_{B} w_{2}$.
 4. **Limit Assumption**: For any sentence $\phi\in \mathcal{L}$: If $[\phi]\neq \emptyset$, then there exists at least one world $w_{1}\in [\phi]$ such that $w_{1}\preceq_{B} w_{2}$ for all $w_{2}\in [\phi]$.
 
+
+> [!NOTE]+ If $\preceq_{B}$ satisfies (1)-(2), then $\preceq_{B}$ is a total preorder.
+
 Now, before stating and proving our representation theorem, we must clarify how we build $B*\phi$ given our plausibility ordering $\preceq$. The intuitive idea is that when we revise $B$ by $\phi$, the set of sentences $B*\phi$ (i.e., the set of all the ideal agent's beliefs) will be the set of all and only the sentences $\psi$ that are true throughout the most plausible worlds $w$ in $[\phi]$ given $\preceq_{B}$. That is, we want our new belief set to accept the sentence $\phi$, but also to do so in the most parsimonious way possible: we take as the “world basis” for $B*\phi$ all and only those $\phi$-worlds that are most plausible according to our initial belief set $B$.
 
 Define:
@@ -166,7 +172,7 @@ $$
 In other words, $T$ takes a world-base $V$ and returns the set of sentences $\phi\in \mathcal{L}$ that are true in all the worlds in $V$. There are three important properties connecting our semantic sets and our theory function to be aware of:
 
 > [!lemma]+
-> Let $V \subseteq W$ be any set of worlds, and $\Gamma \subseteq \mathcal{L}$ be any set of sentences.
+> Let $V \subseteq W$ be any set of worlds, and $\Gamma,\Delta \subseteq \mathcal{L}$ be any set of sentences.
 >
 > 1. $T(V)$ is a belief set, i.e. $T(V) = Cn(T(V))$.
 > 2. $T([\Gamma]) = Cn(\Gamma)$. Consequently, $T([\Gamma]) = \Gamma \iff \Gamma$ is a belief set.
@@ -354,7 +360,7 @@ Now, it is time to step back up to the theoretical level. The main result we are
 
 # 4. Part One: “Soundness”
 
-Let us first prove the Soundness half of the Representation Theorem [[#^97e681]]. This result establishes that our semantic construction $*$ qualifies as a genuinely rational belief revision operator, as it successfully validates all the AGM postulates we discussed in [[RG FormEp - Session 1|Session 1]].
+Let us first prove the first half of the Representation Theorem [[#^97e681]]. This result establishes that our semantic construction $*$ qualifies as a belief revision operator, for it successfully validates all the AGM postulates we discussed in [[RG FormEp - Session 1|Session 1]].
 
 > [!lemma] Soundness
 > Let $\mathcal{L}$ be the propositional language defined previously and $W$ be the corresponding space of possible worlds. Let $B \subseteq \mathcal{L}$ be a belief set. If $\preceq_B$ is a plausibility ordering on $W$ that satisfies Connectedness, Transitivity, Centeredness, and the Limit Assumption, then the revision operator $*$ defined by:
