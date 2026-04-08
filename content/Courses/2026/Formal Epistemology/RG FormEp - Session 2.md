@@ -572,10 +572,10 @@ By definition, the left side is exactly $B * (\phi \land \psi)$.
 
 Let us evaluate the right side by proving that 
 $$
-\begin{align}
+\begin{align*}
 T(\min_B([\phi]) \cap [\psi]) &= (B * \phi) + \psi \\
 &=Cn(T(\min_B([\phi])) \cup \{\psi\}) && \text{Def. of }+ \text{ and }*
-\end{align}
+\end{align*}
 $$
 We prove this equality by mutual inclusion:
 
@@ -584,10 +584,10 @@ We prove this equality by mutual inclusion:
 **$(\supseteq)$** Obviously $\min_B([\phi]) \cap [\psi] \subseteq \min_B([\phi])$, applying [[#^3c7168]] yields 
 
 $$ 
-\begin{align}
+\begin{align*}
 T(\min_B([\phi])) &\subseteq T(\min_B([\phi]) \cap [\psi]) \\
 B*\phi &\subseteq T(\min_B([\phi]) \cap [\psi]) && \text{Def. of }*
-\end{align}
+\end{align*}
 $$
 Furthermore, it is obviously the case that 
 
@@ -598,12 +598,12 @@ $$
 therefore $\psi \in T(\min_B([\phi]) \cap [\psi])$. Because the right side contains both $B * \phi$ and $\psi$, it must contain their union: $B*\phi \cup \{ \psi \}\subseteq T(\min_B([\phi]) \cap [\psi])$. Since theories are logically closed belief sets (Property 1 of [[#^3c7168]]), it follows that
 
 $$
-\begin{align}
+\begin{align*}
 B*\phi \cup \{ \psi \}&\subseteq T(\min_B([\phi]) \cap [\psi]) \\
 Cn(B*\phi \cup \{ \psi \}) & \subseteq Cn(T(\min_B([\phi]) \cap [\psi])) && \text{Monotonicity of } Cn \\
 (B*\phi)+ \psi & \subseteq Cn(T(\min_B([\phi]) \cap [\psi])) && \text{Def. of } + \\
 (B*\phi)+ \psi & \subseteq T(\min_B([\phi]) \cap [\psi]) && \text{Lemma 4}
-\end{align}
+\end{align*}
 $$
 
 

@@ -14,22 +14,22 @@ tags:
 
 **Part one**. First, we prove the semantic equivalence for single sentences.
 $$
-\begin{align}
+\begin{align*}
 \phi \vdash  \psi & \iff \text{for all } w\in W: w\models  \phi \implies w \models  \psi\\
 & \iff \text{for all } w\in W: w\in [\phi] \implies w \in [\psi] && \text{by def. } w\models \phi \iff w\in [\phi]\\
 & \iff [\phi] \subseteq [\psi] && \text{by def. of } \subseteq
-\end{align}
+\end{align*}
 $$
 
 Next, we prove the same holds between a set of sentences $\Gamma$ and a single sentence $\phi$:
 $$
-\begin{align}
+\begin{align*}
 \Gamma \vdash \phi & \iff \text{for all } w\in W: (\text{if } w \models \gamma \text{ for all } \gamma \in \Gamma \text{, then } w \models \phi) \\
 & \iff \text{for all } w\in W: (\text{if } w \in [\gamma] \text{ for all } \gamma \in \Gamma \text{, then } w \in [\phi]) && \text{by def. of } [\cdot] \\
 & \iff \text{for all } w\in W: w \in \bigcap_{\gamma \in \Gamma} [\gamma] \implies w \in [\phi] && \text{by def. of intersection} \\
 & \iff \text{for all } w\in W: w \in [\Gamma] \implies w \in [\phi] && \text{by def. of } [\Gamma] \\
 & \iff [\Gamma] \subseteq [\phi] && \text{by def. of } \subseteq
-\end{align}
+\end{align*}
 $$
 
 **Part two**. Suppose that $\Gamma \subseteq \Delta$, meaning that every sentence in $\Gamma$ is also in $\Delta$. We can visualize this as:
@@ -82,20 +82,20 @@ Since we have shown $Cn(T(V)) \subseteq T(V)$ and $T(V) \subseteq Cn(T(V))$, we 
 **Part two**. (2a) Let us show that $T([\Gamma])=Cn(\Gamma)$. 
 
 $$
-\begin{align}
+\begin{align*}
 T([\Gamma]) &= \{ \psi\in \mathcal{L} : [\Gamma]\subseteq [\psi] \} && \text{by def. of } T \\
 &=\left\{  \psi\in \mathcal{L} : \bigcap_{\gamma\in \Gamma}[\gamma] \subseteq [\psi]  \right\} && \text{by def. of } [\Gamma]\\
 &=\{ \psi \in \mathcal{L} : \Gamma \vdash  \psi \} && \text{by previous lemma} \\
 &=Cn(\Gamma) && \text{by def. of } Cn
-\end{align}
+\end{align*}
 $$
 
 (2b) Let us show that $T([\Gamma])=\Gamma$ if, and only if, $\Gamma$ is a belief set.
 $$
-\begin{align}
+\begin{align*}
 \Gamma \text{ is a belief set } &\iff \Gamma=Cn(\Gamma) && \text{by def. of belief set}\\
 &\iff \Gamma =T([\Gamma]) && \text{by part (2a)}
-\end{align}
+\end{align*}
 $$
 
 **Part three**. Let us prove that the truth-set function $[\cdot] : \mathcal{P}(\mathcal{L}) \to \mathcal{P}(W)$ is the inverse of the theory function $T:\mathcal{P}(W)\to \mathcal{P}(\mathcal{L})$ if, and only if, the set of propositional variables $\Phi$ for our language $\mathcal{L}$ is finite.

@@ -56,6 +56,7 @@ Before proving the completeness part of the [[RG FormEp - Session 2#^97e681|Repr
 ^b4ff45
 
 `bproof` Let $w \in W$. By definition, $form(w)$ is the conjunction of all literals satisfied by $w$. Let $w' \in W$ be an arbitrary world.
+
 * ($\impliedby$) If $w' = w$, $w'$ assigns the exact same truth values to all propositional variables as $w$. Hence, it satisfies every literal in $form(w)$, meaning $w' \models form(w)$.
 * ($\implies$) If $w' \neq w$, there must be at least one propositional variable $p \in \Phi$ on which they differ. Without loss of generality, suppose $w \models p$ and $w' \not\models p$. Then the literal $p$ is a conjunct in $form(w)$. Since $w' \not\models p$, $w'$ fails to satisfy this conjunct, and therefore $w' \not\models form(w)$. 
 
@@ -100,9 +101,7 @@ Now, let us prove that Connectedness, Transitivity, Centeredness, and the Limit 
 **1. Connectedness**. We must show that for any $w_1, w_2 \in W$, either $w_1 \preceq_B w_2$ or $w_2 \preceq_B w_1$.
 If either $w_1 \in [B]$ or $w_2 \in [B]$, then the condition is trivially satisfied by definition.
 
-Suppose neither world is in $[B]$. Let $\psi = form(\{w_1, w_2\})$. Since $[\psi] = \{w_1, w_2\} \neq \emptyset$, Postulate 5 (Consistency) ensures that $[B * \psi] \neq \emptyset$.
-By Postulate 2 (Success), $B * \psi \vdash \psi$, which semantically means $[B * \psi] \subseteq [\psi] = \{w_1, w_2\}$.
-Because $[B * \psi]$ is a non-empty subset of $\{w_1, w_2\}$, it must contain $w_1$, $w_2$, or both.
+Suppose neither world is in $[B]$. Let $\psi = form(\{w_1, w_2\})$. Since $[\psi] = \{w_1, w_2\} \neq \emptyset$, Postulate 5 (Consistency) ensures that $[B * \psi] \neq \emptyset$. By Postulate 2 (Success), $B * \psi \vdash \psi$, which semantically means $[B * \psi] \subseteq [\psi] = \{w_1, w_2\}$. Because $[B * \psi]$ is a non-empty subset of $\{w_1, w_2\}$, it must contain $w_1$, $w_2$, or both.
 
 1. If $w_1 \in [B * form(\{w_1, w_2\})]$, then $w_1 \preceq_B w_2$.
 2. Suppose that $w_2 \in [B * form(\{w_1, w_2\})]$. Note that $form(\{w_1, w_2\})$ is logically equivalent to $form(\{w_2, w_1\})$. By Postulate 6 (Congruence), logically equivalent formulas yield identical revised belief sets. Thus, $w_2 \in [B * form(\{w_2, w_1\})]$, meaning $w_2 \preceq_B w_1$.
