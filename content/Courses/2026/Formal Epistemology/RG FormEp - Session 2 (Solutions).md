@@ -165,7 +165,15 @@ $$
 w^* \in [T(V)]
 $$
 
-But by our initial definition, $w^* \notin V$. Therefore, $[T(V)]$ contains at least one world that is not in $V$. We have successfully proven that $V \subset [T(V)]$, and thus $[T(V)] \neq V$ when $\Phi$ is countably infinite. *A fortiori*, this result holds for uncountably infinite sets of propositional variables as well. `eproof`
+But by our initial definition, $w^* \notin V$. Therefore, $[T(V)]$ contains at least one world that is not in $V$. We have successfully proven that $V \subset [T(V)]$, and thus $[T(V)] \neq V$ when $\Phi$ is countably infinite. *A fortiori*, this result holds for uncountably infinite sets of propositional variables as well. 
+
+
+**Part four**. Suppose that $V_{1}\subseteq V_{2}$, and let me prove that $T(V_{2})\subseteq T(V_{1})$. Consider an arbitrary $\phi\in T(V_{2})$. By definition, $V_{2}\subseteq [\phi]$. Since *ex hypothesi* $V_{1} \subseteq V_{2}$, we have $V_{1} \subseteq [\phi]$. Therefore, by definition $\phi\in T(V_{1})$. Since $\phi$ is an arbitrary formula in $T(V_{2})$, it follows that 
+$$
+T(V_{2})\subseteq T(V_{1})
+$$
+
+`eproof`
 
 > [!warning]+ Even if $\Phi$ is infinite, $[T(\{ w \})] = \{ w \}$
 > You might wonder why taking the theory of a *single* world doesn't suffer from the same "loss of information." The reason is that $T(\{ w \})$ is an *infinite set* of formulas. It contains the literal $l_{w}(p)$ for every single $p \in \Phi$. Even though we cannot construct a single finite atom $\alpha(w)$ because the variables are infinite, the individual literals $l_{w}(\cdot)$ are all independently captured inside the set $T(\{ w \})$. 

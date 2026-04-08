@@ -86,6 +86,15 @@ $$
 
 Now, let us prove that Connectedness, Transitivity, Centeredness, and the Limit Assumption hold for $\preceq_B$.
 
+
+> [!NOTE]-
+> In fact, K&M's definition of $\preceq_{B}$ is redundant, for it could have been the following:
+>$$
+>w_1 \preceq_B w_2 \quad :\iff \quad w_1 \in [B * form(\{w_1, w_2\})] 
+>$$
+>The reason is that, if $w_{1}\in [B]$, then by Vacuity $w_{1}\in [B*form(\{ w_{1},w_{2} \})]$. I will nonetheless use the original, redundant version.
+
+
 **Part One: Properties of $\preceq_{B}$**.
 
 **1. Connectedness**. We must show that for any $w_1, w_2 \in W$, either $w_1 \preceq_B w_2$ or $w_2 \preceq_B w_1$.

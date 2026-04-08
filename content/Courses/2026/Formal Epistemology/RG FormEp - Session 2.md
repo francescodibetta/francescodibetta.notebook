@@ -172,11 +172,12 @@ $$
 In other words, $T$ takes a world-base $V$ and returns the set of sentences $\phi\in \mathcal{L}$ that are true in all the worlds in $V$. There are three important properties connecting our semantic sets and our theory function to be aware of:
 
 > [!lemma]+
-> Let $V \subseteq W$ be any set of worlds, and $\Gamma,\Delta \subseteq \mathcal{L}$ be any set of sentences.
+> Let $V, V_1, V_2 \subseteq W$ be any sets of worlds, and $\Gamma, \Delta \subseteq \mathcal{L}$ be any sets of sentences.
 >
 > 1. $T(V)$ is a belief set, i.e. $T(V) = Cn(T(V))$.
 > 2. $T([\Gamma]) = Cn(\Gamma)$. Consequently, $T([\Gamma]) = \Gamma \iff \Gamma$ is a belief set.
 > 3. $V \subseteq [T(V)]$. Furthermore, the equality $[T(V)] = V$ holds for all $V \subseteq W$ if, and only if, $\Phi$ is finite.
+> 4. If $V_1 \subseteq V_2$, then $T(V_2) \subseteq T(V_1)$.
 
 ^3c7168
 
@@ -193,7 +194,7 @@ Informally, the revised belief set $B*\phi$ is exactly the set of sentences $\ps
 
 Before moving to the formal statement of the theorem and the first part of its proof, let us look at a concrete example to see exactly how this semantic revision operator works in practice.
 
-## 2.1. Example One
+## 2.1. Example
 
 Imagine a biology professor who is currently waiting to hear whether their new research project will be approved. To model the epistemic state they are in, we can construct a space of possible worlds $W$ using just four propositional variables:
 
@@ -226,7 +227,7 @@ Now, imagine that our biology professor receives an email from the dean with new
 
 $$\phi := p \land \neg h$$
 
-Before we dive into the formal mechanics, let us **informally summarize what should happen**. The agent started out believing they did not get the project approved ($\neg p$) and that two laws hold, with $L_1$ being more important than $L_2$. Upon learning from the dean that $p$ and $\neg h$ are true, they must revise their beliefs in a conservative way: they must accept $p$ and $\neg h$, and to make room for this, they will retain the strong university rule $L_1$ while dropping the weaker departmental rule $L_2$. In other words, given the dean's email, the professor expects to get the funding ($f$) and simply accepts that the standard department practice ($L_2$) has been overridden (for they won't be permitted to hire new people for the moment).
+Before we dive into the formal details, let us **informally summarize what should happen**. The agent started out believing they did not get the project approved ($\neg p$) and that two laws hold, with $L_1$ being more important than $L_2$. Upon learning from the dean that $p$ and $\neg h$ are true, they must revise their beliefs in a conservative way: they must accept $p$ and $\neg h$, and to make room for this, they will retain the strong university rule $L_1$ while dropping the weaker departmental rule $L_2$. In other words, given the dean's email, the professor expects to get the funding ($f$) and simply accepts that the standard department practice ($L_2$) has been overridden (for they won't be permitted to hire new people for the moment).
 
 Let us now see how the formal possible-worlds construction predicts this intuitive result. 
 
@@ -318,7 +319,7 @@ $$
 B * \phi = T(\min_{B}([\phi]))
 $$
 
-1. First, we identify $\min_{B}([\phi])$. Based on our ordering, the most plausible worlds*in* $[\phi]$ are those that preserve the stronger law $L_1$. Thus,
+1. First, we identify $\min_{B}([\phi])$. Based on our ordering, the most plausible worlds *in* $[\phi]$ are those that preserve the stronger law $L_1$. Thus,
 
 $$
 \min_{B}([\phi]) = \{w_3, w_4\}
@@ -332,7 +333,7 @@ $$
 
 Therefore, **the revised belief set $B * \phi$ encodes the following epistemic attitudes**:
 
-1. The agent believes the project is approved ($p$) and that hiring is *not* permitted ($\neg h$). This is ne information $\phi$ they received.
+1. The agent believes the project is approved ($p$) and that hiring is *not* permitted ($\neg h$). This is the information $\phi$ they received.
 2. The agent believes that the funding is secured ($f$). This is a consequence of $L_{1}$.
 3. The agent suspends judgment on whether the lab space is allocated ($l$ is true at $w_3$ and false at $w_4$, meaning neither $l$ nor $\neg l$ is true across $\min_{B}([\phi]) = \{w_3, w_4\}$).
 
@@ -377,7 +378,7 @@ satisfies the AGM postulates.
 $$
 T(\min_{B}([\phi])) = Cn(T(\min_{B}([\phi])))
 $$
-Recall from our earlier results (see [[#^3c7168]]) that for *any* arbitrary set of worlds $V \subseteq W$, its theory $T(V)$ is automatically a logically closed belief set. Since $\min_{B}([\phi])$ is simply a set of worlds, its theory is logically closed.
+Recall from our earlier results (see [[#^3c7168]] ) that for *any* arbitrary set of worlds $V \subseteq W$, its theory $T(V)$ is automatically a logically closed belief set. Since $\min_{B}([\phi])$ is simply a set of worlds, its theory is logically closed.
 
 **2. Success**. We must show that $\phi \in B * \phi$. By the definition of the theory function:
 $$
@@ -396,11 +397,11 @@ So, it suffices to prove that $[B] \cap [\phi] \subseteq [\psi]$. We evaluate th
 2. **Case Two:** Suppose $[B] \cap [\phi] \neq \emptyset$. We will prove that, in this case, $[B] \cap [\phi] = \min_{B}([\phi])$.
 	* $(\subseteq)$ Let $w \in [B] \cap [\phi]$. Because $w \in [B]$, Centeredness dictates that $w \preceq w'$ for all $w' \in W$. Thus, $w \preceq w'$ for all $w' \in [\phi]$. Since $w \in [\phi]$ and is at least as plausible as any other world in $[\phi]$, we have $w \in \min_{B}([\phi])$.
 	* $(\supseteq)$ Let $w \in \min_{B}([\phi])$. Clearly, $w \in [\phi]$. Is $w \in [B]$? Suppose for contradiction that $w \notin [B]$. Since we are in Case Two, we know there is at least one world $w^* \in [B] \cap [\phi]$. By Centeredness, any model of $B$ is strictly more plausible than any non-model, meaning $w^* \prec w$. But since $w^* \in [\phi]$, this strictly contradicts the assumption that $w$ is minimal in $[\phi]$. Hence, $w$ must be in $[B]$, meaning $w \in [B] \cap [\phi]$. 
-	* Because we established $\min_{B}([\phi]) = [B] \cap [\phi]$, and we already know $\min_{B}([\phi]) \subseteq [\psi]$, it directly follows that $[B] \cap [\phi] \subseteq [\psi]$.
+	* So, we have established $\min_{B}([\phi]) = [B] \cap [\phi]$. Recall that, *ex hypothesi*, $\psi \in B*\phi$, meaning that $\min_{B}([\phi])\subseteq [\psi]$. So, it follows immediately that $[B] \cap [\phi] \subseteq [\psi]$.
 
 In both cases, we established $[B] \cap [\phi] \subseteq [\psi]$, which means $B \cup \{ \phi \} \vdash \psi$. Since $\psi$ is an arbitrary formula in $B * \phi$, we conclude $B * \phi \subseteq Cn(B \cup \{ \phi \})$.
 
-**4. Vacuity**. Suppose that $\neg \phi\notin B$. Since $B$ is a belief set, $B\nvdash \neg \phi$, meaning that $[B]\nsubseteq [\neg\phi]=W \smallsetminus [\phi]$. In other words, there exists at least one world $w\in[B]$ which is also in $[\phi]$, i.e. $[B]\cap[\phi]\neq \emptyset$. 
+**4. Vacuity**. Suppose that $B\nvdash \neg \phi$, meaning that $[B]\nsubseteq [\neg\phi]=W \smallsetminus [\phi]$. In other words, there exists at least one world $w\in[B]$ which is also in $[\phi]$, i.e. $[B]\cap[\phi]\neq \emptyset$. 
 
 As I have shown in **Case Two** of step **(3)**, if $[B]\cap[\phi]\neq \emptyset$, it follows that 
 
@@ -428,7 +429,7 @@ $$
 B*\phi = T(\min_{B}([\phi]))
 $$
 
-Since $[\phi]\neq \emptyset$, but the **Limit Assumption** for $\preceq$, it follows that there exists at least one world $w$ in $[\phi]$ such that $w\preceq w'$ for all $w'\in[\phi]$. So, $\min_{B}([\phi])\neq \emptyset$. Let me prove now that $T(\min_{B}([\phi]))\neq \mathcal{L}$. Consider some $\phi\in \mathcal{L}$. Clearly, $\phi\land \neg \phi\in \mathcal{L}$. However, $[\phi \land \neg \phi]=\emptyset$, therefore $\min_{B}([\phi])\nsubseteq [\phi \land \neg \phi]$, because the former is nonempty. Therefore, $\phi \land \neg \phi\notin T(\min_{B}([\phi]))$, and we condlude
+Since $[\phi]\neq \emptyset$, but the **Limit Assumption** for $\preceq$, it follows that there exists at least one world $w$ in $[\phi]$ such that $w\preceq w'$ for all $w'\in[\phi]$. So, $\min_{B}([\phi])\neq \emptyset$. Let me prove now that $T(\min_{B}([\phi]))\neq \mathcal{L}$. Consider some $\phi\in \mathcal{L}$. Clearly, $\phi\land \neg \phi\in \mathcal{L}$. However, $[\phi \land \neg \phi]=\emptyset$, therefore $\min_{B}([\phi])\nsubseteq [\phi \land \neg \phi]$, because the former is nonempty. Therefore, $\phi \land \neg \phi\notin T(\min_{B}([\phi]))$, and we conclude
 
 $$
 T(\min_{B}([\phi]))\neq \mathcal{L}
@@ -457,19 +458,18 @@ $$
 \min_B([\phi] \cap [\psi]) \subseteq [\chi]
 $$
 We need to prove that $\chi \in (B * \phi) + \psi$. By definition, $(B * \phi) + \psi = Cn((B * \phi) \cup \{\psi\})$. By the **Deduction Theorem** of classical logic, 
+
 $$
 \begin{align*}
 \chi \in Cn((B*\phi)\cup \{ \psi \}) &\iff \psi \rightarrow \chi \in Cn(B*\phi) \\
 &\iff \psi \rightarrow \chi \in B*\phi
 \end{align*}
 $$
-
-
 So, I will prove that $\psi \to \chi$ is in $B * \phi$. That is, we need to prove that $\psi \to \chi \in T(\min_B([\phi]))$. Semantically, this means we must prove:
 $$
 \min_B([\phi]) \subseteq [\psi \to \chi]
 $$
-Recall that the truth-set of an implication is $[\psi \to \chi] = W \smallsetminus [\psi] \cup [\chi]$ (which we can write as $[\psi]^c \cup [\chi]$). So, we need to prove
+Recall that the truth-set of an implication is $[\psi \to \chi] = (W \smallsetminus [\psi]) \cup [\chi]$ (which we can write as $[\psi]^c \cup [\chi]$). So, we need to prove
 
 $$
 \min_B([\phi]) \subseteq [\psi]^{c}\cup [\chi]
@@ -505,33 +505,153 @@ $$
 $$
 Because this intersection is strictly non-empty, we can establish the following identity:
 
-$$\min_B([\phi \land \psi]) = \min_B([\phi]) \cap [\psi]$$
+$$
+\min_B([\phi \land \psi]) = \min_B([\phi]) \cap [\psi] \tag{I}
+$$
 
-* $(\supseteq)$ Suppose $w \in \min_B([\phi]) \cap [\psi]$ but $w \notin \min_B([\phi \land \psi])$. Because $w \in [\phi]$ and $w \in [\psi]$, $w$ satisfies $\phi \land \psi$. If it is not minimal in $[\phi \land \psi]$, there must exist some $w' \in [\phi \land \psi]$ such that $w' \prec_B w$. However, since $w' \in [\phi \land \psi]$, we know $w' \in [\phi]$. The fact that $w' \in [\phi]$ and $w' \prec_B w$ strictly contradicts our starting premise that $w \in \min_B([\phi])$. Hence, no such $w'$ exists, and $w \in \min_B([\phi \land \psi])$.
+$(\supseteq)$ Suppose for *reductio* that $w \in \min_B([\phi]) \cap [\psi]$ but $w \notin \min_B([\phi \land \psi])$. Because $w \in [\phi]$ and $w \in [\psi]$, $w$ satisfies $\phi \land \psi$. If it is not minimal in $[\phi \land \psi]$, there must exist some $w' \in [\phi \land \psi]$ such that $w' \prec_B w$. However, since $w' \in [\phi \land \psi]$, we know $w' \in [\phi]$. The fact that $w' \in [\phi]$ and $w' \prec_B w$ strictly contradicts our starting premise that $w \in \min_B([\phi])$. 
+
+Hence, no such $w'$ exists, and $w \in \min_B([\phi \land \psi])$, which implies that
+$$
+\min_B([\phi]) \cap [\psi]\subseteq \min_B([\phi \land \psi])
+$$
  
-* $(\subseteq)$ It is crucial to remember here that $\min_B([\phi]) \cap [\psi] \neq \emptyset$. Let $w^\dagger$ be a world in this intersection. Let $w \in \min_B([\phi \land \psi])$. Suppose for contradiction that $w \notin \min_B([\phi]) \cap [\psi]$. Since $w \in [\phi \land \psi]$, we know $w \in [\psi]$. Therefore, the only way $w$ is excluded from the intersection is if $w \notin \min_B([\phi])$. If $w \notin \min_B([\phi])$, there must exist some $w^* \in [\phi]$ such that $w^* \prec_B w$. Now consider our three worlds:  
-	1. Because $w \in \min_B([\phi \land \psi])$ and $w^\dagger \in [\phi \land \psi]$, it must be that $w \preceq_B w^\dagger$.
-	2. Because $w^\dagger \in \min_B([\phi])$ and $w^* \in [\phi]$, it must be that $w^\dagger \preceq_B w^*$.
-	3. By our assumption above, $w^* \prec_B w$. 
-	
-	Stringing these together yields $w \preceq_B w^\dagger \preceq_B w^* \prec_B w$, which implies $w \prec_B w$. This is a contradiction. Thus, $w \in \min_B([\phi]) \cap [\psi]$.
+$(\subseteq)$ It is crucial to remember here that $\min_B([\phi]) \cap [\psi] \neq \emptyset$. Let us call $w^\dagger$ a world in this intersection. Now, suppose for *reductio* that $w \in \min_B([\phi \land \psi])$ but $w \notin \min_B([\phi]) \cap [\psi]$. Since $w \in [\phi \land \psi]$, we know $w \in [\psi]$. Therefore, the only way $w$ is excluded from the intersection is if $w \notin \min_B([\phi])$. If $w \notin \min_B([\phi])$, there must exist some $w^* \in [\phi]$ such that $w^* \prec_B w$. Now consider our three worlds:  
+
+1. Because $w \in \min_B([\phi \land \psi])$ and $w^\dagger \in [\phi \land \psi]$, it must be that $w \preceq_B w^\dagger$.
+2. Because $w^\dagger \in \min_B([\phi])$ and $w^* \in [\phi]$, it must be that $w^\dagger \preceq_B w^*$.
+3. By our assumption above, $w^* \prec_B w$. 
+
+Stringing these together yields $w \preceq_B w^\dagger \preceq_B w^* \prec_B w$, which implies $w \prec_B w$. This is a contradiction (it contradicts Connectedness). Thus, $w \in \min_B([\phi]) \cap [\psi]$, which implies that $\min_B([\phi \land \psi]) \subseteq \min_B([\phi]) \cap [\psi]$
 
 Now that we have established $\min_B([\phi \land \psi]) = \min_B([\phi]) \cap [\psi]$, let us finally prove the claim above. To prove our main claim, we simply let $\chi$ be an arbitrary formula, assume the antecedent $\min_B([\phi]) \subseteq [\psi]^c \cup [\chi]$, and show that the consequent $\min_B([\phi \land \psi]) \subseteq [\chi]$ must follow.
 
-Let $w$ be an arbitrary world such that $w \in \min_B([\phi \land \psi])$. By our identity, $w \in \min_B([\phi]) \cap [\psi]$. This entails two things:
+Let $w$ be an arbitrary world such that $w \in \min_B([\phi \land \psi])$. By the identity $(\text{I})$ we proved above, $w \in \min_B([\phi]) \cap [\psi]$. This entails two things:
 
 1. $w \in \min_B([\phi])$
 2. $w \in [\psi]$
 
-Because $w \in \min_B([\phi])$, it follows from our assumed antecedent that $w \in [\psi]^c \cup [\chi]$. However, because $w \in [\psi]$, we know $w \notin [\psi]^c$. Therefore, by disjunctive syllogism, it must be the case that $w \in [\chi]$. 
+Recall that we assumed $\min_B([\phi]) \subseteq [\psi]^c \cup [\chi]$. So, since $w \in \min_B([\phi])$, it follows that $w \in [\psi]^c \cup [\chi]$. However, because $w \in [\psi]$, we know $w \notin [\psi]^c$. Therefore, it must be the case that $w \in [\chi]$. 
 
-Since $w$ was an arbitrary world in the minimal set, we have shown $\min_B([\phi \land \psi]) \subseteq [\chi]$. This establishes the consequent, concluding the proof of Subexpansion. 
+Since $w$ was an arbitrary world, we have shown $\min_B([\phi \land \psi]) \subseteq [\chi]$. So, we have proved
+
+$$
+\text{For all } \chi: \min_{B}([\phi]) \subseteq [\psi]^c \cup [\chi] \implies \min_{B}([\phi \land \psi]) \subseteq [\chi]
+$$
+
+which is equivalent to subexpansion, and hence we have proved subexpansion.
 
 **Conclusion**. Therefore, we have proved that, for any belief set $B$ associated with an order $\preceq_{B}$ on $W$ satisfying the properties listed above, and any proposition $\phi$, if we define $B*\phi$ as $T(\min_{B}([\phi]))$, all the eight postulates of AGM belief revision are satisfied. `eproof`
 
 # 5. Exercisess
 
 **1. Proofs.** Prove all the lemmas and propositions we did not prove together. See [[RG FormEp - Session 2 (Solutions)|this file]] for the solutions.
+
+# 6. Alternatives Proofs of Super- and Subexpansion
+
+**7. Superexpansion.** We must prove that $B * (\phi \land \psi) \subseteq (B * \phi) + \psi$. 
+
+By [[#^3c7168]], if we can establish the inclusion $V_1 \subseteq V_2$, where $V_{1},V_{2}$ are sets of worlds, it follows that $T(V_2) \subseteq T(V_1)$. Let us define our target sets of worlds:
+
+* Let $V_1 = \min_B([\phi]) \cap [\psi]$.
+* Let $V_2 = \min_B([\phi \land \psi])$.
+
+We will first prove that $V_1 \subseteq V_2$. Let $w \in \min_B([\phi]) \cap [\psi]$. This means $w \in \min_B([\phi])$ and $w \in [\psi]$. 
+Since $w$ is a model of both $\phi$ and $\psi$, it follows that $w \in [\phi \land \psi]$. 
+
+To show that $w$ is minimal in this intersection, suppose for contradiction that it is not. Then there exists some world $w' \in [\phi \land \psi]$ such that $w' \prec_B w$.  Because $w' \in [\phi \land \psi]$, it must be that $w' \in [\phi]$. But the existence of a world $w' \in [\phi]$ such that $w' \prec_B w$ strictly contradicts our starting assumption that $w \in \min_B([\phi])$. Thus, no such $w'$ exists, and $w \in \min_B([\phi \land \psi])$.
+
+We have established the semantic inclusion:
+$$\min_B([\phi]) \cap [\psi] \subseteq \min_B([\phi \land \psi])$$
+
+Applying [[#^3c7168]] to both sides reverses the inclusion:
+
+$$T(\min_B([\phi \land \psi])) \subseteq T(\min_B([\phi]) \cap [\psi])$$
+
+By definition, the left side is exactly $B * (\phi \land \psi)$. 
+
+Let us evaluate the right side by proving that 
+$$
+\begin{align}
+T(\min_B([\phi]) \cap [\psi]) &= (B * \phi) + \psi \\
+&=Cn(T(\min_B([\phi])) \cup \{\psi\}) && \text{Def. of }+ \text{ and }*
+\end{align}
+$$
+We prove this equality by mutual inclusion:
+
+**$(\subseteq)$** Suppose $\chi \in T(\min_B([\phi]) \cap [\psi])$. By definition, this means $\min_B([\phi]) \cap [\psi] \subseteq [\chi]$. By basic set theory, this is equivalent to $\min_B([\phi]) \subseteq [\psi]^c \cup [\chi]$, which is the truth-set of an implication: $\min_B([\phi]) \subseteq [\psi \to \chi]$. Therefore, $\psi \to \chi \in T(\min_B([\phi])) = B * \phi$. By classical logic, this implies $\chi \in Cn((B * \phi) \cup \{\psi\})$. 
+
+**$(\supseteq)$** Obviously $\min_B([\phi]) \cap [\psi] \subseteq \min_B([\phi])$, applying [[#^3c7168]] yields 
+
+$$ 
+\begin{align}
+T(\min_B([\phi])) &\subseteq T(\min_B([\phi]) \cap [\psi]) \\
+B*\phi &\subseteq T(\min_B([\phi]) \cap [\psi]) && \text{Def. of }*
+\end{align}
+$$
+Furthermore, it is obviously the case that 
+
+$$
+\min_{B}([\phi])\cap [\psi]\subseteq [\psi],
+$$
+
+therefore $\psi \in T(\min_B([\phi]) \cap [\psi])$. Because the right side contains both $B * \phi$ and $\psi$, it must contain their union: $B*\phi \cup \{ \psi \}\subseteq T(\min_B([\phi]) \cap [\psi])$. Since theories are logically closed belief sets (Property 1 of [[#^3c7168]]), it follows that
+
+$$
+\begin{align}
+B*\phi \cup \{ \psi \}&\subseteq T(\min_B([\phi]) \cap [\psi]) \\
+Cn(B*\phi \cup \{ \psi \}) & \subseteq Cn(T(\min_B([\phi]) \cap [\psi])) && \text{Monotonicity of } Cn \\
+(B*\phi)+ \psi & \subseteq Cn(T(\min_B([\phi]) \cap [\psi])) && \text{Def. of } + \\
+(B*\phi)+ \psi & \subseteq T(\min_B([\phi]) \cap [\psi]) && \text{Lemma 4}
+\end{align}
+$$
+
+
+Therefore, we have established $T(\min_B([\phi]) \cap [\psi]) = (B * \phi) + \psi$. Substituting this back into our main inclusion yields our final result:
+$$B * (\phi \land \psi) \subseteq (B * \phi) + \psi$$
+`eproof`
+
+**8. Subexpansion**. Suppose that $\neg\psi \notin B*\phi$. We must show that $(B*\phi)+\psi \subseteq B*(\phi \land \psi)$. 
+
+As demonstrated in the proof of Superexpansion above, the sets of formulas $(B*\phi)+\psi$ and $B*(\phi \land \psi)$ correspond to the theories $T(\min_B([\phi]) \cap [\psi])$ and $T(\min_B([\phi \land \psi]))$, respectively.
+By [[#^3c7168]], to prove the syntactic inclusion $T(\min_B([\phi]) \cap [\psi]) \subseteq T(\min_B([\phi \land \psi]))$, it is strictly sufficient to prove the reverse semantic inclusion:
+$$
+\min_B([\phi \land \psi]) \subseteq \min_B([\phi]) \cap [\psi]
+$$
+
+First, let us establish that $\min_{B}([\phi])\cap[\psi]\neq \emptyset$. By definition, $B*\phi = T(\min_B([\phi]))$. Therefore, our starting premise means:
+$$
+\begin{align*}
+\neg\psi \notin T(\min_B([\phi])) &\iff \min_{B}([\phi])\nsubseteq [\neg\psi] \\
+&\iff \min_{B}([\phi])\cap[\psi]\neq \emptyset
+\end{align*}
+$$
+
+It is crucial to remember here that $\min_B([\phi]) \cap [\psi] \neq \emptyset$. Let us call $w^\dagger$ a world in this intersection. 
+
+Now, to prove our main inclusion, let $w \in \min_B([\phi \land \psi])$ and suppose for *reductio* that $w \notin \min_B([\phi]) \cap [\psi]$.  Since $w \in [\phi \land \psi]$, we know $w \in [\psi]$. Therefore, the only way $w$ is excluded from the intersection is if $w \notin \min_B([\phi])$. If $w \notin \min_B([\phi])$, there must exist some $w^* \in [\phi]$ such that $w^* \prec_B w$. Now consider our three worlds:  
+
+1. Because $w \in \min_B([\phi \land \psi])$ and $w^\dagger \in [\phi \land \psi]$, it must be that $w \preceq_B w^\dagger$.
+2. Because $w^\dagger \in \min_B([\phi])$ and $w^* \in [\phi]$, it must be that $w^\dagger \preceq_B w^*$.
+3. By our assumption above, $w^* \prec_B w$. 
+
+Stringing these together yields $w \preceq_B w^\dagger \preceq_B w^* \prec_B w$, which strictly implies $w \prec_B w$. This is a contradiction (it contradicts Connectedness). Thus, our assumption must be false, meaning $w \in \min_B([\phi]) \cap [\psi]$.
+
+Since $w$ was an arbitrary world, we have established the semantic inclusion:
+$$
+\min_B([\phi \land \psi]) \subseteq \min_B([\phi]) \cap [\psi]
+$$
+
+Applying [[#^3c7168]] reverses this inclusion to:
+$$
+T(\min_B([\phi]) \cap [\psi]) \subseteq T(\min_B([\phi \land \psi]))
+$$
+Which is identically:
+$$
+(B * \phi) + \psi \subseteq B * (\phi \land \psi)
+$$
+`eproof`
+
 
 [^1]: Note that one might even argue that possible worlds *are* just these mathematical functions—abstract (and in a sense, linguistic) objects that provide a maximally specific description of how our world could be. However, this is a metaphysical claim that we need not commit to here, as it does not affect our formal discussion.
 [^2]: This last conception is actually quite problematic when used as the relevant notion of "plausibility" for belief revision. If you simply believe what is true in the world most similar to the actual world (which is usually just the actual world itself), it effectively collapses the distinction between rational belief and truth.
