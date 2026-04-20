@@ -15,14 +15,14 @@ const NotFound: QuartzComponent = ({ cfg }: QuartzComponentProps) => {
       <img 
         src={baseDir.endsWith("/") ? `${baseDir}static/404-fun.jpg` : `${baseDir}/static/404-fun.jpg`}
         alt="Page not found" 
-        style={{ maxWidth: "300px", borderRadius: "10px" }} 
+        style={{ maxWidth: "400px", borderRadius: "10px" }} 
       />
     </div>
     {/* --- NEW IMAGE CODE END --- */}
 
     <p>This page is not ready yet...</p>
     <p>
-      <a href="/">Return to Homepage</a>
+      <a href={baseDir}>Return to Homepage</a>
     </p>
   </article>
 )    
