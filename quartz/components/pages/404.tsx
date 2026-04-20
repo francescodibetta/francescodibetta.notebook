@@ -13,7 +13,7 @@ const NotFound: QuartzComponent = ({ cfg }: QuartzComponentProps) => {
     {/* --- NEW IMAGE CODE START --- */}
     <div style={{ display: "flex", justifyContent: "center", margin: "2rem 0" }}>
       <img 
-        src="/quartz/static/404-fun.jpg" 
+        src={`${baseDir}static/404-fun.jpg`} 
         alt="Page not found" 
         style={{ maxWidth: "300px", borderRadius: "10px" }} 
       />
