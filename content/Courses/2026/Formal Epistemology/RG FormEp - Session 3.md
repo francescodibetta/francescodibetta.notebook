@@ -151,10 +151,10 @@ Now, let us prove that Connectedness, Transitivity, Centeredness, and the Limit 
 >$$
 >Recall that $w_{1}\in [B]$ and obviously $w_{1}\in \{ w_{1},w_{2} \}$. Therefore, $w_{1}\in [B*form(\{ w_{1},w_{2} \})]$. `eproof`
 > 
->Despite this result, I will nonetheless use the K&M's original, redundant version.
+>Despite this result, I will nonetheless use K&M's original, redundant version.
 
 
-**Part One: Properties of $\preceq_{B}$**.
+**I. Part One: Properties of $\preceq_{B}$**.
 
 **1. Connectedness**. We must show that for any $w_1, w_2 \in W$, either $w_1 \preceq_B w_2$ or $w_2 \preceq_B w_1$.
 If either $w_1 \in [B]$ or $w_2 \in [B]$, then the condition is trivially satisfied by definition.
@@ -166,7 +166,83 @@ Suppose neither world is in $[B]$. Let $\psi = form(\{w_1, w_2\})$. Since $[\psi
 
 Therefore, $\preceq_B$ is connected.
 
+**2. Transitivity**. Suppose $w_1 \preceq_B w_2$ and $w_2 \preceq_B w_3$. We must show $w_1 \preceq_B w_3$.
 
+**Case 1: $w_1 \in [B]$**. By definition, $w_1 \preceq_B w_3$ immediately follows.
+
+**Case 2: $w_1 \notin [B]$**. We need to prove that $w_{1}\in [B*form(\{ w_{1},w_{3} \})]$. 
+
+First, since $w_1 \preceq_B w_2$ and $w_{1}\notin [B]$, our definition requires $w_1 \in [B * form(\{w_1, w_2\})]$. 
+ 
+Second, notice that we must also have $w_2 \notin [B]$. Suppose to the contrary that $w_2 \in [B]$. First, it immediately follows that $[B] \cap [form(\{w_1, w_2\})] \neq \emptyset$, for by [[#^62aec5]]   $[form(\{ w_{1},w_{2} \})]=\{ w_{1},w_{2} \}$. This entails that $B \nvdash \neg form(\{ w_{1},w_{2} \})$. By Postulate 4 (Vacuity), it follows that:
+
+$$
+B* form(\{ w_{1},w_{2} \}) = Cn(B\cup \{ form(w_{1},w_{2}) \})
+$$
+which implies:
+$$
+[B* form(\{ w_{1},w_{2} \})] = [Cn(B\cup \{ form(w_{1},w_{2}) \})]
+$$
+
+Now, by [[RG FormEp - Session 2#^e85e7f|Session 2 – Lemma 2]], it follows that:
+
+$$
+[B * form(\{w_1, w_2\})] = [B] \cap \{w_1, w_2\}
+$$
+
+Since $w_{1}\notin [B]$ and, *ex hypothesi*, $w_{2}\in [B]$, it follows that $[B * form(\{w_1, w_2\})]=[B]\cap \{ w_{1},w_{2} \}=\{ w_{2} \}$, which contradicts $w_1 \in [B * form(\{w_1, w_2\})]$. Therefore, $w_{2}\notin [B]$. 
+
+Thirdly, since $w_2 \preceq_B w_3$ and $w_2 \notin [B]$, it must be that $w_2 \in [B * form(\{w_2, w_3\})]$. Again, it must be the case that $w_3 \notin [B]$. (We can show in a similar way as above that, if $w_{3}\in [B]$, a contradiction follows.)
+
+Now that we have collected many pieces of information regarding $w_{1},w_{2},w_{3}$:
+
+1. $w_{1}\preceq_{B}w_{2}$ and $w_{2}\preceq_{B}w_{3}$,
+2. $w_{1},w_{2},w_{3}\notin [B]$, and
+3. $w_{1}\in [B* form(\{ w_{1},w_{2} \})]$ and $w_{2}\in [B* form(\{ w_{2},w_{3} \})]$.
+
+So, we can finally prove the statement we need, i.e. $w_{1}\in [B*form(\{ w_{1},w_{3} \})]$. To do so, we proceed as follows. First, we let $\psi = form(\{w_1, w_2, w_3\})$. Then, we show that, since $w_{1}\preceq_{B} w_{2}\preceq_{B}w_{3}$, it must be the case that $w_{1} \in [B*\psi]$. Then, since obviously $w_{1}\in [B*\psi] \cap \{ w_{1},w_{3} \}$, where $\{ w_{1},w_{3} \}=[form(\{ w_{1},w_{3} \})]$, we can apply the supplementary postulates to show that $w_{1}\in [B*form(\{ w_{1},w_{3} \})]$.
+
+First of all, since $[\psi]\neq \emptyset$, by Postulate 5 (Consistency) $[B * \psi] \neq \emptyset$. By Postulate 2 (Success), $[B * \psi] \subseteq \{w_1, w_2, w_3\}$. In other words, $[B*\psi]$ must be a non-empty subset of $\{ w_{1},w_{2},w_{3}\}$.
+
+We evaluate which worlds are in $[B * \psi]$ via three exhaustive subcases:
+
+**Subcase 2.1: $w_2 \in [B * \psi]$**.  This means $[B * \psi] \cap [form(\{w_1, w_2\})] \neq \emptyset$. This means that the antecedent of Postulate 8 holds, i.e. that $B*\psi \nvdash \neg form(\{ w_{1},w_{2} \})$. By applying both Postulate 7 (Superexpansion) and Postulate 8 (Subexpansion), we obtain the following:
+$$
+B*(\psi \land form(\{ w_{1},w_{2} \})) = Cn(B*\psi \cup \{ form(\{ w_{1},w_{2} \}) \})
+$$
+This immediately yields: 
+$$
+[B*(\psi \land form(\{ w_{1},w_{2} \}))] = [Cn(B*\psi \cup \{ form(\{ w_{1},w_{2} \}) \})]
+$$
+
+and [[RG FormEp - Session 2#^e85e7f|Session 2 – Lemma 2]] yields the following:
+$$[B * (\psi \land form(\{w_1, w_2\}))] = [B * \psi] \cap [form(\{w_1, w_2\})]$$
+  
+Since $\psi \land form(\{w_1, w_2\})$ is logically equivalent to $form(\{w_1, w_2\})$, Postulate 6 allows us to simplify the LHS:
+$$
+[B * form(\{w_1, w_2\})] = [B * \psi] \cap \{w_1, w_2\}
+$$
+We established earlier that $w_1 \in [B * form(\{w_1, w_2\})]$. Therefore, $w_1 \in [B * \psi] \cap \{w_1, w_2\}$, which entails $w_1 \in [B * \psi]$.
+
+
+**Subcase 2.2: $w_3 \in [B * \psi]$**. This means $[B * \psi] \cap [form(\{w_2, w_3\})] \neq \emptyset$. Applying Postulates 7 and 8 exactly as above yields:
+
+$$
+[B * form(\{w_2, w_3\})] = [B * \psi] \cap \{w_2, w_3\}
+$$
+From our initial premise $w_2 \preceq_B w_3$ and $w_{2}\notin [B]$, we know $w_2 \in [B * form(\{w_2, w_3\})]$. Therefore, $w_2 \in [B * \psi] \cap \{w_2, w_3\}$, which strictly entails $w_2 \in [B * \psi]$. Now, because $w_2 \in [B * \psi]$, the intersection $[B * \psi] \cap [form(\{w_1, w_2\})]$ is non-empty. Applying Postulates 7 and 8 to this intersection yields:
+  $$[B * form(\{w_1, w_2\})] = [B * \psi] \cap \{w_1, w_2\}$$
+  From our initial premise $w_1 \preceq_B w_2$, we know $w_1 \in [B * form(\{w_1, w_2\})]$. Thus, $w_1 \in [B * \psi] \cap \{w_1, w_2\}$, proving that $w_1 \in [B * \psi]$.
+
+**Subcase 2.3: Neither $w_2$ nor $w_3$ is in $[B * \psi]$**. Since $[B * \psi]$ is a non-empty subset of $\{w_1, w_2, w_3\}$, its only remaining possible element must be $w_1$. Thus, $w_1 \in [B * \psi]$.
+
+In all possible subcases, we have proved that $w_1 \in [B * \psi]$.
+
+Finally, since $w_1 \in \{w_1, w_3\}$, the intersection $[B * \psi] \cap [form(\{w_1, w_3\})]$ is non-empty. Applying Postulates 7 and 8 one last time yields:
+$$[B * form(\{w_1, w_3\})] = [B * \psi] \cap \{w_1, w_3\}$$
+Because $w_1 \in [B * \psi]$ and $w_1 \in \{w_1, w_3\}$, it follows that $w_1 \in [B * form(\{w_1, w_3\})]$. 
+
+**Conclusion**. Since in all subcases, $w_{1}\in[B*form(\{ w_{1},w_{3} \})]$, we conclude that $w_1 \preceq_B w_3$.
 
 **3. Centeredness**. We need to establish two claims:
 
@@ -206,90 +282,72 @@ By the **transitivity** of strict preference, the chain $x_j \prec_B \dots \prec
 
 Therefore, we must reject the *reductio* assumption. There must exist at least one world $w_{1} \in [\phi]$ that has no strictly more plausible world below it. Because $\preceq_B$ is connected, this minimal world must be at least as plausible as all other worlds in the set: $w_{1} \preceq_{B} w_{2}$ for all $w_{2}\in [\phi]$. Thus, the Limit Assumption holds. 
 
-**2. Transitivity**. Suppose $w_1 \preceq_B w_2$ and $w_2 \preceq_B w_3$. We must show $w_1 \preceq_B w_3$.
+**II. Part Two: Proving the equality $B*\phi=T(\min_{B}([\phi]))$**.
 
-**Case 1: $w_1 \in [B]$**. By definition, $w_1 \preceq_B w_3$ immediately follows.
-
-**Case 2: $w_1 \notin [B]$**. We need to prove that $w_{1}\in [B*form(\{ w_{1},w_{3} \})$. 
-
-First, since $w_1 \preceq_B w_2$ and $w_{1}\notin [B]$, our definition requires $w_1 \in [B * form(\{w_1, w_2\})]$. 
- 
-Second, notice that we must also have $w_2 \notin [B]$. Suppose to the contrary that $w_2 \in [B]$. First, it immediately follows that $[B] \cap [form(\{w_1, w_2\})] \neq \emptyset$, for by [[#^62aec5]]   $[form(\{ w_{1},w_{2} \})]=\{ w_{1},w_{2} \}$. This entails that $B \nvdash \neg form(\{ w_{1},w_{2} \})$. By Postulate 4 (Vacuity), it follows that
-
+Having established that the defined relation $\preceq_B$ satisfies all the required structural properties (Connectedness, Transitivity, Centeredness, and the Limit Assumption), we can now prove the following equality: 
 $$
-B* form(\{ w_{1},w_{2} \}) = Cn(B\cup \{ form(w_{1},w_{2}) \})
-$$
-which implies
-$$
-[B* form(\{ w_{1},w_{2} \})] = [Cn(B\cup \{ form(w_{1},w_{2}) \})]
+B*\phi=T(\min_{B}([\phi]))
 $$
 
-Now, by [[RG FormEp - Session 2#^e85e7f|Session 2 – Lemma 2]], it follows that
+Because we are operating in a finite language, [[RG FormEp - Session 2#^3c7168|Session 2 - Lemma 4]] established that we can perfectly translate between syntax and semantics without losing information. Specifically, Property 2 of that lemma states that $T([\Gamma]) = \Gamma$ if and only if $\Gamma$ is a belief set. Since the Closure postulate guarantees that the revised set $B*\phi$ is a logically closed belief set, it strictly follows that $T([B*\phi]) = B*\phi$. 
 
+Therefore, to prove our target equality, it is strictly sufficient to prove the corresponding identity:
 $$
-[B * form(\{w_1, w_2\})] = [B] \cap \{w_1, w_2\}
+[B * \phi] = \min_{B}([\phi]) \tag{C}
 $$
+For if $[B * \phi] = \min_B([\phi])$ holds, $T([B * \phi]) = T(\min_B([\phi]))$ holds as well. But $T([B*\phi])=B*\phi$ by [[RG FormEp - Session 2#^3c7168|Session 2 - Lemma 4]] and the fact that $B*\phi$ is a belief set by Closure. (Recall that we are assuming $*$ satisfies all AGM postulates.)
 
-Since $w_{1}\notin [B]$ and, *ex hypothesi*, $w_{2}\in [B]$, it follows that $[B * form(\{w_1, w_2\})]=[B]\cap \{ w_{1},w_{2} \}=\{ w_{2} \}$, which contradicts $w_1 \in [B * form(\{w_1, w_2\})]$. Therefore, $w_{2}\notin B$. 
+First, consider the edge case where $\phi$ is unsatisfiable ($[\phi] = \emptyset$). By the Success postulate, $B*\phi \vdash \phi$, meaning $[B * \phi] \subseteq [\phi] = \emptyset$. Thus, $[B * \phi] = \emptyset$. Since there are no worlds in $[\phi]$, the set of minimal worlds $\min_B([\phi])$ is trivially $\emptyset$ as well. Thus, $(C)$ holds. 
 
-Thirdly, since $w_2 \preceq_B w_3$ and $w_2 \notin [B]$, it must be that $w_2 \in [B * form(\{w_2, w_3\})]$. Again, it must be the case that $w_3 \notin [B]$. (We can show in a similar way as above that, if $w_{3}\in [B]$, a contradiction follows.)
+Henceforth, assume $\phi$ is satisfiable ($[\phi] \neq \emptyset$). We prove the identity by mutual inclusion.
 
-Now that we have collected many pieces of information regarding $w_{1},w_{2},w_{3}$:
+**1. Prove $[B * \phi] \subseteq \min_B([\phi])$**. Suppose for *reductio* that $w \in [B * \phi]$ but $w \notin \min_B([\phi])$. 
 
-1. $w_{1}\preceq_{B}w_{2}\preceq_{B}w_{3}$,
-2. $w_{1},w_{2},w_{3}\notin [B]$, and
-3. $w_{1}\in [B* form(\{ w_{1},w_{2} \})$, ...
+By the Success postulate, $B*\phi \vdash \phi$, meaning $[B * \phi] \subseteq [\phi]$. Thus, $w \in [\phi]$. Since $w \in [\phi]$ but is not minimal in it, there must exist some world $w' \in [\phi]$ such that $w' \prec_B w$. 
 
+We evaluate this across two cases based on whether $w'$ is a model of our original belief set $B$:
 
-So, we can finally prove the statement we need, i.e. $w_{1}\in [B*form(\{ w_{1},w_{3} \})]$. To do so, we proceed as follows. First, we let $\psi = form(\{w_1, w_2, w_3\})$. Then, we show that, since $w_{1}\preceq_{B} w_{2}\preceq_{B}w_{3}$, it must be the case that $w_{1} \in B*\psi$. Then, since obviously $w_{1}\in B*\psi \cap \{ w_{1},w_{3} \}$, where $\{ w_{1},w_{3} \}=[form(\{ w_{1},w_{3} \})]$, we can apply the supplementary postulates to show that $w_{1}\in [B*form(\{ w_{1},w_{3} \})]$.
+* **Case 1: $w' \in [B]$.** Since $w' \in [\phi]$ as well, the intersection $[B] \cap [\phi]$ is non-empty. By the Vacuity postulate, this guarantees that $[B * \phi] = [B] \cap [\phi]$. Because we assumed at the outset that $w \in [B * \phi]$, it follows that $w \in [B]$. However, by Centeredness, any two worlds in $[B]$ are equally plausible, meaning $w \preceq_B w'$. This strictly contradicts the fact that $w' \prec_B w$.
 
-First of all, since $[\psi]\neq \emptyset$, by Postulate 5 (Consistency) $[B * \psi] \neq \emptyset$. By Postulate 2 (Success), $[B * \psi] \subseteq \{w_1, w_2, w_3\}$. In other words, $[B*\psi]$ must be a non-empty subset of $\{ w_{1},w_{2},w_{3}\}$.
-
-We evaluate which worlds are in $[B * \psi]$ via three exhaustive subcases:
-
-**Subcase 2.1: $w_2 \in [B * \psi]$**.  This means $[B * \psi] \cap [form(\{w_1, w_2\})] \neq \emptyset$. This means that the antecedent of postulate 8 holds, i.e. that $B*\psi \nvdash \neg form(\{ w_{1},w_{2} \})$. By applying both Postulates 7 and 8, we obtain the following:
+* **Case 2: $w' \notin [B]$.** Because $w' \prec_B w$, we know $w' \preceq_B w$ and $w \npreceq_B w'$. By the definition of our ordering $\preceq_B$, the fact that $w'$ is strictly preferred to $w$ means that $[B * form(\{w, w'\})] = \{w'\}$. Since both $w$ and $w'$ are models of $\phi$, the formula $\phi \land form(\{w, w'\})$ is logically equivalent to $form(\{w, w'\})$. Therefore, their truth-sets are identical. By the Superexpansion postulate (which holds unconditionally), it follows that:  
 $$
-B*(\psi \land form(\{ w_{1},w_{2} \})) = Cn(B*\psi \cup \{ form(\{ w_{1},w_{2} \}) \})
+[B * \phi] \cap [form(\{w, w'\})] \subseteq [B * (\phi \land form(\{w, w'\}))]
 $$
-This immediately yields 
+Which simplifies to:
 $$
-[B*(\psi \land form(\{ w_{1},w_{2} \}))] = [Cn(B*\psi \cup \{ form(\{ w_{1},w_{2} \}) \})]
+[B * \phi] \cap \{w, w'\} \subseteq [B * form(\{w, w'\})]
 $$
-
-and [[RG FormEp - Session 2#^e85e7f|Session 2 – Lemma 2]] yields the following
-  $$[B * (\psi \land form(\{w_1, w_2\}))] = [B * \psi] \cap [form(\{w_1, w_2\})]$$
-  
-Since $\psi \land form(\{w_1, w_2\})$ is logically equivalent to $form(\{w_1, w_2\})$, Postulate 6 allows us to simplify the LHS:
+Since we established the right side is exactly $\{w'\}$, we have:
 $$
-[B * form(\{w_1, w_2\})] = [B * \psi] \cap \{w_1, w_2\}
+[B * \phi] \cap \{w, w'\} \subseteq \{w'\}
 $$
-We established earlier that $w_1 \in [B * form(\{w_1, w_2\})]$. Therefore, $w_1 \in [B * \psi] \cap \{w_1, w_2\}$, which entails $w_1 \in [B * \psi]$.
+Recall our starting assumption: $w \in [B * \phi]$. Since $w$ is also obviously in $\{w, w'\}$, it must be that $w \in [B * \phi] \cap \{w, w'\}$. The subset inclusion above thus implies $w \in \{w'\}$, meaning $w = w'$. Therefore, since $w'\prec_{B} w$, it follows that $w\prec_{B}w$, which is an out-and-out contradiction.
 
+In both cases, we reach a contradiction. Thus, we reject the *reductio* assumption. The inclusion $[B * \phi] \subseteq \min_B([\phi])$ holds.
 
-**Subcase 2.2: $w_3 \in [B * \psi]$**. This means $[B * \psi] \cap [form(\{w_2, w_3\})] \neq \emptyset$. Applying Postulates 7 and 8 exactly as above yields:
+**2. Prove $\min_B([\phi]) \subseteq [B * \phi]$**. Suppose for *reductio* that $w \in \min_B([\phi])$ but $w \notin [B * \phi]$. Since we assumed $\phi$ is satisfiable, the Consistency postulate guarantees that $B * \phi$ is consistent, meaning $[B * \phi] \neq \emptyset$. Therefore, there exists at least one world $w' \in [B * \phi]$.
 
-$$
-[B * form(\{w_2, w_3\})] = [B * \psi] \cap \{w_2, w_3\}
-$$
-From our initial premise $w_2 \preceq_B w_3$ and $w_{2}\notin [B]$, we know $w_2 \in [B * form(\{w_2, w_3\})]$. Therefore, $w_2 \in [B * \psi] \cap \{w_2, w_3\}$, which strictly entails $w_2 \in [B * \psi]$. Now, because $w_2 \in [B * \psi]$, the intersection $[B * \psi] \cap [form(\{w_1, w_2\})]$ is non-empty. Applying Postulates 7 and 8 to this intersection yields:
-  $$[B * form(\{w_1, w_2\})] = [B * \psi] \cap \{w_1, w_2\}$$
-  From our initial premise $w_1 \preceq_B w_2$, we know $w_1 \in [B * form(\{w_1, w_2\})]$. Thus, $w_1 \in [B * \psi] \cap \{w_1, w_2\}$, proving that $w_1 \in [B * \psi]$.
+Since $w' \in [B * \phi]$ and (by Success) $[B * \phi] \subseteq [\phi]$, both $w$ and $w'$ are models of $\phi$. Thus, exactly as before, $[\phi \land form(\{w, w'\})] = [form(\{w, w'\})] = \{w, w'\}$. Because $w' \in [B * \phi]$ and $w' \in \{w, w'\}$, the intersection $[B * \phi] \cap [form(\{w, w'\})]$ is strictly non-empty. 
 
-**Subcase 2.3: Neither $w_2$ nor $w_3$ is in $[B * \psi]$**. Since $[B * \psi]$ is a non-empty subset of $\{w_1, w_2, w_3\}$, its only remaining possible element must be $w_1$. Thus, $w_1 \in [B * \psi]$.
+Because this intersection is non-empty, it means that the revised belief set $B*\phi$ is consistent with the formula $form(\{w, w'\})$, i.e., $B*\phi \nvdash \neg form(\{w, w'\})$. This perfectly satisfies the prerequisite for the Subexpansion postulate. Therefore, Superexpansion and Subexpansion together guarantee exact equality:
+$$[B * \phi] \cap [form(\{w, w'\})] = [B * form(\{w, w'\})]$$
 
-In all possible subcases, we have proved that $w_1 \in [B * \psi]$.
+Recall our *reductio* assumption: $w \notin [B * \phi]$. This means $w$ cannot be in the intersection on the left side, meaning $w \notin [B * form(\{w, w'\})]$. Since the right side must be a non-empty subset of $\{w, w'\}$, and we just established it cannot contain $w$, we are strictly left with:
+$$[B * form(\{w, w'\})] = \{w'\}$$
 
-Finally, since $w_1 \in \{w_1, w_3\}$, the intersection $[B * \psi] \cap [form(\{w_1, w_3\})]$ is non-empty. Applying Postulates 7 and 8 one last time yields:
-$$[B * form(\{w_1, w_3\})] = [B * \psi] \cap \{w_1, w_3\}$$
-Because $w_1 \in [B * \psi]$ and $w_1 \in \{w_1, w_3\}$, it follows that $w_1 \in [B * form(\{w_1, w_3\})]$. 
+Because $\{w'\}$ is the sole minimal world in this restricted set, it follows by our definition of the ordering that $w' \preceq_B w$. On the other hand, since $w$ is minimal in $[\phi]$ (by our starting assumption) and $w' \in [\phi]$, it must be that $w \preceq_B w'$.
 
-**Conclusion**. Since in all subcases, $w_{1}\in[B*form(\{ w_{1},w_{3} \})]$, we conclude that $w_1 \preceq_B w_3$.
+Since $w \preceq_B w'$ holds, but $w \notin [B * form(\{w, w'\})]$, the *only* way our definition of $\preceq_B$ allows $w \preceq_B w'$ to be true is if its first clause is satisfied: namely, $w \in [B]$. 
 
-**Part Two: Proving the Equality**.
+If $w \in [B]$, then since $w \in [\phi]$, the intersection $[B] \cap [\phi]$ is non-empty. By the Vacuity postulate, a non-empty intersection guarantees $[B * \phi] = [B] \cap [\phi]$. Since $w \in [B]$ and $w \in [\phi]$, it necessarily follows that $w \in [B * \phi]$. 
 
-Finally, we need to prove that $B*\phi=T(\min_{B}([\phi]))$. 
+This directly contradicts our *reductio* assumption that $w \notin [B * \phi]$. Thus, we reject the assumption, and the second inclusion $\min_B([\phi]) \subseteq [B * \phi]$ holds. 
 
-($\subseteq$) Let $\psi\in B*\phi$. By postulate 1 (Closure), $B*\phi \vdash \psi$, i.e. $[B*\phi]\subseteq[\psi]$. We need to prove that $\min_{B}([\phi])\subseteq [\psi]$. 
+**3. Conclusion of Part II**. Having established both $[B * \phi] \subseteq \min_B([\phi])$ and $\min_B([\phi]) \subseteq [B * \phi]$, we conclude that the semantic identity $(C)$ holds:
+$$[B * \phi] = \min_B([\phi])$$
 
-`eproof`
+As shown at the outset of this proof, this identity guarantees our target:
+$$B*\phi = T(\min_{B}([\phi]))$$
+
+This completely proves the second half of the Representation Theorem. `eproof`
 
