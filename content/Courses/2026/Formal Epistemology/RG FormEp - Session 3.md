@@ -143,10 +143,10 @@ Now, let us prove that Connectedness, Transitivity, Centeredness, and the Limit 
 >The reason is that, if $w_{1}\in [B]$, then by Vacuity $w_{1}\in [B*form(\{ w_{1},w_{2} \})]$.
 > 
 > `bproof` Suppose that $w_{1}\in [B]$, that $\leq_{B}$ is defined as above, and that $*$ satisfies AGM's postulates for revision. Then, $B\nvdash form(\{ w_{1},w_{2} \})$, i.e. there exists a possible world that is both in $[B]$ and $[form(\{ w_{1},w_{2} \})]=\{ w_{1},w_{2} \}$ (by [[#^62aec5]]), i.e. $w_{1}$. By the Vacuity, it follows that $B*form(\{ w_{1},w_{2} \}) = Cn(B\cup \{ form(\{ w_{1},w_{2} \}) \})$. In set-theoretic terms, it means that 
-> $$
+>$$
 >\begin{align*}
 >[B*form(\{ w_{1},w_{2} \})] &= [B]\cap[form(\{ w_{1},w_{2} \})] \\
- &= [B]\cap \{ w_{1},w_{2} \}
+>&= [B]\cap \{ w_{1},w_{2} \}
 >\end{align*}
 >$$
 >Recall that $w_{1}\in [B]$ and obviously $w_{1}\in \{ w_{1},w_{2} \}$. Therefore, $w_{1}\in [B*form(\{ w_{1},w_{2} \})]$. `eproof`
