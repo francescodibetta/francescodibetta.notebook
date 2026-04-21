@@ -797,6 +797,8 @@ completing our proof. `eproof`
 > [!corollary]
 > The belief revision operator $+$ defined via the relation $\leq_{S}$ satisfies the AGM postulates (+1)–(+8).
 
+^e8844f
+
 `bproof` This result is an immediate consequence of Lemma [[#^448b11]] and Theorem [[#^19b236]].
 
 1. Lemma [[#^448b11]] establishes that the revision operator defined by the relation (i.e., $\{ B: A \land B <_{S} A\land \neg B \}$) is identical to the operator defined by the system of spheres (i.e., $t(f_{\mathbf{S}}(A))$).
