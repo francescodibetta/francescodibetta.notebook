@@ -1,5 +1,5 @@
 ---
-title: Formal Epistemology
+title: "Topics in Formal Epistemology: Belief Revision Theory"
 tags:
   - belief_revision
 ---

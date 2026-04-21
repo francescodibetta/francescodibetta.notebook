@@ -2,7 +2,7 @@
 title: Session 3
 description:
 draft: false
-parental-note: "[[Courses/2026/Formal Epistemology/index]]"
+parental-note: "[[Courses/2026/Topics in Formal Epistemology/index]]"
 pdf: RG FormEp - Session 3.pdf
 share_pdf: true
 tags:
